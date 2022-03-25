@@ -2,6 +2,7 @@
 
 //Include Configuration File
 include('config.php');
+
 $bytes = openssl_random_pseudo_bytes(4);
 $passw = bin2hex($bytes);
 
@@ -46,9 +47,8 @@ if (isset($_GET["code"])) {
 //Ancla para iniciar sesión
 if (!isset($_SESSION['access_token'])) {
     $login_button = '<a class="btn btn-lg btn-google btn-block text-uppercase btn-outline" href="' . $google_client->createAuthUrl() . '"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Iniciar Sesion Google</a> </div>';
-        
 }
 ?>
 
 
-<link rel="stylesheet" href="public/css/login_google.css">
+<link rel="stylesheet" href="public/css/paginas/login_google.css">

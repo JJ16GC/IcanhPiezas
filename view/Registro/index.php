@@ -14,9 +14,8 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
         $usuario->insert_usuario($nombre, $apellido, $correo, $pass, $rol_id);
         header("Location:" . conectar::ruta() . "index.php?m=3");
     } else {
-        header("Location:" . conectar::ruta() . "index.php?m=1");
+        header("Location:" . conectar::ruta() . "index.php?m=5");
     }
-
 }
 ?>
 
@@ -61,8 +60,9 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                     <div class="form-group">
                         <input type="email" id="correo" name="correo" class="form-control" placeholder="E-mail" required />
                     </div>
-                    <div class="form-group">
-                        <input type="password" id="pass" name="pass" class="form-control" placeholder="Password" required />
+                    <div style="display: flex;" class="form-group">
+                        <input type="password" id="pass" name="pass" class="form-control" placeholder="Password" />
+                        <a id="show_password" style="padding: 5px; margin: 4px 2px 0 2px;" type="button"> <span class="glyphicon glyphicon-eye-close icon"></span> </a>
                     </div>
                     <div class="form-group">
                         <div class="float-right reset">
@@ -82,6 +82,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
 
     </div>
     <script src="../../public/js/lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 
 </body>
 

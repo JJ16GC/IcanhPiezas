@@ -2,7 +2,6 @@
 
 //start session on web page
 
-
 //config.php
 
 //Include Google Client Library for PHP autoload file

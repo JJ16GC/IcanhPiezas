@@ -1,0 +1,29 @@
+.page-content .container-fluid span {
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 2px 8px 2px 8px;
+}
+
+.col-sm-12 {
+  margin: 10px 0 10px 0;
+}
+
+p {
+  font-weight: normal;
+}
+
+li {
+  margin-left: 2%;
+  font-weight: normal;
+}
+
+@media only screen and (max-widht: 600px) {
+  #container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+table {
+  text-align: center;
+}

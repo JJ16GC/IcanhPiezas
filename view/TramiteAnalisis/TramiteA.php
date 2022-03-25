@@ -1,0 +1,81 @@
+<?php
+require_once("../../Config/conexion.php");
+if ($_SESSION['usuario_id'] == '') {
+    header("Location:" . conectar::ruta() . "index.php");
+}
+
+?>
+<!DOCTYPE html>
+<html>
+<?php require_once("../Head/head.php"); ?>
+<link rel="stylesheet" href="../../public/css/paginas/home.css">
+<link rel="stylesheet" href="../../public/css/paginas/exhibicion.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<title>ICANH - Sistema de Tickets - Home</title>
+</head>
+
+
+<body class="with-side-menu">
+    <?php require_once("../Header/header.php"); ?>
+    <div class="mobile-menu-left-overlay"></div>
+    <?php require_once("../MainNav/nav.php"); ?>
+    <div class="page-content">
+        
+        <div id="container" class="container-fluid" style="display: flex;  justify-content: center;">
+        
+            <div style="max-width: 850px;" class="row">
+                <div class="col-xl-12">
+                    <div class="row">
+                        <div>
+                            <div class="col-sm-12" style="margin-top: 15px;">
+                                <p style="font-size: 25px; font-weight: bold; " class="">Salida de bienes arqueológicos para análisis: </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <span>Diligenciar en el formulario "Solicitud de Autorización de Salida de Material Arqueológico para Análisis en el exterior" disponible en el <a href="#">enlace</a> la siguiente información:</strong></span>
+                        </div>
+                        <div class="col-sm-12">
+                            <ol type="a">
+                                <li>
+                                    <a>Información básica del solicitante:</a> Número de documento, Tipo de documento, Primer Nombre, Segundo Nombre, Primer Apellido, Segundo Apellido, Solicitante, Profesión, Teléfono/Celular, Correo electrónico, Dirección, Entidad a la que se encuentra vinculado, Cargo.
+                                </li>
+                                <li>
+                                    <a>Procedencia del material:</a> Si el material procede de una Autorización de Intervención ICANH: Número y Título; si el material está registrado en el ICANH: Número de Certificado de Tenencia, Nombre del proyecto de Investigación.
+                                </li>
+                                <li>
+                                    <a>Tipo de Análisis:</a> Descripción del Tipo de análisis
+                                </li>
+                                <li>
+                                    <a>Objetivos del Análisis </a>
+                                </li>
+                                <li>
+                                    <a>Metodología del Análisis </a>
+                                </li>
+                                <li>
+                                    <a>Muestras a analizar:</a> Descripción del material, Cantidad de piezas/muestras.
+                                </li>
+                                <li>
+                                    <a>Cargue anexos:</a> Cargar en un único archivo PDF (el nombre del archivo no debe tener tildes) documentos adicionales como el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o una Autorización de intervención) o fotos.
+                                </li>
+                                <li>
+                                    <a>Datos del análisis:</a> País, Ciudad, Institución y Lugar en donde se realizarán los análisis, Fecha de salida de los materiales y retorno de los mismos al país, nombre de quien lleva el material (persona o empresa que se encargará del traslado).
+                                </li>
+                                <li>
+                                    <a>Enviar solicitud:</a> El número de radicado de la solicitud, se envía al correo electrónico registrado.
+                                </li>
+                            </ol>
+                            <p>Una vez revisada la información diligenciada, el ICANH envía al correo electrónico del solicitante el estado del trámite.</p>
+                            <div style="margin-top: 40px;">
+                                <a href="FormularioA.php" class="btn btn-primary">Crear Tramite</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<?php require_once("../MainJs/js.php"); ?>
+
+</html>
+

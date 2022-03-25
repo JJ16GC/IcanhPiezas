@@ -2,6 +2,7 @@
 require_once("../../Config/conexion.php");
 require_once("../../Models/Usuario.php");
 require('../../users/login_google.php');
+$correo = $_SESSION['user_email_address'];
 $usuario = new Usuario();
 $usuario->get_usuario_x_correo($correo);
 if (empty($_SESSION["usuario_id"])){
@@ -9,7 +10,9 @@ if (empty($_SESSION["usuario_id"])){
     header("Location:" . conectar::ruta() . "index.php?m=3");
     session_destroy();
 }
-    
+$_SESSION["nombre"] = $_SESSION['user_first_name'];
+$_SESSION["apellido"] = $_SESSION['user_last_name'];
+$_SESSION["rol_id"] = 1;
 
 ?>
 <!DOCTYPE html>
@@ -27,6 +30,7 @@ if (empty($_SESSION["usuario_id"])){
     if ($_SESSION['user_email_address'] == '') {
         header("Location:" . conectar::ruta() . "index.php");
     }
+    header("Location:" . conectar::ruta() . "view/Home/indexlogin.php");
     ?>
 </body>
 

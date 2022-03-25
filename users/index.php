@@ -21,6 +21,7 @@ require("login_google.php");
 
         <?php
         if ($login_button == '') {
+            echo '<h3><a href="../TicketAnalisis/ticketanalisis.php"></h3>Generar Nuevo Ticket</div>';
             echo '<h3><a href="../CerrarSesion/cerrarsesion.php"></h3>Cerrar Sesion</div>';
         } else {
             echo '<div align="center">' . $login_button . '</div>';

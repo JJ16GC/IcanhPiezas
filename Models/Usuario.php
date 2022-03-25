@@ -56,6 +56,20 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    public function update_pass($pass, $correo)
+    {
+        $conectar = parent::conexion();
+        parent::set_names();
+        $sql = "UPDATE usuario SET pass = ? WHERE correo = ?";
+        $stmt = $conectar->prepare($sql);
+        $pass = password_hash($pass, PASSWORD_DEFAULT);
+        $stmt->bindValue(1, $pass);
+        $stmt->bindValue(2, $correo);
+        $stmt->execute();
+        return $resultado = $stmt->fetchAll();
+    }
+
+
     public function get_usuario_x_correo($correo)
     {
         $conectar = parent::conexion();
@@ -67,7 +81,6 @@ class Usuario extends Conectar
         $resultado = $stmt->fetch();
         if (is_array($resultado)) {
             $_SESSION["usuario_id"] = $resultado["usuario_id"];
-        } else {
         }
     }
 }

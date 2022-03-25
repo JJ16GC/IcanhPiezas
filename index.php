@@ -17,8 +17,8 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     <title>ICANH - Sistema de Tickets - Login</title>
 
 
-
-    <link rel="stylesheet" href="public/css/login.css">
+    <link rel="icon" type="image/png" href="public/img/icono.png">
+    <link rel="stylesheet" href="public/css/paginas/login.css">
     <link rel="stylesheet" href="public/css/lib/font-awesome/font-awesome.min.css">
     <link rel="stylesheet" href="public/css/lib/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="public/css/lib/bootstrap/styles.css">
@@ -40,71 +40,37 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                         <img src="public/img/logo_ICANH.png" alt="" id="imgtipo">
                     </div>
                     <header class="sign-title label label-primary" id="lbltitulo">Acceso Usuario</header>
-                    
 
-                    <?php
-                    if (isset($_GET["m"])) {
-                        switch ($_GET["m"]) {
-                            case "1";
-                    ?>
-                                <div class="alert alert-warning alert-icon alert-close alert-dismissible fade in" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                    <i class="font-icon font-icon-warning"></i>
-                                    El Usuario y/o Contraseña son incorrectos.
-                                </div>
-                            <?php
-                                break;
-
-                            case "2";
-                            ?>
-                                <div class="alert alert-warning alert-icon alert-close alert-dismissible fade in" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                    <i class="font-icon font-icon-warning"></i>
-                                    Los campos estan vacios.
-                                </div>
-                            <?php
-                                break;
-
-                            case "3";
-                            ?>
-                                <div class="alert alert-success alert-close alert-dismissible fade in" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">✔</span>
-                                    </button>
-                                    Usuario Creado Existosamente.
-                                </div>
-                    <?php
-                                break;
-                        }
-                    }
-                    ?>
+                    <?php require_once('view/Alertas/alertas.php'); ?>
 
                     <div class="form-group">
                         <input type="text" id="correo" name="correo" class="form-control" placeholder="E-mail" />
                     </div>
-                    <div class="form-group">
+                    <div style="display: flex;" class="form-group">
                         <input type="password" id="pass" name="pass" class="form-control" placeholder="Password" />
+                        <a id="show_password" style="padding: 5px; margin: 4px 2px 0 2px;" type="button"> <span class="glyphicon glyphicon-eye-close icon"></span> </a>
                     </div>
                     <div class="form-group">
                         <div class="float-left reset">
                             <a href="#" id="btnsoporte">Acceso Soporte</a>
                         </div>
+
                         <div class="float-right reset">
                             <a href="view/Registro/" id="btnsoporte">Registrarse</a>
                         </div>
+                        <div class="float-right reset">
+                            <a href="view/Resetear/resetear.php" id="btnrecuperar">Olvidó su contraseña ?</a>
+                        </div>
+
                     </div>
+
                     <input type="hidden" name="enviar" class="form-control" value="si">
                     <button id="log" type="submit" class="btn btn-rounded">Acceder</button>
-                    <hr>
+
+                    <hr style="margin: 1em;">
                     <div>
                         <?php
-
                         include('users/index.php');
-
                         ?>
                     </div>
 
@@ -117,8 +83,6 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     <script src="public/js/lib/jquery/jquery.min.js"></script>
     <script src="public/js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
-
-    </script>
 
 </body>
 

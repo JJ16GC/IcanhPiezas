@@ -1,0 +1,8 @@
+#regiration_form fieldset:not(:first-of-type) {
+  display: none;
+}
+
+p{
+  font-size: 13px;
+}
+

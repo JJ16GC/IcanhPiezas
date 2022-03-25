@@ -1,19 +1,26 @@
-<?php 
+<?php
 require_once("../../Config/conexion.php");
 if ($_SESSION['usuario_id'] == '') {
-    header("Location:" . conectar::ruta() . "index.php");
+	header("Location:" . conectar::ruta() . "index.php");
 }
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICANH - Sistema de Tickets - Home</title>
+<html>
+<?php require_once("../Head/head.php"); ?>
+<link rel="stylesheet" href="../../public/css/paginas/home.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<title>ICANH - Sistema de Tickets - Home</title>
 </head>
-<body>
-<a class="dropdown-item" href="../CerrarSesion//cerrarsesion.php"><span class="font-icon glyphicon glyphicon-log-out"></span>Cerrar Sesion</a>
+
+<body class="with-side-menu">
+	<?php require_once("../Header/header.php"); ?>
+	<div class="mobile-menu-left-overlay"></div>
+	<?php require_once("../MainNav/nav.php"); ?>
+	<?php require_once("contenido.php"); ?>
+
 </body>
+
+<?php require_once("../MainJs/js.php"); ?>
+
 </html>
