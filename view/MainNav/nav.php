@@ -10,21 +10,21 @@ if ($_SESSION["rol_id"] == 1) {
                 </a>
             </li>
             <li class="blue-dirty">
-                <a href="..\ConsultarTicket\">
+                <a href="..\ConsultarTicket\consulta.php">
                     <span class="glyphicon glyphicon-th-list"></span>
-                    <span class="lbl">Consultar Ticket</span>
+                    <span class="lbl">Consultar Trámites</span>
                 </a>
             </li>
             <li class="blue-dirty">
                 <a href="../TramiteAnalisis/TramiteA.php">
                     <span class="glyphicon glyphicon-plus-sign"></span>
-                    <span class="lbl">Tramite Analisis</span>
+                    <span class="lbl">Trámite Analisis</span>
                 </a>
             </li>
             <li class="blue-dirty">
                 <a href="../TramiteExhibicion/TramiteE.php">
                     <span class="glyphicon glyphicon-plus-sign"></span>
-                    <span class="lbl">Tramite Exhibición</span>
+                    <span class="lbl">Trámite Exhibición</span>
                 </a>
             </li>
         </ul>
@@ -41,17 +41,18 @@ if ($_SESSION["rol_id"] == 1) {
                 </a>
             </li>
             <li class="blue-dirty">
+                <a href="../ConsultarTicket/consulta.php">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                    <span class="lbl">Consultar Trámites</span>
+                </a>
+            </li>
+            <li class="blue-dirty">
                 <a href="..\MntUsuario\">
                     <span class="glyphicon glyphicon-th-list"></span>
                     <span class="lbl">Mantenimiento Usuario</span>
                 </a>
             </li>
-            <li class="blue-dirty">
-                <a href="..\ConsultarTicket\">
-                    <span class="glyphicon glyphicon-th-list"></span>
-                    <span class="lbl">Consultar Ticket</span>
-                </a>
-            </li>
+
         </ul>
     </nav>
 <?php

@@ -28,7 +28,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resetear Password</title>
 
-    <link rel="stylesheet" href="../../public/css/login_reseteo.css">
+    <link rel="stylesheet" href="../../public/css/paginas/login_reseteo.css">
     <link rel="stylesheet" href="../../public/css/lib/font-awesome/font-awesome.min.css">
     <link rel="stylesheet" href="../../public/css/lib/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../../public/css/lib/bootstrap/styles.css">

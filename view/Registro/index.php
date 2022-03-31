@@ -30,7 +30,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
 
 
 
-    <link rel="stylesheet" href="../../public/css/login.css">
+    <link rel="stylesheet" href="../../public/css/paginas/login.css">
     <link rel="stylesheet" href="../../public/css/lib/font-awesome/font-awesome.min.css">
     <link rel="stylesheet" href="../../public/css/lib/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../../public/css/lib/bootstrap/styles.css">

@@ -71,6 +71,7 @@ if ($_SESSION['usuario_id'] == '') {
                             <div style="margin-top: 40px;">
                                 <a class="btn btn-primary">Crear Tramite</a>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

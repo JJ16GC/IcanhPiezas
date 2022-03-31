@@ -3,6 +3,12 @@ require_once("../../Config/conexion.php");
 if ($_SESSION['usuario_id'] == '') {
     header("Location:" . conectar::ruta() . "index.php");
 }
+if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
+
+    require_once("../../Models/Tramites.php");
+    $usuario = new Usuario();
+    require_once("../../Controller/Tramites.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +50,7 @@ if ($_SESSION['usuario_id'] == '') {
 
                             <div class="row">
                                 <div class="container">
-                                    <form id="regiration_form" novalidate action="action.php" method="post">
+                                    <form id="regiration_form" action="" method="post" enctype="multipart/form-data">
                                         <fieldset>
                                             <div class="col-lg-12">
                                                 <h4>Paso 1: <span>Información Básica Del Solicitante</span></h4>
@@ -52,7 +58,7 @@ if ($_SESSION['usuario_id'] == '') {
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="exampleInput">Tipo de Documento:<span style="color: red;">*</span></label>
-                                                    <select id="" name="cat_id" class="form-control" required>
+                                                    <select id="" name="tipodoc" class="form-control" required>
                                                         <option>-- Seleccione --</option>
                                                         <option>NIT</option>
                                                         <option>Cédula de ciudadania</option>
@@ -64,75 +70,75 @@ if ($_SESSION['usuario_id'] == '') {
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Cuál:</label>
+                                                    <label class="form-label semibold" for="otrotip">Cuál:</label>
                                                     <p>Si en tipo de documento seleccionó Otro, por favor indicar en este campo a qué documento se refiere.</p>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo">
+                                                    <input type="text" class="form-control" id="otrotip" name="otrotip">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Numero de Documento:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" required>
+                                                    <label class="form-label semibold" for="numdoc">Numero de Documento:<span style="color: red;">*</span></label>
+                                                    <input type="text" class="form-control" id="numdoc" name="numdoc" required>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Primer Nombre:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" required>
+                                                    <label class="form-label semibold" for="pnombre">Primer Nombre:<span style="color: red;">*</span></label>
+                                                    <input type="text" class="form-control" id="pnombre" name="pnombre" required>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Segundo Nombre:</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo">
+                                                    <label class="form-label semibold" for="snombre">Segundo Nombre:</label>
+                                                    <input type="text" class="form-control" id="snombre" name="snombre">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Primer Apellido:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" required>
+                                                    <label class="form-label semibold" for="papellido">Primer Apellido:<span style="color: red;">*</span></label>
+                                                    <input type="text" class="form-control" id="papellido" name="papellido" required>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Segundo Apellido:</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo">
+                                                    <label class="form-label semibold" for="sapellido">Segundo Apellido:</label>
+                                                    <input type="text" class="form-control" id="sapellido" name="sapellido">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Profesión</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo">
+                                                    <label class="form-label semibold" for="profesion">Profesión</label>
+                                                    <input type="text" class="form-control" id="profesion" name="profesion">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Telefono/Celular</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo">
+                                                    <label class="form-label semibold" for="telefono">Telefono/Celular</label>
+                                                    <input type="text" class="form-control" id="telefono" name="telefono">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Correo Electronico:<span style="color: red;">*</span></label>
-                                                    <input type="email" class="form-control" id="tick_titulo" name="tick_titulo" required>
+                                                    <label class="form-label semibold" for="correo">Correo Electronico:<span style="color: red;">*</span></label>
+                                                    <input type="email" class="form-control" id="correo" name="correo" required>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Dirección</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo">
+                                                    <label class="form-label semibold" for="direccion">Dirección</label>
+                                                    <input type="text" class="form-control" id="direccion" name="direccion">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Entidad Vinculado</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo">
+                                                    <label class="form-label semibold" for="entidadvinc">Entidad Vinculado</label>
+                                                    <input type="text" class="form-control" id="entidadvinc" name="entidadvinc">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Cargo</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo">
+                                                    <label class="form-label semibold" for="cargo">Cargo</label>
+                                                    <input type="text" class="form-control" id="cargo" name="cargo">
                                                 </fieldset>
                                             </div>
 
@@ -153,28 +159,28 @@ if ($_SESSION['usuario_id'] == '') {
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Número de Autorización o Resolución ICANH:</label>
+                                                    <label class="form-label semibold" for="numaut">Número de Autorización o Resolución ICANH:</label>
                                                     <p>Si son varios, por favor sepárelos con una coma.</p>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo">
+                                                    <input type="text" class="form-control" id="numaut" name="numaut">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Titulo:</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo">
+                                                    <label class="form-label semibold" for="titulo">Titulo:</label>
+                                                    <input type="text" class="form-control" id="titulo" name="titulo">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Número de Certificado de Registro y Tenencia ICANH:</label>
+                                                    <label class="form-label semibold" for="numcert">Número de Certificado de Registro y Tenencia ICANH:</label>
                                                     <p>Si son varios, por favor sepárelos con una coma</p>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo">
+                                                    <input type="text" class="form-control" id="numcert" name="numcert">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Nombre del proyecto de Investigación:</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo">
+                                                    <label class="form-label semibold" for="nomproyecto">Nombre del proyecto de Investigación:</label>
+                                                    <input type="text" class="form-control" id="nomproyecto" name="nomproyecto">
                                                 </fieldset>
                                             </div>
                                             <div class=" col-lg-2 next inline-block">
@@ -186,19 +192,20 @@ if ($_SESSION['usuario_id'] == '') {
                                         </fieldset>
                                         <fieldset>
                                             <div class="col-lg-12">
-                                                <h4>Paso 3: <span>Tipo Del Analisis:</span></h4>
+                                                <h4>Paso 3: <span>Informacion del Análisis:</span></h4>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Descripción del Tipo de análisis:</label>
-                                                    <textarea rows="4" class="form-control" id="tick_titulo" name="tick_titulo"></textarea>
+                                                    <span>TIPO DEL ANÁLISIS</span>
+                                                    <label class="form-label semibold" for="desctipo">Descripción del Tipo de análisis:</label>
+                                                    <textarea rows="4" class="form-control" id="desctipo" name="desctipo"></textarea>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
                                                     <span>METODOLOGÍA DEL ANÁLISIS.</span>
-                                                    <label class="form-label semibold" for="tick_titulo">Descripción metodología del análisis:</label>
-                                                    <textarea rows="4" class="form-control" id="tick_titulo" name="tick_titulo"></textarea>
+                                                    <label class="form-label semibold" for="descmet">Descripción metodología del análisis:</label>
+                                                    <textarea rows="4" class="form-control" id="descmet" name="descmet"></textarea>
                                                 </fieldset>
                                             </div>
                                             <div class=" col-lg-2 next inline-block">
@@ -216,21 +223,21 @@ if ($_SESSION['usuario_id'] == '') {
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label for="mob">Descripción del material:</label>
-                                                    <input type="text" class="form-control" id="mob">
+                                                    <label class="form-label semibold" for="descmate">Descripción del material:</label>
+                                                    <input type="text" class="form-control" id="descmate" name="descmate">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label for="address">Cantidad de piezas/muestras:</label>
-                                                    <input type="number" class="form-control" name="data[address]"></input>
+                                                    <label class="form-label semibold" for="cantidad">Cantidad de piezas/muestras:</label>
+                                                    <input type="number" class="form-control" id="cantidad" name="cantidad">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label for="address">Cargue anexos:<span style="color: red;">*</span></label></label>
+                                                    <label>Cargue anexos:<span style="color: red;">*</span></label></label>
                                                     <p>Cargar en un único archivo PDF (el nombre del archivo no debe tener tildes) documentos adicionales como el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o una Autorización de intervención) o fotografías del material arqueológico.</p>
-                                                    <input type="file" class="form-control" name="data[address]" required></input>
+                                                    Seleccione archivo: <input name="fichero" type="file" size="150" maxlength="150">
                                                 </div>
                                             </div>
                                             <div class=" col-lg-2 next inline-block">
@@ -243,12 +250,12 @@ if ($_SESSION['usuario_id'] == '') {
 
                                         <fieldset>
                                             <div class="col-lg-12">
-                                                <h4>Paso 5: <span>Datos Del Analis:</span></h4>
+                                                <h4>Paso 5: <span>Datos Del Analisis:</span></h4>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="exampleInput">País:<span style="color: red;">*</span></label>
-                                                    <select id="" name="cat_id" class="form-control">
+                                                    <select id="pais" name="pais" class="form-control">
                                                         <option>-- Seleccione --</option>
                                                         <?php require_once("paises.php"); ?>
                                                     </select>
@@ -256,39 +263,39 @@ if ($_SESSION['usuario_id'] == '') {
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label for="address">Ciudad:</label>
-                                                    <input type="text" class="form-control" name="data[address]"></input>
+                                                    <label class="form-label semibold" for="ciudad">Ciudad:</label>
+                                                    <input type="text" class="form-control" id="ciudad" name="ciudad">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label for="address">Institución donde se realizarán los análisis:</label>
-                                                    <input type="text" class="form-control" name="data[address]"></input>
+                                                    <label class="form-label semibold" for="institucion">Institución donde se realizarán los análisis:</label>
+                                                    <input type="text" class="form-control" id="institucion" name="institucion">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label for="address">Lugar donde se realizarán los análisis:</label>
-                                                    <input type="text" class="form-control" name="data[address]"></input>
+                                                    <label class="form-label semibold" for="lugar">Lugar donde se realizarán los análisis:</label>
+                                                    <input type="text" class="form-control" id="lugar" name="lugar">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label for="address">Fecha de salida del país de los materiales:</label>
-                                                    <input type="date" class="form-control" name="data[address]"></input>
+                                                    <label class="form-label semibold" for="fecha_salida">Fecha de salida del país de los materiales:</label>
+                                                    <input type="date" class="form-control" id="fecha_salida" name="fecha_salida">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label for="address">Fecha de retorno de los mismos al país:</label>
-                                                    <input type="date" class="form-control" name="data[address]"></input>
+                                                    <label class="form-label semibold" for="fecha_retorno">Fecha de retorno de los mismos al país:</label>
+                                                    <input type="date" class="form-control" id="fecha_retorno" name="fecha_retorno">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label for="address">Nombre de quien lleva el material:</label>
+                                                    <label class="form-label semibold" for="nombre_encargado">Nombre de quien lleva el material:</label>
                                                     <p>persona o empresa que se encargará del traslado.</p>
-                                                    <input type="text" class="form-control" name="data[address]"></input>
+                                                    <input type="text" class="form-control" id="nombre_encargado" name="nombre_encargado">
                                                     <input class="checkbox" style="margin: 15px 15px 15px 0;" id="terminos" type="checkbox">Acepto el tratamiento de mis datos personales
                                                 </div>
                                             </div>
@@ -297,7 +304,30 @@ if ($_SESSION['usuario_id'] == '') {
                                                 <input type="button" name="previous" class="btn btn-default" value="Previo" />
                                             </div>
                                             <div class="inline-block">
-                                                <p><input type="submit" name="submit" disabled="disabled" class="submit delete btn btn-success" value="Enviar" id="submit_data" />
+
+                                                <button type="submit" name="submit" disabled="disabled" class="btn btn-success submit delete" value="Enviar" id="submit_data" data-toggle="modal" data-target="#exampleModalCenter">
+                                                    Enviar
+                                                </button>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle">Error ❌</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div style="text-align: center;" class="modal-body">
+                                                                Debe llenar todo los campos solicitados
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </fieldset>
                                     </form>

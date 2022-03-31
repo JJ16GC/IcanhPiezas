@@ -83,4 +83,5 @@ class Usuario extends Conectar
             $_SESSION["usuario_id"] = $resultado["usuario_id"];
         }
     }
+    
 }

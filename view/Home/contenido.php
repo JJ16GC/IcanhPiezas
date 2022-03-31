@@ -63,14 +63,15 @@ if ($_SESSION['rol_id'] == '1') {
                         <div class="col-sm-12">
                             <span>¿Cuál es el resultado de este trámite?</strong></span>
                             <table style="text-align:center;" class="table">
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">Condición</th>
-                                    <th scope="col">Descripción</th>
-                                    <th scope="col">Plazo</th>
-                                    <th scope="col">Aproximado</th>
-                                    <th style="text-align: center;" scope="col">Forma de Envío</th>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">Condición</th>
+                                        <th scope="col">Descripción</th>
+                                        <th scope="col">Plazo</th>
+                                        <th scope="col">Aproximado</th>
+                                        <th style="text-align: center;" scope="col">Forma de Envío</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
@@ -129,13 +130,13 @@ if ($_SESSION['rol_id'] == '1') {
                             <table style="margin-bottom: 80px;" class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th  style="text-align: center;" scope="col">Tipo de Norma</th>
-                                        <th  style="text-align: center;" scope="col">Número</th>
+                                        <th style="text-align: center;" scope="col">Tipo de Norma</th>
+                                        <th style="text-align: center;" scope="col">Número</th>
                                         <th style="text-align: center;" scope="col">Año</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr >
+                                    <tr>
                                         <td>Ley</td>
                                         <td>397</td>
                                         <td>1997</td>
@@ -181,32 +182,54 @@ if ($_SESSION['rol_id'] == '1') {
             <div class="row">
                 <div class="col-xl-12">
                     <div class="row">
+                        <?php require_once("../../Models/Tramites.php");
+                        $sql = "SELECT COUNT(tick_estado) AS num FROM tramite_detalle";
+                        $usuario = new Usuario();
+                        $result = $usuario->listar_tramites($sql); ?>
                         <div class="col-sm-4">
                             <article class="statistic-box green">
                                 <div>
                                     <div class="number" id="lbltotal"></div>
                                     <div class="caption">
-                                        <div>Total de Tickets</div>
+                                        <div style="margin-bottom: -42px;font-size: 35px;"><?php foreach ($result as $key) {
+                                                                                                echo $key["num"];
+                                                                                            }  ?><br></br>
+                                        </div>
+                                        <div style="margin-bottom: -52px;">Total de Trámites</div>
                                     </div>
                                 </div>
                             </article>
                         </div>
                         <div class="col-sm-4">
+                            <?php $sql = "SELECT COUNT(tick_estado) AS num FROM tramite_detalle WHERE tick_estado = 'Abierto'";
+                            $usuario = new Usuario();
+                            $result = $usuario->listar_tramites($sql); ?>
                             <article class="statistic-box yellow">
                                 <div>
                                     <div class="number" id="lbltotalabierto"></div>
                                     <div class="caption">
-                                        <div>Total de Tickets Abiertos</div>
+                                        <div style="margin-bottom: -42px;font-size: 35px;"><?php foreach ($result as $key) {
+                                                                                                echo $key["num"];
+                                                                                            }  ?><br></br>
+                                        </div>
+                                        <div style="margin-bottom: -52px;">Total de Trámites Abiertos</div>
                                     </div>
                                 </div>
                             </article>
                         </div>
                         <div class="col-sm-4">
+                            <?php $sql = "SELECT COUNT(tick_estado) AS num FROM tramite_detalle WHERE tick_estado = 'Cerrado'";
+                            $usuario = new Usuario();
+                            $result = $usuario->listar_tramites($sql); ?>
                             <article class="statistic-box red">
                                 <div>
                                     <div class="number" id="lbltotalcerrado"></div>
                                     <div class="caption">
-                                        <div>Total de Tickets Cerrados</div>
+                                        <div style="margin-bottom: -42px;font-size: 35px;"><?php foreach ($result as $key) {
+                                                                                                echo $key["num"];
+                                                                                            }  ?><br></br>
+                                        </div>
+                                        <div style="margin-bottom: -52px;">Total de Trámites Cerrados</div>
                                     </div>
                                 </div>
                             </article>
