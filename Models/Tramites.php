@@ -6,7 +6,7 @@ class Usuario extends Conectar
     {
         $conectar = parent::conexion();
         parent::set_names();
-        $sql = "INSERT INTO tramite (id_tramite,tipodoc,otrotip,numdoc,pnombre,snombre,papellido,sapellido,profesion,telefono,correo,direccion,entidadvinc,cargo,numaut,titulo,numcert,nomproyecto,desctipo,descmet,descmate,cantidad,anexos,pais,ciudad,institucion,lugar,fecha_salida,fecha_retorno,nombre_encargado) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+        $sql = "INSERT INTO tramite (id_tramite,tipodoc,otrotip,numdoc,pnombre,snombre,papellido,sapellido,profesion,telefono,correo,direccion,entidadvinc,cargo,numaut,titulo,numcert,nomproyecto,desctipo,descmet,descmate,cantidad,anexos,pais,ciudad,institucion,lugar,fecha_salida,fecha_retorno,nombre_encargado,estado) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
         $sql = $conectar->prepare($sql);
         $sql->bindValue(1, $tipodoc);
         $sql->bindValue(2, $otrotip);
@@ -60,6 +60,32 @@ class Usuario extends Conectar
         $conectar = parent::conexion();
         parent::set_names();
         $sql = $conectar->prepare($sql);
+        $sql->execute();
+        return $resultado = $sql->fetchAll();
+    }
+
+    public function listar_comentarios($tramite_id)
+    {
+        $conectar = parent::conexion();
+        parent::set_names();
+        $sql = "SELECT comentarios.com_id,comentarios.comentario,comentarios.fecha_creacion,usuario.nombre,usuario.apellido,usuario.rol_id FROM comentarios
+        INNER JOIN usuario ON comentarios.usuario_id = usuario.usuario_id 
+        WHERE tramite_id = ? ORDER BY com_id asc" ;
+        $sql = $conectar->prepare($sql);
+        $sql->bindValue(1, $tramite_id);
+        $sql->execute();
+        return $resultado = $sql->fetchAll();
+    }
+
+    public function insertar_comentario($tramite_id, $usuario_id, $comentario)
+    {
+        $conectar = parent::conexion();
+        parent::set_names();
+        $sql = "INSERT INTO comentarios (com_id,tramite_id,usuario_id,comentario,fecha_creacion,est) VALUES (null,?,?,?,now(),'1')";
+        $sql = $conectar->prepare($sql);
+        $sql->bindValue(1, $tramite_id);
+        $sql->bindValue(2, $usuario_id);
+        $sql->bindValue(3, $comentario);
         $sql->execute();
         return $resultado = $sql->fetchAll();
     }

@@ -13,7 +13,6 @@ if (isset($_POST["submit"])) {
     $telefono = $_POST["telefono"];
     $correo = $_POST["correo"];
     $direccion = $_POST["direccion"];
-    $correo = $_POST["correo"];
     $entidadvinc = $_POST["entidadvinc"];
     $cargo = $_POST["cargo"];
     $numaut = $_POST["numaut"];
@@ -52,11 +51,13 @@ if (isset($_POST["submit"])) {
     $fecha_retorno = $_POST["fecha_retorno"];
     $nombre_encargado = $_POST["nombre_encargado"];
     $estado = "Abierto";
+    
 
     $usuario->insert_tramitea($tipodoc, $otrotip, $numdoc, $pnombre, $snombre, $papellido, $sapellido, $profesion, $telefono, $correo, $direccion, $entidadvinc, $cargo, $numaut, $titulo, $numcert, $nomproyecto, $desctipo, $descmet, $descmate, $cantidad, $anexos, $pais, $ciudad, $institucion, $lugar, $fecha_salida, $fecha_retorno, $nombre_encargado,$estado);
 
+    $categoria = "Analisis de piezas";
     $usu_id = $_SESSION["usuario_id"];
-    $usuario->insert_detalle($usu_id, $categoria, $estado,);
+    $usuario->insert_detalle($usu_id, $categoria, $estado);
 
 
     header("Location:" . conectar::ruta() . "view/ConsultarTicket/consulta.php");

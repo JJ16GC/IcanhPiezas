@@ -3,7 +3,7 @@ require_once('../../Config/conexion.php');
 if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     $token = $_POST["token"];
     if (($_SESSION['token']) != $token) {
-        header("Location:" . conectar::ruta() . "view/Resetear/verificar.php");
+        header("Location:" . conectar::ruta() . "view/Resetear/verificar.php?m=1");
     } else {
 
         header("Location:" . conectar::ruta() . "view/Resetear/cambio.php");
@@ -41,7 +41,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                         <img src="../../public/img/logo_ICANH.png" alt="" id="imgtipo">
                     </div>
                     <header style="margin-left: 1px;" class="sign-title label label-primary" id="lbltitulo">Ingrese su codigo de verificación</header>
-
+                    <?php require_once('../Alertas/verificar.php'); ?>
                     <div class="form-group">
                         <input required type="text" id="token" name="token" class="form-control" placeholder="Ingrese su codigo" />
                     </div>

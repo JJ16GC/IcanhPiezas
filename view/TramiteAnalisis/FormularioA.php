@@ -107,13 +107,13 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="profesion">Profesión</label>
+                                                    <label class="form-label semibold" for="profesion">Profesión:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="profesion" name="profesion">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="telefono">Telefono/Celular</label>
+                                                    <label class="form-label semibold" for="telefono">Telefono/Celular:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="telefono" name="telefono">
                                                 </fieldset>
                                             </div>
@@ -131,13 +131,13 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="entidadvinc">Entidad Vinculado</label>
+                                                    <label class="form-label semibold" for="entidadvinc">Entidad Vinculado:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="entidadvinc" name="entidadvinc">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="cargo">Cargo</label>
+                                                    <label class="form-label semibold" for="cargo">Cargo:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="cargo" name="cargo">
                                                 </fieldset>
                                             </div>
@@ -159,27 +159,27 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="numaut">Número de Autorización o Resolución ICANH:</label>
+                                                    <label class="form-label semibold" for="numaut">Número de Autorización o Resolución ICANH:<span style="color: red;">*</span></label>
                                                     <p>Si son varios, por favor sepárelos con una coma.</p>
                                                     <input type="text" class="form-control" id="numaut" name="numaut">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="titulo">Titulo:</label>
+                                                    <label class="form-label semibold" for="titulo">Titulo:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="titulo" name="titulo">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="numcert">Número de Certificado de Registro y Tenencia ICANH:</label>
+                                                    <label class="form-label semibold" for="numcert">Número de Certificado de Registro y Tenencia ICANH:<span style="color: red;">*</span></label>
                                                     <p>Si son varios, por favor sepárelos con una coma</p>
                                                     <input type="text" class="form-control" id="numcert" name="numcert">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="nomproyecto">Nombre del proyecto de Investigación:</label>
+                                                    <label class="form-label semibold" for="nomproyecto">Nombre del proyecto de Investigación:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="nomproyecto" name="nomproyecto">
                                                 </fieldset>
                                             </div>
@@ -197,14 +197,14 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
                                                     <span>TIPO DEL ANÁLISIS</span>
-                                                    <label class="form-label semibold" for="desctipo">Descripción del Tipo de análisis:</label>
+                                                    <label class="form-label semibold" for="desctipo">Descripción del Tipo de análisis:<span style="color: red;">*</span></label>
                                                     <textarea rows="4" class="form-control" id="desctipo" name="desctipo"></textarea>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
                                                     <span>METODOLOGÍA DEL ANÁLISIS.</span>
-                                                    <label class="form-label semibold" for="descmet">Descripción metodología del análisis:</label>
+                                                    <label class="form-label semibold" for="descmet">Descripción metodología del análisis:<span style="color: red;">*</span></label>
                                                     <textarea rows="4" class="form-control" id="descmet" name="descmet"></textarea>
                                                 </fieldset>
                                             </div>
@@ -223,13 +223,13 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="form-label semibold" for="descmate">Descripción del material:</label>
+                                                    <label class="form-label semibold" for="descmate">Descripción del material:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="descmate" name="descmate">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="form-label semibold" for="cantidad">Cantidad de piezas/muestras:</label>
+                                                    <label class="form-label semibold" for="cantidad">Cantidad de piezas/muestras:<span style="color: red;">*</span></label>
                                                     <input type="number" class="form-control" id="cantidad" name="cantidad">
                                                 </div>
                                             </div>
@@ -237,7 +237,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                 <div class="form-group">
                                                     <label>Cargue anexos:<span style="color: red;">*</span></label></label>
                                                     <p>Cargar en un único archivo PDF (el nombre del archivo no debe tener tildes) documentos adicionales como el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o una Autorización de intervención) o fotografías del material arqueológico.</p>
-                                                    Seleccione archivo: <input name="fichero" type="file" size="150" maxlength="150">
+                                                    Seleccione archivo: <input name="fichero" type="file" maxlength="150"  accept="application/pdf">
                                                 </div>
                                             </div>
                                             <div class=" col-lg-2 next inline-block">
@@ -263,37 +263,37 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="form-label semibold" for="ciudad">Ciudad:</label>
+                                                    <label class="form-label semibold" for="ciudad">Ciudad:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="ciudad" name="ciudad">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="form-label semibold" for="institucion">Institución donde se realizarán los análisis:</label>
+                                                    <label class="form-label semibold" for="institucion">Institución donde se realizarán los análisis:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="institucion" name="institucion">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="form-label semibold" for="lugar">Lugar donde se realizarán los análisis:</label>
+                                                    <label class="form-label semibold" for="lugar">Lugar donde se realizarán los análisis:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="lugar" name="lugar">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="form-label semibold" for="fecha_salida">Fecha de salida del país de los materiales:</label>
+                                                    <label class="form-label semibold" for="fecha_salida">Fecha de salida del país de los materiales:<span style="color: red;">*</span></label>
                                                     <input type="date" class="form-control" id="fecha_salida" name="fecha_salida">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="form-label semibold" for="fecha_retorno">Fecha de retorno de los mismos al país:</label>
+                                                    <label class="form-label semibold" for="fecha_retorno">Fecha de retorno de los mismos al país:<span style="color: red;">*</span></label>
                                                     <input type="date" class="form-control" id="fecha_retorno" name="fecha_retorno">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="form-label semibold" for="nombre_encargado">Nombre de quien lleva el material:</label>
+                                                    <label class="form-label semibold" for="nombre_encargado">Nombre de quien lleva el material:<span style="color: red;">*</span></label>
                                                     <p>persona o empresa que se encargará del traslado.</p>
                                                     <input type="text" class="form-control" id="nombre_encargado" name="nombre_encargado">
                                                     <input class="checkbox" style="margin: 15px 15px 15px 0;" id="terminos" type="checkbox">Acepto el tratamiento de mis datos personales

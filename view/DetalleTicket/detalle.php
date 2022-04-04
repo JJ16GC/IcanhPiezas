@@ -1,5 +1,15 @@
 <?php
 require_once("../../Config/conexion.php");
+
+if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
+    require_once("../../Models/Tramites.php");
+    $usuario = new Usuario();
+    $comentario = $_POST["comentario"];
+    $tramite_id = $_GET["ID"];
+    $usuario_id = $_SESSION["usuario_id"];
+    $usuario->insertar_comentario($tramite_id, $usuario_id, $comentario);
+}
+
 if (isset($_SESSION["usuario_id"])) {
 ?>
     <!DOCTYPE html>
@@ -35,7 +45,6 @@ if (isset($_SESSION["usuario_id"])) {
                                 $result = $usuario->listar_tramites($sql);
                                 foreach ($result as $key) {
                                     $estado = $key["estado"];
-                                    $encargado = $key["nombre_encargado"];
                                 }
                                 if ($estado == "Abierto") {
                                 ?>
@@ -70,31 +79,44 @@ if (isset($_SESSION["usuario_id"])) {
                 <div>
                     <?php require_once("tablas.php") ?>
                 </div>
-
-
+                <div>
+                    <section class="activity-line" id="lbldetalle">
+                        <?php
+                        require("../../Controller/comentarios.php");
+                        ?>
+                    </section>
+                </div>
                 <?php
                 if ($estado == "Abierto") { ?>
-                    <div class="box-typical box-typical-padding" id="pnldetalle">
-                        <p>
-                            Ingrese su duda o consulta
-                        </p>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <fieldset class="form-group">
-                                    <label class="form-label semibold" for="tickd_descrip">Descripción</label>
-                                    <div class="">
-                                        <textarea rows="4" class="form-control" id="desctipo" name="desctipo"></textarea>
+                    <form class="sign-box" action="" method="post" id="login_form">
+                        <div class="box-typical box-typical-padding" id="pnldetalle">
+                            <p>
+                                Ingrese su duda o consulta
+                            </p>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <fieldset class="form-group">
+                                        <label class="form-label semibold" for="tickd_descrip">Comentarios</label>
+                                        <div class="">
+                                            <textarea rows="4" class="form-control" id="desctipo" name="comentario"></textarea>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div style="display: inline-flex;" class="col-lg-12">
+                                    <div>
+                                        <input type="hidden" name="enviar" class="form-control" value="si" id="enviar">
+                                        <button type="submit" class="btn btn-rounded btn-inline btn-primary">Enviar</button>
                                     </div>
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                                <button type="button" id="btnenviar" class="btn btn-rounded btn-inline btn-primary">Enviar</button>
-                                <?php if ($_SESSION["rol_id"] == 2) {
-                                    echo '<button type="button" id="btncerrarticket" class="btn btn-rounded btn-inline btn-danger">Cerrar Ticket</button>';
-                                } ?>
+                                    <div>
+                                        <?php if ($_SESSION["rol_id"] == 2) {
+                                            echo '<button type="button" id="btncerrarticket" class="btn btn-rounded btn-inline btn-danger">Cerrar Ticket</button>';
+                                        } ?>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 <?php } ?>
             </div>
         </div>
