@@ -12,7 +12,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     $usuario->get_usuario_x_correo($correo);
     if (empty($_SESSION["usuario_id"])) {
         $usuario->insert_usuario($nombre, $apellido, $correo, $pass, $rol_id);
-        header("Location:" . conectar::ruta() . "index.php?m=3");
+        header("Location:" . conectar::ruta() . "correos/index.php?pag=1");
     } else {
         header("Location:" . conectar::ruta() . "index.php?m=5");
     }

@@ -1,6 +1,25 @@
 function init() {}
 
-/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+$(document).ready(function () {
+  var current = 1,
+    current_step,
+    next_step,
+    steps;
+  steps = $("fieldset").length;
+  $(".next").click(function () {
+    current_step = $(this).parent();
+    next_step = $(this).parent().next();
+    next_step.show();
+    current_step.hide();
+  });
+  $(".previous").click(function () {
+    current_step = $(this).parent();
+    next_step = $(this).parent().prev();
+    next_step.show();
+    current_step.hide();
+  });
+});
+
 function myFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -9,6 +28,5 @@ function myFunction() {
     x.className = "topnav";
   }
 }
-
 
 init();

@@ -1,6 +1,6 @@
 <?php
 require_once("../../Config/conexion.php");
-if ($_SESSION['usuario_id'] == '') {
+if (!isset($_SESSION['usuario_id'])) {
 	header("Location:" . conectar::ruta() . "index.php");
 }
 
@@ -10,7 +10,7 @@ if ($_SESSION['usuario_id'] == '') {
 <?php require_once("../Head/head.php"); ?>
 <link rel="stylesheet" href="../../public/css/paginas/home.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-<title>ICANH - Sistema de Tickets - Home</title>
+<title>ICANH - Sistema de Trámites - Home</title>
 </head>
 
 <body class="with-side-menu">

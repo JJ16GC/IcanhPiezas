@@ -1,8 +1,10 @@
 <?php
 
 require_once("../../Models/Tramites.php");
-$id = $_GET["ID"];
 
+
+
+$id = $_GET["ID"];
 $sql = "SELECT * FROM tramite WHERE id_tramite = $id";
 $usuario = new Usuario();
 $result = $usuario->listar_tramites($sql);
@@ -10,7 +12,7 @@ $result = $usuario->listar_tramites($sql);
 if (isset($_GET["m"])) {
     switch ($_GET["m"]) {
         case "1";
-?>
+        ?>
             <script>
                 var element = document.getElementById("tab1");
                 element.className += "active";
@@ -22,7 +24,6 @@ if (isset($_GET["m"])) {
                 ?>
                     <div class="box-typical box-typical-padding">
                         <div class="row">
-
                             <div class="col-lg-6">
                                 <fieldset class="form-group">
                                     <label class="form-label semibold" for="tipodoc">Tipo Documento</label>
@@ -88,6 +89,7 @@ if (isset($_GET["m"])) {
                                     <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["cargo"] ?>" readonly>
                                 </fieldset>
                             </div>
+
 
                         </div>
                     </div>

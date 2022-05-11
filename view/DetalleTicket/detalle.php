@@ -1,13 +1,43 @@
 <?php
 require_once("../../Config/conexion.php");
+require_once("../../Models/Tramites.php");
+
+if (isset($_POST["btncerrarticket"]) and $_POST["btncerrarticket"] == "si") {
+    require_once("../../Models/Tramites.php");
+    $usuario = new Usuario();
+    if ($_SESSION["estado"] == "Abierto") {
+        if ($_GET["c"] == "e") {
+            $usuario->update_estado_cerrado_exh($_GET["ID"]);
+        } else {
+            $usuario->update_estado_cerrado($_GET["ID"]);
+        }
+    } else {
+        if ($_GET["c"] == "e") {
+            $usuario->update_estado_abierto_exh($_GET["ID"]);
+        } else {
+            $usuario->update_estado_abierto($_GET["ID"]);
+        }
+    }
+    header("Location:" . Conectar::ruta() . "view/ConsultarTicket/consulta.php");
+}
 
 if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
+    if ($_GET["c"] == "e") {
+        require_once("../../Models/Tramites.php");
+        $usuario = new Usuario();
+        $comentario = $_POST["comentario"];
+        $tramite_id = $_GET["ID"];
+        $usuario_id = $_SESSION["usuario_id"];
+        $usuario->insertar_com_exh($tramite_id, $usuario_id, $comentario);
+        header("Location:" . Conectar::ruta() . "correos/index.php?pag=3");
+    }
     require_once("../../Models/Tramites.php");
     $usuario = new Usuario();
     $comentario = $_POST["comentario"];
     $tramite_id = $_GET["ID"];
     $usuario_id = $_SESSION["usuario_id"];
     $usuario->insertar_comentario($tramite_id, $usuario_id, $comentario);
+    header("Location:" . Conectar::ruta() . "correos/index.php?pag=3");
 }
 
 if (isset($_SESSION["usuario_id"])) {
@@ -15,7 +45,7 @@ if (isset($_SESSION["usuario_id"])) {
     <!DOCTYPE html>
     <html>
     <?php require_once("../Head/head.php"); ?>
-    <title>GACC- Sistema de Tickets</>::Consultar Ticket</title>
+    <title>ICANH- Sistema de Trámites - Detalle Ticket</title>
     <link rel="stylesheet" href="../../public/css/paginas/detalle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
@@ -40,54 +70,94 @@ if (isset($_SESSION["usuario_id"])) {
                                 <?php
                                 require_once("../../Models/Tramites.php");
                                 $id = $_GET["ID"];
-                                $sql = "SELECT * FROM tramite WHERE id_tramite = $id";
-                                $usuario = new Usuario();
-                                $result = $usuario->listar_tramites($sql);
-                                foreach ($result as $key) {
-                                    $estado = $key["estado"];
-                                }
-                                if ($estado == "Abierto") {
-                                ?>
-                                    <a style="text-align: center;"><span class="label label-pill label-success"><?php echo "Tramite " . $estado ?></span> </a>
-                                <?php
-                                } else { ?>
-                                    <a style="text-align: center;"><span class="label label-pill label-danger"><?php echo "Tramite " . $estado ?></td>
-                                        <?php
-                                    }  ?>
-                                        <ol class="breadcrumb breadcrumb-simple">
-                                            <li><a href="#">Home</a></li>
-                                            <li class="active">Consultar Ticket</li>
-                                        </ol>
+                                $cat = $_GET["c"];
 
+                                if ($cat == "a") {
+                                    require_once("detalle_a.php");
+                                } else {
+                                    require_once("detalle_exh.php");
+                                }
+
+
+                                ?>
                             </div>
 
                         </div>
                     </div>
                 </header>
 
-                <div class="topnav" id="myTopnav">
-                    <?php $id = $_GET["ID"]; ?>
-                    <a id="tab1" href="?ID=<?php echo $id ?>&m=1">Información Básica Del Solicitante</a>
-                    <a id="tab2" href="?ID=<?php echo $id ?>&m=2">Procedencia Material</a>
-                    <a id="tab3" href="?ID=<?php echo $id ?>&m=3">Información Analisis</a>
-                    <a id="tab4" href="?ID=<?php echo $id ?>&m=4">Muestras a Analizar</a>
-                    <a id="tab5" href="?ID=<?php echo $id ?>&m=5">Datos Analisis</a>
-                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                        <i class="fa fa-bars"></i>
-                    </a>
-                </div>
-                <div>
-                    <?php require_once("tablas.php") ?>
-                </div>
-                <div>
-                    <section class="activity-line" id="lbldetalle">
-                        <?php
-                        require("../../Controller/comentarios.php");
-                        ?>
-                    </section>
-                </div>
+                <?php if ($cat == "a") {
+                    require_once("detalle_a.php");
+                ?>
+                    <div class="topnav" id="myTopnav">
+                        <?php $id = $_GET["ID"]; ?>
+
+                        <a id="tab1" href="?ID=<?php echo $id ?>&m=1&c=a">Información Básica Del Solicitante</a>
+                        <a id="tab2" href="?ID=<?php echo $id ?>&m=2&c=a">Procedencia Material</a>
+                        <a id="tab3" href="?ID=<?php echo $id ?>&m=3&c=a">Información Analisis</a>
+                        <a id="tab4" href="?ID=<?php echo $id ?>&m=4&c=a">Muestras a Analizar</a>
+                        <a id="tab5" href="?ID=<?php echo $id ?>&m=5&c=a">Datos Analisis</a>
+                        <a class="btn-danger glyphicon glyphicon-pencil" style="margin: 2px 0 0 15px" id="tab6" data-toggle="modal" data-target="#exampleModal" href="#"></a>
+                        <?php require("modaltramite.php") ?>
+                        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <?php require_once("../Alertas/bloqueo_tramite.php"); ?>
+
+
+                    </div>
+                    <div>
+                        <section class="activity-line" id="lbldetalle">
+                            <?php
+                            if ($comentarios == true) {
+                                require("../../Controller/comentarios.php");
+                            }
+                            
+                            ?>
+                        </section>
+                    </div>
                 <?php
-                if ($estado == "Abierto") { ?>
+                } else {
+                    require_once("detalle_exh.php");
+                ?>
+                    <div class="topnav" id="myTopnav">
+                        <?php $id = $_GET["ID"]; ?>
+                        <a id="tab1" href="?ID=<?php echo $id ?>&m=1&c=e">Bienes Muebles a Exportar</a>
+                        <a id="tab2" href="?ID=<?php echo $id ?>&m=2&c=e">Responsable De La Tenencia.</a>
+                        <a id="tab3" href="?ID=<?php echo $id ?>&m=3&c=e">Datos De La Exposición</a>
+                        <a id="tab4" href="?ID=<?php echo $id ?>&m=4&c=e">Fecha De Salida Y Retorno</a>
+                        <a class="btn-danger glyphicon glyphicon-pencil" style="margin: 2px 0 0 15px" id="tab6" data-toggle="modal" data-target="#exampleModal" href="#"></a>
+                        <?php require("modaltramite_exh.php") ?>
+                        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </div>
+                    <div>
+
+                        <?php require_once("../Alertas/bloqueo_tramite_exh.php") ?>
+
+                    </div>
+                    <div>
+                        <section class="activity-line" id="lbldetalle">
+                            <?php
+                            if ($comentarios == true) {
+                                require("../../Controller/comentarios_exh.php");
+                            }
+
+
+                            ?>
+                        </section>
+                    </div>
+                <?php
+                }
+                ?>
+
+                <?php
+                if ($_SESSION["estado"] == "Abierto" && $comentarios == true) { ?>
                     <form class="sign-box" action="" method="post" id="login_form">
                         <div class="box-typical box-typical-padding" id="pnldetalle">
                             <p>
@@ -99,7 +169,7 @@ if (isset($_SESSION["usuario_id"])) {
                                     <fieldset class="form-group">
                                         <label class="form-label semibold" for="tickd_descrip">Comentarios</label>
                                         <div class="">
-                                            <textarea rows="4" class="form-control" id="desctipo" name="comentario"></textarea>
+                                            <textarea rows="4" class="form-control" id="desctipo" name="comentario" required></textarea>
                                         </div>
                                     </fieldset>
                                 </div>
@@ -108,16 +178,33 @@ if (isset($_SESSION["usuario_id"])) {
                                         <input type="hidden" name="enviar" class="form-control" value="si" id="enviar">
                                         <button type="submit" class="btn btn-rounded btn-inline btn-primary">Enviar</button>
                                     </div>
-                                    <div>
-                                        <?php if ($_SESSION["rol_id"] == 2) {
-                                            echo '<button type="button" id="btncerrarticket" class="btn btn-rounded btn-inline btn-danger">Cerrar Ticket</button>';
-                                        } ?>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </form>
                 <?php } ?>
+                <form action="" method="post">
+                    <div>
+                        <?php if ($_SESSION["rol_id"] == 2 && $key["estado"] == "Abierto") {
+
+                        ?>
+                            <div>
+                                <input type="hidden" name="btncerrarticket" class="form-control" value="si" id="btncerrarticket">
+                                <button type="submit" class="btn btn-rounded btn-inline btn-danger">Cerrar Tramite</button>
+                            </div>;
+                        <?php
+                        } else if ($_SESSION["rol_id"] == 2 && $key["estado"] == "Cerrado") {
+
+                        ?>
+                            <div>
+                                <input type="hidden" name="btncerrarticket" class="form-control" value="si" id="btncerrarticket">
+                                <button type="submit" class="btn btn-rounded btn-inline btn-success">Abrir Tramite</button>
+                            </div>;
+                        <?php
+                        } ?>
+
+                    </div>
+                </form>
             </div>
         </div>
         <?php require_once("../MainJs/js.php"); ?>

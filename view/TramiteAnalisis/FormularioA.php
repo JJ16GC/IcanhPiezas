@@ -1,6 +1,6 @@
 <?php
 require_once("../../Config/conexion.php");
-if ($_SESSION['usuario_id'] == '') {
+if (!isset($_SESSION['usuario_id'])) {
     header("Location:" . conectar::ruta() . "index.php");
 }
 if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
@@ -16,7 +16,6 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
 <?php require_once("../Head/head.php"); ?>
 <link rel="stylesheet" href="../../public/css/paginas/home.css">
 <link rel="stylesheet" href="../../public/css/paginas/formulario.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 <title>ICANH - Sistema de Tickets - Tramite Analisis</title>
 </head>
 
@@ -54,6 +53,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                         <fieldset>
                                             <div class="col-lg-12">
                                                 <h4>Paso 1: <span>Información Básica Del Solicitante</span></h4>
+                                                <h1 class="with-border"></h1>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
@@ -193,6 +193,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                         <fieldset>
                                             <div class="col-lg-12">
                                                 <h4>Paso 3: <span>Informacion del Análisis:</span></h4>
+                                                <h1 class="with-border"></h1>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
@@ -219,7 +220,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                         <fieldset>
                                             <div class="col-lg-12">
                                                 <h4>Paso 4: <span>Muestras a Analizar.</span></h4>
-
+                                                <h1 class="with-border"></h1>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
@@ -237,7 +238,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                 <div class="form-group">
                                                     <label>Cargue anexos:<span style="color: red;">*</span></label></label>
                                                     <p>Cargar en un único archivo PDF (el nombre del archivo no debe tener tildes) documentos adicionales como el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o una Autorización de intervención) o fotografías del material arqueológico.</p>
-                                                    Seleccione archivo: <input name="fichero" type="file" maxlength="150"  accept="application/pdf">
+                                                    Seleccione archivo: <input name="fichero" type="file" maxlength="150" accept="application/pdf">
                                                 </div>
                                             </div>
                                             <div class=" col-lg-2 next inline-block">
@@ -251,6 +252,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                         <fieldset>
                                             <div class="col-lg-12">
                                                 <h4>Paso 5: <span>Datos Del Analisis:</span></h4>
+                                                <h1 class="with-border"></h1>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">

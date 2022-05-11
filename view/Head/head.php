@@ -5,3 +5,4 @@
 <link rel="stylesheet" href="../../public/css/lib/font-awesome/font-awesome.min.css">
 <link rel="stylesheet" href="../../public/css/lib/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="../../public/css/lib/bootstrap/styles.css">
+<link rel="stylesheet" href="../../public/css/lib/datatables/datatables.min.css">

@@ -14,9 +14,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICANH - Sistema de Tickets - Login</title>
-
-
+    <title>ICANH - Sistema de Trámites - Login</title>
     <link rel="icon" type="image/png" href="public/img/icono.png">
     <link rel="stylesheet" href="public/css/paginas/login.css">
     <link rel="stylesheet" href="public/css/lib/font-awesome/font-awesome.min.css">

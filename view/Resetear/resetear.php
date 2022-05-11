@@ -14,7 +14,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
         session_start();
         $_SESSION['token'] = $token;
         $_SESSION['correo'] = $correo;
-        header("Location:" . conectar::ruta() . "correos");
+        header("Location:" . conectar::ruta() . "correos/index.php?pag=2");
     }
 }
 ?>

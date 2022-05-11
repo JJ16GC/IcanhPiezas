@@ -15,7 +15,7 @@ if ($_SESSION['rol_id'] == '1') {
                         </div>
                         <div class="col-sm-12">
                             <span>Entidad ante la cual se realiza el trámite:</strong></span>
-                            <p>Instituto Colombiano de Antropología e Historia - ICANH: http://www.icanh.gov.co</p>
+                            <p>Instituto Colombiano de Antropología e Historia - ICANH: <a href="http://www.icanh.gov.co">http://www.icanh.gov.co</a></p>
                         </div>
                         <div class="col-sm-12">
                             <span>Dependencia de la entidad que resuelve el trámite:</span>
@@ -62,7 +62,7 @@ if ($_SESSION['rol_id'] == '1') {
                         </div>
                         <div class="col-sm-12">
                             <span>¿Cuál es el resultado de este trámite?</strong></span>
-                            <table style="text-align:center;" class="table">
+                            <table style="text-align:center;" class="table table-responsive">
                                 <thead>
                                     <tr>
                                         <th scope="col"></th>
@@ -96,7 +96,7 @@ if ($_SESSION['rol_id'] == '1') {
                         <div class="col-sm-12">
                             <span>¿Puedo hacer seguimiento al resultado del trámite?</strong></span>
                             <p>Sí. La posibilidad de hacer seguimiento se podrá realizar a través de:</p>
-                            <table class="table">
+                            <table class="table table-responsive">
                                 <thead>
                                     <tr>
                                         <th style="text-align: center;" scope="col">Medio</th>
@@ -127,7 +127,7 @@ if ($_SESSION['rol_id'] == '1') {
                         </div>
                         <div class="col-sm-12">
                             <span> ¿Cuál es la normatividad que regula este trámite?</strong></span>
-                            <table style="margin-bottom: 80px;" class="table table-striped">
+                            <table style="margin-bottom: 80px;" class="table">
                                 <thead>
                                     <tr>
                                         <th style="text-align: center;" scope="col">Tipo de Norma</th>
@@ -183,7 +183,7 @@ if ($_SESSION['rol_id'] == '1') {
                 <div class="col-xl-12">
                     <div class="row">
                         <?php require_once("../../Models/Tramites.php");
-                        $sql = "SELECT COUNT(tick_estado) AS num FROM tramite_detalle";
+                        $sql = "SELECT (SELECT COUNT(*) FROM tramite_detalle)+(SELECT COUNT(*) FROM tramite_det_exh) as num from DUAL";
                         $usuario = new Usuario();
                         $result = $usuario->listar_tramites($sql); ?>
                         <div class="col-sm-4">
@@ -191,7 +191,7 @@ if ($_SESSION['rol_id'] == '1') {
                                 <div>
                                     <div class="number" id="lbltotal"></div>
                                     <div class="caption">
-                                        <div style="margin-bottom: -42px;font-size: 35px;"><?php foreach ($result as $key) {
+                                        <div style="margin-bottom: -42px;font-size: 40px;"><?php foreach ($result as $key) {
                                                                                                 echo $key["num"];
                                                                                             }  ?><br></br>
                                         </div>
@@ -201,14 +201,14 @@ if ($_SESSION['rol_id'] == '1') {
                             </article>
                         </div>
                         <div class="col-sm-4">
-                            <?php $sql = "SELECT COUNT(tick_estado) AS num FROM tramite_detalle WHERE tick_estado = 'Abierto'";
+                            <?php $sql = "SELECT (SELECT COUNT(*) FROM tramite_detalle WHERE tick_estado = 'Abierto')+(SELECT COUNT(*) FROM tramite_det_exh WHERE tick_estado = 'Abierto') as num from DUAL";
                             $usuario = new Usuario();
                             $result = $usuario->listar_tramites($sql); ?>
                             <article class="statistic-box yellow">
                                 <div>
                                     <div class="number" id="lbltotalabierto"></div>
                                     <div class="caption">
-                                        <div style="margin-bottom: -42px;font-size: 35px;"><?php foreach ($result as $key) {
+                                        <div style="margin-bottom: -42px;font-size: 40px;"><?php foreach ($result as $key) {
                                                                                                 echo $key["num"];
                                                                                             }  ?><br></br>
                                         </div>
@@ -218,14 +218,14 @@ if ($_SESSION['rol_id'] == '1') {
                             </article>
                         </div>
                         <div class="col-sm-4">
-                            <?php $sql = "SELECT COUNT(tick_estado) AS num FROM tramite_detalle WHERE tick_estado = 'Cerrado'";
+                            <?php $sql = "SELECT (SELECT COUNT(*) FROM tramite_detalle WHERE tick_estado = 'Cerrado')+(SELECT COUNT(*) FROM tramite_det_exh WHERE tick_estado = 'Cerrado') as num from DUAL";
                             $usuario = new Usuario();
                             $result = $usuario->listar_tramites($sql); ?>
                             <article class="statistic-box red">
                                 <div>
                                     <div class="number" id="lbltotalcerrado"></div>
                                     <div class="caption">
-                                        <div style="margin-bottom: -42px;font-size: 35px;"><?php foreach ($result as $key) {
+                                        <div style="margin-bottom: -42px;font-size: 40px;"><?php foreach ($result as $key) {
                                                                                                 echo $key["num"];
                                                                                             }  ?><br></br>
                                         </div>

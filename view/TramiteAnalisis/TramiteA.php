@@ -1,6 +1,6 @@
 <?php
 require_once("../../Config/conexion.php");
-if ($_SESSION['usuario_id'] == '') {
+if (!isset($_SESSION['usuario_id'])) {
     header("Location:" . conectar::ruta() . "index.php");
 }
 
@@ -11,7 +11,7 @@ if ($_SESSION['usuario_id'] == '') {
 <link rel="stylesheet" href="../../public/css/paginas/home.css">
 <link rel="stylesheet" href="../../public/css/paginas/exhibicion.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-<title>ICANH - Sistema de Tickets - Home</title>
+<title>ICANH - Sistema de Tickets - Trámite De Exhibición</title>
 </head>
 
 
@@ -20,9 +20,9 @@ if ($_SESSION['usuario_id'] == '') {
     <div class="mobile-menu-left-overlay"></div>
     <?php require_once("../MainNav/nav.php"); ?>
     <div class="page-content">
-        
+
         <div id="container" class="container-fluid" style="display: flex;  justify-content: center;">
-        
+
             <div style="max-width: 850px;" class="row">
                 <div class="col-xl-12">
                     <div class="row">
@@ -78,4 +78,3 @@ if ($_SESSION['usuario_id'] == '') {
 <?php require_once("../MainJs/js.php"); ?>
 
 </html>
-

@@ -1,6 +1,6 @@
 <?php
 require_once("../../Config/conexion.php");
-if ($_SESSION['usuario_id'] == '') {
+if (!isset($_SESSION['usuario_id'])) {
     header("Location:" . conectar::ruta() . "index.php");
 }
 
@@ -11,7 +11,7 @@ if ($_SESSION['usuario_id'] == '') {
 <link rel="stylesheet" href="../../public/css/paginas/home.css">
 <link rel="stylesheet" href="../../public/css/paginas/exhibicion.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-<title>ICANH - Sistema de Tickets - Home</title>
+<title>ICANH - Sistema de Tickets - Trámite De Exhibición</title>
 </head>
 
 
@@ -32,7 +32,7 @@ if ($_SESSION['usuario_id'] == '') {
                             </div>
                         </div>
                         <div class="col-sm-12">
-                            <span>Diligenciar el formulario "Solicitud de Autorización de Salida Temporal de Bienes Arqueológicos, para Exhibición en el exterior", disponible en el <a href="#">enlace</a> la siguiente información:</strong></span>
+                            <span>Diligenciar el formulario "Solicitud de Autorización de Salida Temporal de Bienes Arqueológicos, para Exhibición en el exterior", disponible en el <a href="FormularioE.php">enlace</a> la siguiente información:</strong></span>
                         </div>
                         <div class="col-sm-12">
                             <ol type="a">
@@ -69,7 +69,7 @@ if ($_SESSION['usuario_id'] == '') {
                             </ol>
                             <p>Una vez revisada la información diligenciada, el ICANH envía al correo electrónico del solicitante el estado del trámite.</p>
                             <div style="margin-top: 40px;">
-                                <a class="btn btn-primary">Crear Tramite</a>
+                                <a href="FormularioE.php" class="btn btn-primary">Crear Tramite</a>
                             </div>
                             
                         </div>
