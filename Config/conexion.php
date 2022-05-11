@@ -32,6 +32,6 @@ class Conectar
     }
     public static function ruta()
     {
-        return "http://localhost/Trabajo/icanh/";
+        return "https://icanh.herokuapp.com/";
     }
 }
