@@ -1,7 +1,11 @@
 <?php
+
+# Funciones CRUD Tramites analisis
+
 class Usuario extends Conectar
 {
 
+    # Crear nuevo tramite de analisis
     public function insert_tramitea($tipodoc, $otrotip, $numdoc, $pnombre, $snombre, $papellido, $sapellido, $profesion, $telefono, $correo, $direccion, $entidadvinc, $cargo, $numaut, $titulo, $numcert, $nomproyecto, $desctipo, $descmet, $descmate, $cantidad, $anexos, $pais, $ciudad, $institucion, $lugar, $fecha_salida, $fecha_retorno, $nombre_encargado, $estado)
     {
         $conectar = parent::conexion();
@@ -42,6 +46,7 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    # Crear detalle del tramite de analisis
     public function insert_detalle($usu_id, $categoria, $tick_estado)
     {
         $conectar = parent::conexion();
@@ -55,6 +60,7 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    # Listar tramites de analisis
     public function listar_tramites($sql)
     {
         $conectar = parent::conexion();
@@ -64,6 +70,7 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    # Listar tramites de exhibicion por ID
     public function listar_tramites_exh_x_usuario($sql)
     {
         $conectar = parent::conexion();
@@ -73,6 +80,7 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    # Listar tramites de analisis por ID
     public function listar_tramites_x_usuario($sql)
     {
         $conectar = parent::conexion();
@@ -82,6 +90,7 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    # Crear comentario en el tramite de exhibicion
     public function insertar_com_exh($tramite_id, $usuario_id, $comentario)
     {
         $conectar = parent::conexion();
@@ -95,6 +104,7 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    # Listar los comentarios del tramite de exhibicion
     public function listar_com_exh($tramite_id)
     {
         $conectar = parent::conexion();
@@ -108,6 +118,7 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    # Listar los comentarios del tramite de analisis
     public function listar_comentarios($tramite_id)
     {
         $conectar = parent::conexion();
@@ -121,6 +132,7 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    # Crear comentario en el tramite de analisis
     public function insertar_comentario($tramite_id, $usuario_id, $comentario)
     {
         $conectar = parent::conexion();
@@ -134,6 +146,7 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    # Cerrar tramite exhibicion
     public function update_estado_cerrado($tramite_id)
     {
         $conectar = parent::conexion();
@@ -147,6 +160,7 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    # Abrir tramite exhibicion
     public function update_estado_abierto($tramite_id)
     {
         $conectar = parent::conexion();
@@ -160,6 +174,7 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    # Actualizar tramite analisis
     public function update_tramitea($tipodoc, $otrotip, $numdoc, $pnombre, $snombre, $papellido, $sapellido, $profesion, $telefono, $correo, $direccion, $entidadvinc, $cargo, $numaut, $titulo, $numcert, $nomproyecto, $desctipo, $descmet, $descmate, $cantidad, $anexos, $pais, $ciudad, $institucion, $lugar, $fecha_salida, $fecha_retorno, $nombre_encargado, $estado, $id_tramite)
     {
         $conectar = parent::conexion();
@@ -201,6 +216,7 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    # Cerrar tramite de exhibicion
     public function update_estado_cerrado_exh($tramite_id)
     {
         $conectar = parent::conexion();
@@ -214,6 +230,7 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    # Abrir tramite de exhibicion
     public function update_estado_abierto_exh($tramite_id)
     {
         $conectar = parent::conexion();
@@ -227,6 +244,7 @@ class Usuario extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    # Actualizar tramite de exhibicion
     public function update_tramite_exh($num_certf, $nom_solic, $tipo_doc, $cual, $num_doc, $num_piezas, $p_nombre, $s_nombre, $p_apellido, $s_apellido, $tipo_doc_r, $cual_r, $num_doc_r, $correo, $f_inicion_exp, $f_final_exp, $pais, $ciudad, $lugar, $nombre_exp, $fecha_salida, $fecha_retorno, $anexos, $piezas, $datos_adic, $estado, $id_tramite)
     {
         $conectar = parent::conexion();

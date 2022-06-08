@@ -1,5 +1,7 @@
 <?php
 
+# Funcion boton Create tramite exhibicion
+
 if (isset($_POST["submit"])) {
 
     $tipodoc = $_POST["tipodoc"];
@@ -24,6 +26,7 @@ if (isset($_POST["submit"])) {
     $descmate = $_POST["descmate"];
     $cantidad = $_POST["cantidad"];
 
+    # Subida de archivos Zip y PDF en la carpeta upload
 
     if (is_uploaded_file($_FILES['fichero']['tmp_name'])) {
 
@@ -51,9 +54,9 @@ if (isset($_POST["submit"])) {
     $fecha_retorno = $_POST["fecha_retorno"];
     $nombre_encargado = $_POST["nombre_encargado"];
     $estado = "Abierto";
-    
 
-    $usuario->insert_tramitea($tipodoc, $otrotip, $numdoc, $pnombre, $snombre, $papellido, $sapellido, $profesion, $telefono, $correo, $direccion, $entidadvinc, $cargo, $numaut, $titulo, $numcert, $nomproyecto, $desctipo, $descmet, $descmate, $cantidad, $anexos, $pais, $ciudad, $institucion, $lugar, $fecha_salida, $fecha_retorno, $nombre_encargado,$estado);
+
+    $usuario->insert_tramitea($tipodoc, $otrotip, $numdoc, $pnombre, $snombre, $papellido, $sapellido, $profesion, $telefono, $correo, $direccion, $entidadvinc, $cargo, $numaut, $titulo, $numcert, $nomproyecto, $desctipo, $descmet, $descmate, $cantidad, $anexos, $pais, $ciudad, $institucion, $lugar, $fecha_salida, $fecha_retorno, $nombre_encargado, $estado);
 
     $categoria = "Analisis de piezas";
     $usu_id = $_SESSION["usuario_id"];

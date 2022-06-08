@@ -1,5 +1,7 @@
 <?php
 
+# Funcion boton Update tramite analisis
+
 if (isset($_POST["submit"])) {
 
     $id_tramite = $_POST["id_tramite"];
@@ -25,6 +27,7 @@ if (isset($_POST["submit"])) {
     $descmate = $_POST["descmate"];
     $cantidad = $_POST["cantidad"];
 
+    # Subida de archivos Zip y PDF en la carpeta upload
 
     if (is_uploaded_file($_FILES['fichero']['tmp_name'])) {
 

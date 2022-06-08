@@ -1,5 +1,7 @@
 <?php
 
+#  Visualizar estado del tramite analisis en Detalle tramites
+
 $sql = "SELECT * FROM tramite WHERE id_tramite = $id";
 $usuario = new Usuario();
 $result = $usuario->listar_tramites($sql);

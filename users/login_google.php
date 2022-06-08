@@ -1,10 +1,10 @@
 <?php
 
-//Include Configuration File
+# Conxion a la base de datos
 include('config.php');
 
-$bytes = openssl_random_pseudo_bytes(4);
-$passw = bin2hex($bytes);
+$bytes = openssl_random_pseudo_bytes(4); # Generamos una contraseña aleatoria
+$passw = bin2hex($bytes); 
 
 $login_button = '';
 
@@ -21,30 +21,35 @@ if (isset($_GET["code"])) {
 
         $data = $google_service->userinfo->get();
 
+        # Asignacion nombre de usuario de google
         if (!empty($data['given_name'])) {
             $_SESSION['user_first_name'] = $data['given_name'];
             $nombre = $_SESSION['user_first_name'];
         }
 
+        # Asignacion apellido de usuario de google
         if (!empty($data['family_name'])) {
             $_SESSION['user_last_name'] = $data['family_name'];
             $apellido = $_SESSION['user_last_name'];
         }
 
+        # Asignacion correo de google
         if (!empty($data['email'])) {
             $_SESSION['user_email_address'] = $data['email'];
             $correo = $_SESSION['user_email_address'];
+            $_SESSION["correo"] = $correo;
             $rol_id = 1;
             $pass = $passw;
         }
 
+        # Asignacion genero del usuario de google
         if (!empty($data['gender'])) {
             $_SESSION['user_gender'] = $data['gender'];
         }
     }
 }
 
-//Ancla para iniciar sesión
+//Boton para iniciar sesión
 if (!isset($_SESSION['access_token'])) {
     $login_button = '<a class="btn btn-lg btn-google btn-block text-uppercase btn-outline" href="' . $google_client->createAuthUrl() . '"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Iniciar Sesion Google</a> </div>';
 }

@@ -1,5 +1,8 @@
 <?php
+# Conexion a la base de datos
 require_once('../../Config/conexion.php');
+
+# Funcion Boton Verificacion de usuario registrado 
 if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     require_once("../../Models/Usuario.php");
     session_destroy();
@@ -9,6 +12,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     if (empty($_SESSION["usuario_id"])) {
         header("Location:" . conectar::ruta() . "index.php?m=1");
     } else {
+        # Creacion del codigo de verifiacion
         $bytes = openssl_random_pseudo_bytes(4);
         $token = bin2hex($bytes);
         session_start();
@@ -50,7 +54,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                     </div>
                     <header class="sign-title label label-primary" id="lbltitulo">Ingrese su correo electronico</header>
 
-
+                    <!-- Mensajes de errores con el correo -->
                     <?php
                     if (isset($_GET["m"])) {
                         switch ($_GET["m"]) {
@@ -81,7 +85,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                         }
                     }
                     ?>
-
+                    <!-- Formulario para enviar codigo de verificacion -->
                     <div class="form-group">
                         <input required type="email" id="correo" name="correo" class="form-control" placeholder="E-mail" />
                     </div>

@@ -1,6 +1,10 @@
 <?php
+
+# Funciones CRUD Tramites Usuarios
+
 class Usuario extends Conectar
 {
+    # LOGIN
     public function login()
     {
         $conectar = parent::conexion();
@@ -21,13 +25,14 @@ class Usuario extends Conectar
                 $resultado = $stmt->fetch();
 
                 if (is_array($resultado)) {
-                    $contraseña = $resultado['pass'];
+                    $contraseña = $resultado['pass']; # Codificacion contraseña
                     if (password_verify($pass, $contraseña)) {
                         if (is_array($resultado) and count($resultado) > 0) {
                             $_SESSION["usuario_id"] = $resultado["usuario_id"];
                             $_SESSION["nombre"] = $resultado["nombre"];
                             $_SESSION["apellido"] = $resultado["apellido"];
                             $_SESSION["rol_id"] = $resultado["rol_id"];
+                            $_SESSION["correo"] = $resultado["correo"];
                             header("Location:" . Conectar::ruta() . "view/Home/indexlogin.php");
                             exit();
                         }
@@ -40,6 +45,7 @@ class Usuario extends Conectar
         }
     }
 
+    # Registro Usuario
     public function insert_usuario($nombre, $apellido, $correo, $pass, $rol_id)
     {
         $conectar = parent::conexion();
@@ -49,20 +55,22 @@ class Usuario extends Conectar
         $sql->bindValue(1, $nombre);
         $sql->bindValue(2, $apellido);
         $sql->bindValue(3, $correo);
-        $contraseña = password_hash($pass, PASSWORD_DEFAULT);
+        $contraseña = password_hash($pass, PASSWORD_DEFAULT); # Codificacion contraseña
         $sql->bindValue(4, $contraseña);
         $sql->bindValue(5, $rol_id);
         $sql->execute();
         return $resultado = $sql->fetchAll();
+        
     }
 
+    # Actualizar Contraseña
     public function update_pass($pass, $correo)
     {
         $conectar = parent::conexion();
         parent::set_names();
         $sql = "UPDATE usuario SET pass = ? WHERE correo = ?";
         $stmt = $conectar->prepare($sql);
-        $pass = password_hash($pass, PASSWORD_DEFAULT);
+        $pass = password_hash($pass, PASSWORD_DEFAULT); # Codificacion contraseña
         $stmt->bindValue(1, $pass);
         $stmt->bindValue(2, $correo);
         $stmt->execute();
@@ -70,6 +78,19 @@ class Usuario extends Conectar
     }
 
 
+    #Listar Usuarios
+    public function get_usuarios_x_correo($correo)
+    {
+        $conectar = parent::conexion();
+        parent::set_names();
+        $sql = "SELECT * FROM usuario WHERE correo = ?";
+        $stmt = $conectar->prepare($sql);
+        $stmt->bindValue(1, $correo);
+        $stmt->execute();
+        return $resultado = $stmt->fetch();
+    }
+
+    #Listar Usuarios 
     public function get_usuario_x_correo($correo)
     {
         $conectar = parent::conexion();

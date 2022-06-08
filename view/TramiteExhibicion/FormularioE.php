@@ -246,14 +246,14 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                 <div class="form-group">
                                                     <label>Cargue anexos:<span style="color: red;">*</span></label></label>
                                                     <p>Cargar un único archivo PDF (el nombre del archivo no debe tener tildes) con los documentos: 1.Copia del proyecto cultural o científico. 2. Nombre, dirección y teléfono de la entidad responsable de las piezas arqueológicas tanto en Colombia como en el Exterior, país, ciudad y sitio: Museo o Institución Cultural donde se llevará a cabo el evento o exposición. 3.Nombre, del curador de la exposición o del investigador a cargo. 4.Nombre dirección y teléfono de la compañía encargada del empaque y transporte de las piezas.</p>
-                                                    Seleccione archivo: <input name="fichero" type="file" maxlength="150" accept="application/pdf" required>
+                                                    Seleccione archivo: <input name="fichero" type="file" maxlength="150" accept="application/pdf,application/zip" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Cargue piezas:<span style="color: red;">*</span></label></label>
                                                     <p>Cargar en un único archivo ZIP (el nombre del archivo no debe tener tildes), las fotografías de cada una de las piezas a exportar. Los nombres de las fotos de cada pieza, deben corresponder con el código con el que se registraron en el ICANH.</p>
-                                                    Seleccione archivo: <input name="fichero_piezas" type="file" maxlength="150" accept="application/pdf" required>
+                                                    Seleccione archivo: <input name="fichero_piezas" type="file" maxlength="150" accept="application/pdf,application/zip" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
@@ -261,7 +261,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                     <label class="form-label semibold" for="datos_adic">Datos adicionales de las piezas a exportar:</label>
                                                     <p>Información adicional del material a exportar que el usuario considere necesario mencionar.</p>
                                                     <input type="text" class="form-control" id="datos_adic" name="datos_adic">
-                                                    <input class="checkbox" style="margin: 15px 15px 15px 0;" id="terminos" type="checkbox">Acepto el tratamiento de mis datos personales
+                                                    <input class="checkbox" style="margin: 15px 15px 15px 0;" id="terminos" type="checkbox"><a href="../../public/img/Politica proteccion datos personales.PDF" target="_blank">Acepto el tratamiento de mis datos personales</a>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-2 previous inline-block">

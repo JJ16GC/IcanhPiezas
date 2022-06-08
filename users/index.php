@@ -19,9 +19,10 @@ require("login_google.php");
 <body>
     <div class="container">
 
+    <!-- Verifica Inicio de sesion y redirige al Home-->
         <?php
         if ($login_button == '') {
-            echo '<h3><a href="../CerrarSesion/cerrarsesion.php"></h3>Cerrar Sesion</div>';
+            header("Location:" . Conectar::ruta() . "view/Home/indexlogin.php");
         } else {
             echo '<div align="center">' . $login_button . '</div>';
         }

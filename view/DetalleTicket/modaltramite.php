@@ -1,5 +1,7 @@
 <?php if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
 
+    # Funcion del Boton para editar formulario
+
     require_once("../../Models/Tramites.php");
     $usuario = new Usuario();
     require_once("../../Controller/editar_tramite.php");
@@ -8,7 +10,7 @@
 ?>
 <link rel="stylesheet" href="../../public/css/paginas/formulario.css">
 
-
+<!-- Formulario para editar un tramite de analisis -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -20,6 +22,7 @@
             </div>
             <div class="modal-body">
                 <?php
+                # Mostrar los datos de un tramite por el ID  del tramite
                 $id = $_GET["ID"];
                 $sql = "SELECT * FROM tramite WHERE id_tramite = $id";
                 $usuario = new Usuario();

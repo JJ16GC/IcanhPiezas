@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="../../public/css/paginas/activity.min.css">
 
 <?php
+
+# Clase Conexion a la base de datos y listado de comentarioss en los tramites de exhibicion
+
 require_once("../../Models/Tramites.php");
 $usuario = new Usuario();
 $datos = $usuario->listar_com_exh($_GET["ID"]);
@@ -20,11 +23,11 @@ foreach ($datos as $row) {
                         <?php
                         if ($row['rol_id'] == 1) {
                         ?>
-                            <img width="50px" src="../../public/img/1.png">
+                            <img width="50px" src="../../public/img/1.png"><!-- Rol Usuario -->
                         <?php
                         } else {
                         ?>
-                            <img width="50px" src="../../public/img/icono.png">
+                            <img width="50px" src="../../public/img/icono.png"><!-- Rol Administrativo -->
                         <?php
                         }
                         ?>

@@ -1,6 +1,11 @@
 <?php
+
+# Conexion a la base de datos
+
 require_once("../../Config/conexion.php");
 require_once("../../Models/Tramites.php");
+
+# Funcion del boton para cerrar tramite 
 
 if (isset($_POST["btncerrarticket"]) and $_POST["btncerrarticket"] == "si") {
     require_once("../../Models/Tramites.php");
@@ -21,6 +26,8 @@ if (isset($_POST["btncerrarticket"]) and $_POST["btncerrarticket"] == "si") {
     header("Location:" . Conectar::ruta() . "view/ConsultarTicket/consulta.php");
 }
 
+# Funcion del boton para cerrar un comentario en los tramites de ehxibicion
+
 if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     if ($_GET["c"] == "e") {
         require_once("../../Models/Tramites.php");
@@ -31,6 +38,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
         $usuario->insertar_com_exh($tramite_id, $usuario_id, $comentario);
         header("Location:" . Conectar::ruta() . "correos/index.php?pag=3");
     }
+    # Funcion del boton para cerrar un comentario en los tramites de analisis
     require_once("../../Models/Tramites.php");
     $usuario = new Usuario();
     $comentario = $_POST["comentario"];
@@ -40,6 +48,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     header("Location:" . Conectar::ruta() . "correos/index.php?pag=3");
 }
 
+# Verificacion de inicio de sesion
 if (isset($_SESSION["usuario_id"])) {
 ?>
     <!DOCTYPE html>
@@ -66,6 +75,9 @@ if (isset($_SESSION["usuario_id"])) {
                     <div class="tbl">
                         <div class="tbl-row">
                             <div class="tbl-cell">
+
+                                <!-- Visualizacion detalle de tramites -->
+
                                 <h3>Detalle Trámite</h3>
                                 <?php
                                 require_once("../../Models/Tramites.php");
@@ -86,6 +98,7 @@ if (isset($_SESSION["usuario_id"])) {
                     </div>
                 </header>
 
+                <!-- Mostrar datos si es un tramite de analisis -->
                 <?php if ($cat == "a") {
                     require_once("detalle_a.php");
                 ?>
@@ -105,17 +118,17 @@ if (isset($_SESSION["usuario_id"])) {
                         </a>
                     </div>
                     <div>
+                        <!-- Mostrar tramite solo del usuario activo -->
                         <?php require_once("../Alertas/bloqueo_tramite.php"); ?>
-
-
                     </div>
                     <div>
                         <section class="activity-line" id="lbldetalle">
                             <?php
+                            # Mostrar comentarios solo del usuario activo 
                             if ($comentarios == true) {
                                 require("../../Controller/comentarios.php");
                             }
-                            
+
                             ?>
                         </section>
                     </div>
@@ -123,6 +136,7 @@ if (isset($_SESSION["usuario_id"])) {
                 } else {
                     require_once("detalle_exh.php");
                 ?>
+                    <!-- Mostrar datos si es un tramite de exhibicion -->
                     <div class="topnav" id="myTopnav">
                         <?php $id = $_GET["ID"]; ?>
                         <a id="tab1" href="?ID=<?php echo $id ?>&m=1&c=e">Bienes Muebles a Exportar</a>
@@ -137,13 +151,14 @@ if (isset($_SESSION["usuario_id"])) {
                         </a>
                     </div>
                     <div>
-
+                        <!-- Mostrar tramite solo del usuario activo -->
                         <?php require_once("../Alertas/bloqueo_tramite_exh.php") ?>
 
                     </div>
                     <div>
                         <section class="activity-line" id="lbldetalle">
                             <?php
+                            # Mostrar comentarios solo del usuario activo 
                             if ($comentarios == true) {
                                 require("../../Controller/comentarios_exh.php");
                             }
@@ -157,7 +172,13 @@ if (isset($_SESSION["usuario_id"])) {
                 ?>
 
                 <?php
+
+                # Verificacion de tramite abierto 
+
                 if ($_SESSION["estado"] == "Abierto" && $comentarios == true) { ?>
+
+                    <!-- Formulario para nuevo comentario -->
+
                     <form class="sign-box" action="" method="post" id="login_form">
                         <div class="box-typical box-typical-padding" id="pnldetalle">
                             <p>
@@ -185,7 +206,8 @@ if (isset($_SESSION["usuario_id"])) {
                 <?php } ?>
                 <form action="" method="post">
                     <div>
-                        <?php if ($_SESSION["rol_id"] == 2 && $key["estado"] == "Abierto") {
+                        <!-- Cerrar tramite -->
+                        <?php if ($_SESSION["rol_id"] == 2 && $key["estado"] == "Abierto")  {
 
                         ?>
                             <div>
@@ -197,6 +219,7 @@ if (isset($_SESSION["usuario_id"])) {
 
                         ?>
                             <div>
+                                <!-- Abrir tramite -->
                                 <input type="hidden" name="btncerrarticket" class="form-control" value="si" id="btncerrarticket">
                                 <button type="submit" class="btn btn-rounded btn-inline btn-success">Abrir Tramite</button>
                             </div>;

@@ -1,4 +1,7 @@
 <?php
+
+# Contenido para roles usuarios
+
 if ($_SESSION['rol_id'] == '1') {
 ?>
 
@@ -177,15 +180,18 @@ if ($_SESSION['rol_id'] == '1') {
 <?php
 } else {
 ?>
+    <!-- Contenido para roles administradores -->
     <div class="page-content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="row">
+                        <!-- Reporte de tramites totales, abiertos y cerrados -->
                         <?php require_once("../../Models/Tramites.php");
                         $sql = "SELECT (SELECT COUNT(*) FROM tramite_detalle)+(SELECT COUNT(*) FROM tramite_det_exh) as num from DUAL";
                         $usuario = new Usuario();
                         $result = $usuario->listar_tramites($sql); ?>
+                        <!-- Reporte de tramites totales -->
                         <div class="col-sm-4">
                             <article class="statistic-box green">
                                 <div>
@@ -201,6 +207,7 @@ if ($_SESSION['rol_id'] == '1') {
                             </article>
                         </div>
                         <div class="col-sm-4">
+                            <!-- Reporte de tramites abiertos -->
                             <?php $sql = "SELECT (SELECT COUNT(*) FROM tramite_detalle WHERE tick_estado = 'Abierto')+(SELECT COUNT(*) FROM tramite_det_exh WHERE tick_estado = 'Abierto') as num from DUAL";
                             $usuario = new Usuario();
                             $result = $usuario->listar_tramites($sql); ?>
@@ -218,6 +225,7 @@ if ($_SESSION['rol_id'] == '1') {
                             </article>
                         </div>
                         <div class="col-sm-4">
+                            <!-- Reporte de tramites cerrados -->
                             <?php $sql = "SELECT (SELECT COUNT(*) FROM tramite_detalle WHERE tick_estado = 'Cerrado')+(SELECT COUNT(*) FROM tramite_det_exh WHERE tick_estado = 'Cerrado') as num from DUAL";
                             $usuario = new Usuario();
                             $result = $usuario->listar_tramites($sql); ?>

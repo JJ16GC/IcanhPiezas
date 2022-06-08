@@ -1,5 +1,7 @@
 <?php if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
 
+    # Funcion del Boton para editar formulario
+
     require_once("../../Models/Tramites.php");
     $usuario = new Usuario();
     require_once("../../Controller/editar_tramite_exh.php");
@@ -9,6 +11,7 @@
 <link rel="stylesheet" href="../../public/css/paginas/formulario.css">
 
 
+<!-- Formulario para editar un tramite de exhibicion -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -20,6 +23,9 @@
             </div>
             <div class="modal-body">
                 <?php
+
+                # Mostrar los datos de un tramite por el ID  del tramite
+
                 $id = $_GET["ID"];
                 $sql = "SELECT * FROM tramite_exh WHERE id_tramite = $id";
                 $usuario = new Usuario();
@@ -232,14 +238,15 @@
                                         <input value="<?php echo $key["estado"] ?>" type="hidden" class="form-control" id="estado" name="estado">
                                     </div>
                                 </div>
-                                <div class="previous inline-block">
-                                    <input type="button" name="previous" class="btn btn-default" value="Previo" />
-                                </div>
+
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="form-label semibold" for="datos_adic">Datos Adicionales:</label>
                                         <input value="<?php echo $key["datos_adic"] ?>" type="text" class="form-control" id="datos_adic" name="datos_adic">
                                     </div>
+                                </div>
+                                <div class="col-lg-12 previous inline-block">
+                                    <input type="button" name="previous" class="btn btn-default" value="Previo" />
                                 </div>
                             </fieldset>
 

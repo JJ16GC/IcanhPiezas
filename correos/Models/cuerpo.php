@@ -1,4 +1,7 @@
 <?php
+
+# Cuerpo Correo registro de usuario por el aplicativo
+
 $registro = '   
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -67,6 +70,8 @@ $registro = '
 </body>
 
 </html>';
+
+# Cuerpo Correo con el codigo para cambiar contraseña de cuenta
 
 $reset = '   
 <!DOCTYPE html>
@@ -152,6 +157,9 @@ $reset = '
 </body>
 
 </html>';
+
+# Cuerpo Correo Notificacion de mensaje pendiente en el tramite
+
 $notificacion = '   
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">

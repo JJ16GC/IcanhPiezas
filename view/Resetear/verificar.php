@@ -1,4 +1,5 @@
 <?php
+# Conexion a la base de datos y verificacion de codigo
 require_once('../../Config/conexion.php');
 if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     $token = $_POST["token"];
@@ -31,6 +32,8 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     <div class="page-center">
         <div class="page-center-in">
             <div class="container-fluid">
+
+            <!-- Formulario para ingresar el codigo de verificacion --> 
                 <form class="sign-box" action="" method="post" id="login_form">
                     <div class="rectangulo">
 

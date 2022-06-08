@@ -1,3 +1,5 @@
+<!-- Contenido del header -->
+
 <header class="site-header">
     <div class="container-fluid">
 
@@ -36,7 +38,7 @@
 
                 <div style="float: right;" class="dropdown dropdown-typical">
                     <a href="#" class="dropdown-toggle no-arr">
-                        <span class="lblcontactonomx"><?php echo $_SESSION["nombre"] ?> <?php echo $_SESSION["apellido"] ?></span>
+                        <span class="lblcontactonomx"><?php echo $_SESSION["nombre"] ?> <?php echo $_SESSION["apellido"] ?></span><!-- Nombres y apellidos del usuario -->
                     </a>
                 </div>
             </div>

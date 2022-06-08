@@ -1,6 +1,9 @@
 <?php
+# Conexion a la base de datos
 require_once("../../Config/conexion.php");
 session_destroy();
+
+# Verificacion de usuario registrado
 if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     require_once("../../Models/Usuario.php");
     $usuario = new Usuario();
@@ -11,6 +14,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     $rol_id = '1';
     $usuario->get_usuario_x_correo($correo);
     if (empty($_SESSION["usuario_id"])) {
+        # Creacion de usuario si no esta registrado
         $usuario->insert_usuario($nombre, $apellido, $correo, $pass, $rol_id);
         header("Location:" . conectar::ruta() . "correos/index.php?pag=1");
     } else {
@@ -40,6 +44,11 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     <div class="page-center">
         <div class="page-center-in">
             <div class="container-fluid">
+
+                <!-- Contenido -->
+
+                <!-- Formulario Registro -->
+
                 <form class="sign-box" action="" method="post" id="login_form">
                     <div class="rectangulo">
 
@@ -72,10 +81,9 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                     <input type="hidden" name="enviar" class="form-control" value="si" id="enviar">
                     <button type="submit" class="btn btn-rounded">Registrarse</button>
 
-
-
-
                 </form>
+
+                <!-- Contenido -->
             </div>
         </div>
     </div>

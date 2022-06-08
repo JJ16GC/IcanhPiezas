@@ -1,4 +1,5 @@
 <?php
+# Menu para Ssuarios
 if ($_SESSION["rol_id"] == 1) {
 ?>
     <nav class="side-menu">
@@ -31,6 +32,7 @@ if ($_SESSION["rol_id"] == 1) {
     </nav>
 <?php
 } else {
+    # Menu para Administradores
 ?>
     <nav class="side-menu">
         <ul class="side-menu-list">
@@ -47,9 +49,9 @@ if ($_SESSION["rol_id"] == 1) {
                 </a>
             </li>
             <li class="blue-dirty">
-                <a href="..\MntUsuario\">
+                <a href="../Mantenimiento/index.php">
                     <span class="glyphicon glyphicon-th-list"></span>
-                    <span class="lbl">Mantenimiento Usuario</span>
+                    <span class="lbl">Mantenimiento<br>Usuarios Adm</span>
                 </a>
             </li>
 

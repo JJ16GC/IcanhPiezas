@@ -1,5 +1,6 @@
 function init() {}
 
+// JS del formulario para editar los tramites
 $(document).ready(function () {
   var current = 1,
     current_step,

@@ -1,6 +1,6 @@
 <?php
 
-//logout.php
+//Metodo para cerrar sesion 
 
 include('../../users/config.php');
 

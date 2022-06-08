@@ -1,11 +1,19 @@
 <?php
+
+# Llamada clase conexion
+
 require_once("Config/conexion.php");
+
+# Llamada metodo de inicio sesion atravez de POST 
+
 if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     require_once("Models/Usuario.php");
     $usuario = new Usuario();
     $usuario->login();
 }
 ?>
+
+<!-- CONTENIDO -->
 
 <!DOCTYPE html>
 <html lang="es">
@@ -39,7 +47,18 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                     </div>
                     <header class="sign-title label label-primary" id="lbltitulo">Acceso Usuario</header>
 
+                    <!-- Alertas de registro por Inicio de Sesion con Google -->
+
                     <?php require_once('view/Alertas/alertas.php'); ?>
+                    <?php if (isset($_SESSION["inicio"])) {
+                        echo '<div style="text-align:center" class="alert alert-success alert-close alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">✔</span>
+                        </button>
+                        Usuario Creado ! <br> Inicie Sesion Nuevamente.
+                    </div>';
+                    }
+                    ?>
 
                     <div class="form-group">
                         <input type="text" id="correo" name="correo" class="form-control" placeholder="E-mail" />
@@ -51,9 +70,10 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                     <div class="form-group">
                         <div class="float-left reset">
                             <a href="#" id="btnsoporte">Acceso Soporte</a>
+
                         </div>
 
-                        <div class="float-right reset">
+                        <div id="reset" class="float-right reset">
                             <a href="view/Registro/" id="btnsoporte">Registrarse</a>
                         </div>
                         <div class="float-right reset">
@@ -66,8 +86,11 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                     <button id="log" type="submit" class="btn btn-rounded">Acceder</button>
 
                     <hr style="margin: 1em;">
-                    <div>
+
+                    <div id="google">
                         <?php
+
+                        # Llamado a los metodos para iniciar sesion con Google
                         include('users/index.php');
                         ?>
                     </div>
@@ -78,9 +101,16 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     </div>
 
     </div>
+
+    <!-- CONTENIDO -->
+
+    <!-- Scripts -->
+
     <script src="public/js/lib/jquery/jquery.min.js"></script>
     <script src="public/js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="index_.js"></script>
+
+    <!-- Scripts -->
 
 </body>
 

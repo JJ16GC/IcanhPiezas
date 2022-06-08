@@ -2,7 +2,7 @@
 
 require_once("../../Models/Tramites.php");
 
-
+# Mostrar los datos en la seccion Detalle tramite del tramite de anlisis por ID 
 
 $id = $_GET["ID"];
 $sql = "SELECT * FROM tramite WHERE id_tramite = $id";

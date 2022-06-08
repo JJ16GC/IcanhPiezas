@@ -1,4 +1,8 @@
 <?php
+
+# HOME de inicio de sesion por el aplicativo
+
+# Conexion a base de datos y verificacion de inicio de sesion 
 require_once("../../Config/conexion.php");
 if (!isset($_SESSION['usuario_id'])) {
 	header("Location:" . conectar::ruta() . "index.php");
@@ -13,6 +17,8 @@ if (!isset($_SESSION['usuario_id'])) {
 <title>ICANH - Sistema de Trámites - Home</title>
 </head>
 
+<!-- Contenido -->
+
 <body class="with-side-menu">
 	<?php require_once("../Header/header.php"); ?>
 	<div class="mobile-menu-left-overlay"></div>
@@ -20,6 +26,8 @@ if (!isset($_SESSION['usuario_id'])) {
 	<?php require_once("contenido.php"); ?>
 
 </body>
+
+<!-- Contenido -->
 
 <?php require_once("../MainJs/js.php"); ?>
 

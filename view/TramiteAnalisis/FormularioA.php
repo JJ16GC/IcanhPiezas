@@ -237,10 +237,11 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Cargue anexos:<span style="color: red;">*</span></label></label>
-                                                    <p>Cargar en un único archivo PDF (el nombre del archivo no debe tener tildes) documentos adicionales como el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o una Autorización de intervención) o fotografías del material arqueológico.</p>
-                                                    Seleccione archivo: <input name="fichero" type="file" maxlength="150" accept="application/pdf">
+                                                    <p>Cargar en un único archivo PDF o ZIP (el nombre del archivo no debe tener tildes) documentos adicionales como el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o una Autorización de intervención) o fotografías del material arqueológico.</p>
+                                                    Seleccione archivo: <input name="fichero" type="file" maxlength="150" accept="application/pdf,application/zip">
                                                 </div>
                                             </div>
+                                            
                                             <div class=" col-lg-2 next inline-block">
                                                 <input type="button" name="next" class="btn btn-primary" value="Siguiente" />
                                             </div>
@@ -298,7 +299,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                     <label class="form-label semibold" for="nombre_encargado">Nombre de quien lleva el material:<span style="color: red;">*</span></label>
                                                     <p>persona o empresa que se encargará del traslado.</p>
                                                     <input type="text" class="form-control" id="nombre_encargado" name="nombre_encargado">
-                                                    <input class="checkbox" style="margin: 15px 15px 15px 0;" id="terminos" type="checkbox">Acepto el tratamiento de mis datos personales
+                                                    <input class="checkbox" style="margin: 15px 15px 15px 0;" id="terminos" type="checkbox"><a href="../../public/img/Politica proteccion datos personales.PDF" target="_blank">Acepto el tratamiento de mis datos personales</a>
                                                 </div>
                                             </div>
 

@@ -1,5 +1,7 @@
 <?php
 
+# Mostrar los datos en la seccion Detalle tramite del tramite de exhibicion por ID 
+
 require_once("../../Models/Tramites.php");
 $id = $_GET["ID"];
 $sql = "SELECT * FROM tramite_exh WHERE id_tramite = $id";

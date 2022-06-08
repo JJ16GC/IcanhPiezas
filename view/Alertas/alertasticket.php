@@ -1,4 +1,7 @@
 <?php
+
+# Switch case de tramite creado
+
 if (isset($_GET["m"])) {
     switch ($_GET["m"]) {
         case "1";

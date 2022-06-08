@@ -1,5 +1,7 @@
 <?php
 
+# Metodo para que el usuario solo vea sus tramites (Exhibicion)
+
 $rol = $_SESSION["rol_id"];
 $id_u = $_SESSION["usuario_id"];
 $id = $_GET["ID"];

@@ -2,7 +2,7 @@ function init() {}
 
 $(document).ready(function () {});
 
-// Funcion para ver u ocultar las contraseñas
+// Funcion para ver u ocultar la contraseña
 $(document).on("click", "#show_password", function (){
   var cambio = document.getElementById("pass");
   if(cambio.type == "password"){

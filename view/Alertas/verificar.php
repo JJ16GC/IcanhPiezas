@@ -1,4 +1,7 @@
 <?php
+
+# Mensaje de error por si el codigo de verficacion para cambio de contraseña no coincide
+
 if (isset($_GET["m"])) {
     switch ($_GET["m"]) {
         case "1";

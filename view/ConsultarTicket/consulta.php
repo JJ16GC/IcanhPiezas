@@ -1,4 +1,7 @@
 <?php
+
+# Conexion a la base de datos y Verificacion de inicio de sesion
+
 require_once("../../Config/conexion.php");
 if (isset($_SESSION["usuario_id"])) {
 ?>
@@ -19,6 +22,7 @@ if (isset($_SESSION["usuario_id"])) {
         <?php require_once("../MainNav/nav.php"); ?>
 
         <!-- Contenido -->
+
         <div class="page-content">
             <div class="container-fluid">
 
@@ -28,7 +32,7 @@ if (isset($_SESSION["usuario_id"])) {
                             <div class="tbl-cell">
                                 <h3>Consultar Trámite</h3>
                                 <ol class="breadcrumb breadcrumb-simple">
-                                    <li><a href="../Home/">Home</a></li>
+                                    <li><a href="../Home/indexlogin.php">Home</a></li>
                                     <li class="active">Consultar Trámite</li>
                                 </ol>
                             </div>
@@ -36,7 +40,7 @@ if (isset($_SESSION["usuario_id"])) {
                     </div>
                 </header>
                 <div>
-
+                    <!-- Mensaje de Ticket creado con exito  -->
                     <?php require_once('../Alertas/alertasticket.php'); ?>
                 </div>
                 <div class="box-typical box-typical-padding">
@@ -54,6 +58,9 @@ if (isset($_SESSION["usuario_id"])) {
                         <tbody>
 
                             <?php
+
+                            # Listar tramites analisis y/o exhibicion para usuarios
+
                             require_once("../../Models/Tramites.php");
                             $rol_id = $_SESSION["rol_id"];
                             $user_id = $_SESSION["usuario_id"];
@@ -90,7 +97,7 @@ if (isset($_SESSION["usuario_id"])) {
                                     }  ?>
 
                                     <td style="text-align: center;"> <?php echo $key["fecha_creacion"] ?></td>
-                                    
+
                                     <td style="text-align: center;"><a style="font-size: small; padding: 0.2rem 1rem" class="btn btn-secundary" href="../DetalleTicket/detalle.php?ID=<?php echo $key["tick_id"] ?>&m=1&c=a">Ver</a></td>
 
 
@@ -98,6 +105,8 @@ if (isset($_SESSION["usuario_id"])) {
                                 </tr>
                             <?php
                             }
+
+                            # Listar tramites analisis y/o exhibicion para usuarios
 
                             foreach ($result2 as $key) {
 
@@ -137,6 +146,7 @@ if (isset($_SESSION["usuario_id"])) {
 
             </div>
         </div>
+
         <!-- Contenido -->
 
         <?php require_once("../MainJs/js.php"); ?>

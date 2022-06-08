@@ -1,5 +1,6 @@
 function init() {}
 
+// Funcion llamado de plugin DataTable
 
 $(document).ready(function () {
   $("#ticket_data").DataTable({

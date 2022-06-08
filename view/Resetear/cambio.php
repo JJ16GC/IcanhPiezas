@@ -1,8 +1,11 @@
 <?php
+# Conexion a la base de datos
 require_once('../../Config/conexion.php');
 require_once("../../Models/Usuario.php");
 $usuario = new Usuario();
 $correo = $_SESSION['correo'];
+
+# Funcion Boton para verificar la nueva contraseña
 if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     $pass = $_POST["pass"];
     $passconf = $_POST["passconf"];
@@ -45,9 +48,11 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                     <div class="sign-avatar">
                         <img src="../../public/img/logo_ICANH.png" alt="" id="imgtipo">
                     </div>
+
+
                     <header class="sign-title label label-primary" id="lbltitulo">Ingrese su nueva contraseña</header>
 
-
+                    <!-- Switch errores contraseña nueva-->
                     <?php
                     if (isset($_GET["m"])) {
                         switch ($_GET["m"]) {
@@ -79,6 +84,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                     }
                     ?>
 
+                    <!-- Formulario Contraseña Nueva -->
                     <div class="form-group">
                         <input required type="password" id="pass" name="pass" class="form-control" placeholder="Password" />
                     </div>

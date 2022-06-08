@@ -1,5 +1,7 @@
 <?php
 
+# Funcion boton Create tramite exhibicion
+
 if (isset($_POST["submit"])) {
 
     $num_certf = $_POST["num_certf"];
@@ -25,6 +27,7 @@ if (isset($_POST["submit"])) {
     $fecha_salida = $_POST["fecha_salida"];
     $fecha_retorno = $_POST["fecha_retorno"];
 
+    # Subida de archivos Zip y PDF en la carpeta upload
 
     if (is_uploaded_file($_FILES['fichero']['tmp_name'])) {
 
