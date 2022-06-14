@@ -1,8 +1,10 @@
 <?php
+# Conexion a base de datos y verificacion de inicio de sesion 
 require_once("../../Config/conexion.php");
 if (!isset($_SESSION['usuario_id'])) {
     header("Location:" . conectar::ruta() . "index.php");
 }
+# Funcion para el boton crear nuevo tramite
 if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
 
     require_once("../../Models/Tramites_E.php");
@@ -25,6 +27,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
     <div class="mobile-menu-left-overlay"></div>
     <?php require_once("../MainNav/nav.php"); ?>
     <div class="page-content">
+        <!-- Contenido -->
         <div class="container" style="display: flex;  justify-content: center;">
             <div id="container" class="container-fluid ">
                 <header class="section-header">
@@ -273,7 +276,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                     Enviar
                                                 </button>
 
-                                                <!-- Modal -->
+                                                <!-- Modal error por si faltan datos -->
                                                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
@@ -303,6 +306,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                 </div>
             </div>
         </div>
+        <!-- Contenido -->
     </div>
 
     <?php require_once("../MainJs/js.php"); ?>

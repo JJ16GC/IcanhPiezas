@@ -32,6 +32,8 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
 
 </head>
 
+<!-- Formulario de inicio de sesion -->
+
 <body>
     <div class="page-center">
         <div class="page-center-in">
@@ -45,6 +47,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                     <div class="sign-avatar">
                         <img src="public/img/logo_ICANH.png" alt="" id="imgtipo">
                     </div>
+                    
                     <header class="sign-title label label-primary" id="lbltitulo">Acceso Usuario</header>
 
                     <!-- Alertas de registro por Inicio de Sesion con Google -->

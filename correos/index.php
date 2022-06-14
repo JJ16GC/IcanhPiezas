@@ -18,12 +18,12 @@ try {
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'correopruebasphp2022@gmail.com'; # Correo de la entidad
-    $mail->Password = '1522094jjgc'; # Contraseña del correo 
+    $mail->Password = 'tzywtfqzcunuhauv'; # Contraseña del correo 
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 
     $mail->setFrom('correopruebasphp2022@gmail.com', 'ICANH'); # Remitente del correo
-    $mail->addAddress($_SESSION["correo"], 'Receptor'); # Receptor del correo
+    $mail->addAddress($_SESSION['correo'], 'Receptor'); # Receptor del correo
 
     $mail->isHTML(true);
     $mail->Subject = 'Correo Notificacion ICANH'; # Titulo Correo Electronico

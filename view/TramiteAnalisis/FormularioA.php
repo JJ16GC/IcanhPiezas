@@ -1,8 +1,10 @@
 <?php
+# Conexion a base de datos y verificacion de inicio de sesion 
 require_once("../../Config/conexion.php");
 if (!isset($_SESSION['usuario_id'])) {
     header("Location:" . conectar::ruta() . "index.php");
 }
+# Funcion para el boton crear nuevo tramite
 if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
 
     require_once("../../Models/Tramites.php");
@@ -25,6 +27,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
     <div class="mobile-menu-left-overlay"></div>
     <?php require_once("../MainNav/nav.php"); ?>
     <div class="page-content">
+        <!-- Contenido -->
         <div class="container" style="display: flex;  justify-content: center;">
             <div id="container" class="container-fluid ">
                 <header class="section-header">
@@ -43,7 +46,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                 <div class="row">
                     <div class="container" style="display: flex;  justify-content: center;">
                         <div class="col-lg-10 box-typical box-typical-padding">
-
+                            <!-- Formulario creacion de tramite de analisis -->
                             <h5 style="margin-left: 15px;">Ingresar Información</h5>
                             <h5 style="font-size: 15px; margin-left: 15px;color: red;" class="with-border">* Obligatorio</h5>
 
@@ -241,7 +244,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                     Seleccione archivo: <input name="fichero" type="file" maxlength="150" accept="application/pdf,application/zip">
                                                 </div>
                                             </div>
-                                            
+
                                             <div class=" col-lg-2 next inline-block">
                                                 <input type="button" name="next" class="btn btn-primary" value="Siguiente" />
                                             </div>
@@ -312,7 +315,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                     Enviar
                                                 </button>
 
-                                                <!-- Modal -->
+                                                <!-- Modal error por si faltan datos -->
                                                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
@@ -342,7 +345,9 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                 </div>
             </div>
         </div>
+         <!-- Contenido -->
     </div>
+    
 
     <?php require_once("../MainJs/js.php"); ?>
     <script type="text/javascript" src="index.js"></script>

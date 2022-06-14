@@ -1,4 +1,5 @@
 <?php
+# Conexion a base de datos y verificacion de inicio de sesion 
 require_once("../../Config/conexion.php");
 if (!isset($_SESSION['usuario_id'])) {
     header("Location:" . conectar::ruta() . "index.php");
@@ -21,6 +22,8 @@ if (!isset($_SESSION['usuario_id'])) {
     <?php require_once("../MainNav/nav.php"); ?>
     <div class="page-content">
 
+        <!-- Contenido -->
+        <!-- Datos requeridos para un tramite de Analisis -->
         <div id="container" class="container-fluid" style="display: flex;  justify-content: center;">
 
             <div style="max-width: 850px;" class="row">
@@ -73,6 +76,7 @@ if (!isset($_SESSION['usuario_id'])) {
                 </div>
             </div>
         </div>
+        <!-- Contenido -->
     </div>
 </body>
 <?php require_once("../MainJs/js.php"); ?>

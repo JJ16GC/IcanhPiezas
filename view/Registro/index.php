@@ -1,7 +1,6 @@
 <?php
 # Conexion a la base de datos
 require_once("../../Config/conexion.php");
-session_destroy();
 
 # Verificacion de usuario registrado
 if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
@@ -10,6 +9,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
     $correo = $_POST["correo"];
+    $_SESSION['correo'] =  $correo;
     $pass = $_POST["pass"];
     $rol_id = '1';
     $usuario->get_usuario_x_correo($correo);

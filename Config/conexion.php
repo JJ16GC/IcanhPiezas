@@ -18,7 +18,7 @@ class Conectar
         }
     }
     public function set_names()
-        # Garantiza que se obtengan los datos en utf8
+    # Garantiza que se obtengan los datos en utf8
     {
         return $this->dbh->query("SET NAMES 'utf8'");
     }
