@@ -82,7 +82,7 @@ if (isset($_SESSION["usuario_id"])) {
                                     <a id="show_password" style="padding: 5px; margin: 4px 2px 0 2px;" type="button"> <span class="glyphicon glyphicon-eye-close icon"></span> </a>
                                 </div>
                                 <input type="hidden" name="enviar" class="form-control" value="si" id="enviar">
-                                <button type="submit" class="btn btn-rounded">Registrarse</button>
+                                <button type="submit" class="btn btn-rounded">Registrar</button>
 
 
 

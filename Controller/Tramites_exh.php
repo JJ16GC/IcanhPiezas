@@ -41,7 +41,6 @@ if (isset($_POST["submit"])) {
 
 
         if (move_uploaded_file($_FILES['fichero']['tmp_name'], $upload)) { //movemos el archivo a su ubicacion 
-
             $anexos = $nombre_exp . $nombrefinal;
         }
     }
@@ -75,8 +74,7 @@ if (isset($_POST["submit"])) {
     $usu_id = $_SESSION["usuario_id"];
     $usuario->insert_det_exh($usu_id, $categoria, $estado);
 
-
-    header("Location:" . conectar::ruta() . "view/ConsultarTicket/consulta.php");
+    header("Location:" . conectar::ruta() . "correos/index.php?pag=3");
 } else {
     header("Location:" . conectar::ruta() . "view/");
 }

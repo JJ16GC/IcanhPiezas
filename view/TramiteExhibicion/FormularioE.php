@@ -37,7 +37,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                 <h4 style="max-width: 800px; margin-left: 90px;">SOLICITUD DE AUTORIZACIÓN DE SALIDA TEMPORAL DE BIENES ARQUEOLÓGICOS, PARA EXHIBICIÓN EN EL EXTERIOR.</h4>
                                 <ol style="margin-left: 90px;" class="breadcrumb breadcrumb-simple">
                                     <li><a href="../Home/index.php">Home</a></li>
-                                    <li class="active">Nuevo Ticket Para Análisis</li>
+                                    <li class="active">Nuevo Ticket Para Exhibición</li>
                                 </ol>
                             </div>
                         </div>
@@ -67,7 +67,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="otrotip">Solicitante:</label>
+                                                    <label class="form-label semibold" for="otrotip">Solicitante:<span style="color: red;">*</span></label>
                                                     <p>Nombre de persona natural o jurídica responsable de la Tenencia.</p>
                                                     <input type="text" class="form-control" id="nom_solic" name="nom_solic" required>
                                                 </fieldset>
@@ -167,7 +167,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="correo">Correo Electronico:<span style="color: red;">*</span></label>
-                                                    <input type="email" class="form-control" id="correo" name="correo" required>
+                                                    <input value="<?php echo $_SESSION["correo"] ?>" type="email" class="form-control" id="correo" name="correo" required readonly>
                                                 </fieldset>
                                             </div>
                                             <div class=" col-lg-2 next inline-block">
@@ -271,30 +271,9 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                 <input type="button" name="previous" class="btn btn-default" value="Previo" />
                                             </div>
                                             <div class="inline-block">
-
                                                 <button type="submit" name="submit" disabled="disabled" class="btn btn-success submit delete" value="Enviar" id="submit_data" data-toggle="modal" data-target="#exampleModalCenter">
                                                     Enviar
                                                 </button>
-
-                                                <!-- Modal error por si faltan datos -->
-                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLongTitle">Debe llenar todos los campos solicitados ❌</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div style="text-align: center;" class="modal-body">
-                                                                Verifique que todos los campos con <span style="color: red;">*</span> esten diligenciados
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </fieldset>
                                     </form>

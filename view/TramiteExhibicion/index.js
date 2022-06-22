@@ -8,9 +8,27 @@ $(document).ready(function () {
   steps = $("fieldset").length;
   $(".next").click(function () {
     current_step = $(this).parent();
-    next_step = $(this).parent().next();
-    next_step.show();
-    current_step.hide();
+    var inputs = current_step.find("input");
+    var countFails = 0;
+
+    /**aqui busca si hay informacion el validationMesagge, el cual solo esta lleno cuando el campo esta mal diligenciado*/
+
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].validationMessage != "") {
+        countFails++;
+      }
+    }
+    /*solo vamos a pasar al siguiente cuando ningun input tenga error*/
+    if (countFails == 0) {
+      current_step = $(this).parent();
+      next_step = $(this).parent().next();
+      next_step.show();
+      current_step.hide();
+    }
+
+    if (countFails > 0) {
+      window.alert("Faltan datos por llenar");
+    }
   });
   $(".previous").click(function () {
     current_step = $(this).parent();

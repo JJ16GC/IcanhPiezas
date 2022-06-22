@@ -62,8 +62,7 @@ if (isset($_POST["submit"])) {
     $usu_id = $_SESSION["usuario_id"];
     $usuario->insert_detalle($usu_id, $categoria, $estado);
 
-
-    header("Location:" . conectar::ruta() . "view/ConsultarTicket/consulta.php");
+    header("Location:" . conectar::ruta() . "correos/index.php?pag=4");
 } else {
     header("Location:" . conectar::ruta() . "view/");
 }

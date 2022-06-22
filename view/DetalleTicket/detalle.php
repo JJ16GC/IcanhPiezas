@@ -13,39 +13,53 @@ if (isset($_POST["btncerrarticket"]) and $_POST["btncerrarticket"] == "si") {
     if ($_SESSION["estado"] == "Abierto") {
         if ($_GET["c"] == "e") {
             $usuario->update_estado_cerrado_exh($_GET["ID"]);
+            header("Location:" . Conectar::ruta() . "correos/index.php?pag=8&ID=" . $_GET["ID"] . "&c=e");
         } else {
             $usuario->update_estado_cerrado($_GET["ID"]);
+            header("Location:" . Conectar::ruta() . "correos/index.php?pag=7&ID=" . $_GET["ID"] . "&c=a");
         }
     } else {
         if ($_GET["c"] == "e") {
             $usuario->update_estado_abierto_exh($_GET["ID"]);
+            header("Location:" . Conectar::ruta() . "view/ConsultarTicket/consulta.php");
         } else {
             $usuario->update_estado_abierto($_GET["ID"]);
+            header("Location:" . Conectar::ruta() . "view/ConsultarTicket/consulta.php");
         }
     }
-    header("Location:" . Conectar::ruta() . "view/ConsultarTicket/consulta.php");
 }
 
-# Funcion del boton para cerrar un comentario en los tramites de ehxibicion
+# Funcion del boton para crear un comentario en los tramites de ehxibicion
 
 if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     if ($_GET["c"] == "e") {
         require_once("../../Models/Tramites.php");
         $usuario = new Usuario();
         $comentario = $_POST["comentario"];
+        $cat = $_GET["c"];
         $tramite_id = $_GET["ID"];
+        $_SESSION['tr_e_id'] = $tramite_id;
         $usuario_id = $_SESSION["usuario_id"];
         $usuario->insertar_com_exh($tramite_id, $usuario_id, $comentario);
-        header("Location:" . Conectar::ruta() . "correos/index.php?pag=3");
+        if ($_SESSION["rol_id"] == 2) {
+            header("Location:" . Conectar::ruta() . "correos/index.php?pag=5&ID=" . $tramite_id . "&c=e");
+        } else {
+            header("Location:" . Conectar::ruta() . "view/ConsultarTicket/consulta.php");
+        }
     }
-    # Funcion del boton para cerrar un comentario en los tramites de analisis
+    # Funcion del boton para crear un comentario en los tramites de analisis
     require_once("../../Models/Tramites.php");
     $usuario = new Usuario();
     $comentario = $_POST["comentario"];
     $tramite_id = $_GET["ID"];
+    $_SESSION['tr_a_id'] = $tramite_id;
     $usuario_id = $_SESSION["usuario_id"];
     $usuario->insertar_comentario($tramite_id, $usuario_id, $comentario);
-    header("Location:" . Conectar::ruta() . "correos/index.php?pag=3");
+    if ($_SESSION["rol_id"] == 2) {
+        header("Location:" . Conectar::ruta() . "correos/index.php?pag=6&ID=" . $tramite_id . "&c=a");
+    } else {
+        header("Location:" . Conectar::ruta() . "view/ConsultarTicket/consulta.php");
+    }
 }
 
 # Verificacion de inicio de sesion
@@ -207,7 +221,7 @@ if (isset($_SESSION["usuario_id"])) {
                 <form action="" method="post">
                     <div>
                         <!-- Cerrar tramite -->
-                        <?php if ($_SESSION["rol_id"] == 2 && $key["estado"] == "Abierto")  {
+                        <?php if ($_SESSION["rol_id"] == 2 && $key["estado"] == "Abierto") {
 
                         ?>
                             <div>

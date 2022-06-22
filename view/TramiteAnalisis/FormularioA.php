@@ -10,6 +10,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
     require_once("../../Models/Tramites.php");
     $usuario = new Usuario();
     require_once("../../Controller/Tramites.php");
+    
 }
 
 ?>
@@ -52,7 +53,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
 
                             <div class="row">
                                 <div class="container">
-                                    <form id="regiration_form" action="" method="post" enctype="multipart/form-data">
+                                    <form name="favalida" id="regiration_form" action="" method="post" enctype="multipart/form-data">
                                         <fieldset>
                                             <div class="col-lg-12">
                                                 <h4>Paso 1: <span>Información Básica Del Solicitante</span></h4>
@@ -111,19 +112,19 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="profesion">Profesión:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="profesion" name="profesion">
+                                                    <input type="text" class="form-control" id="profesion" name="profesion" required>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="telefono">Telefono/Celular:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="telefono" name="telefono">
+                                                    <input type="text" class="form-control" id="telefono" name="telefono" required>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="correo">Correo Electronico:<span style="color: red;">*</span></label>
-                                                    <input type="email" class="form-control" id="correo" name="correo" required>
+                                                    <input value="<?php echo $_SESSION["correo"] ?>" type="email" class="form-control" id="correo" name="correo" required readonly>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
@@ -135,13 +136,13 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="entidadvinc">Entidad Vinculado:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="entidadvinc" name="entidadvinc">
+                                                    <input type="text" class="form-control" id="entidadvinc" name="entidadvinc" required>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="cargo">Cargo:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="cargo" name="cargo">
+                                                    <input type="text" class="form-control" id="cargo" name="cargo" required>
                                                 </fieldset>
                                             </div>
 
@@ -164,26 +165,26 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="numaut">Número de Autorización o Resolución ICANH:<span style="color: red;">*</span></label>
                                                     <p>Si son varios, por favor sepárelos con una coma.</p>
-                                                    <input type="text" class="form-control" id="numaut" name="numaut">
+                                                    <input type="text" class="form-control" id="numaut" name="numaut" required>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="titulo">Titulo:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="titulo" name="titulo">
+                                                    <input type="text" class="form-control" id="titulo" name="titulo" required>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="numcert">Número de Certificado de Registro y Tenencia ICANH:<span style="color: red;">*</span></label>
                                                     <p>Si son varios, por favor sepárelos con una coma</p>
-                                                    <input type="text" class="form-control" id="numcert" name="numcert">
+                                                    <input type="text" class="form-control" id="numcert" name="numcert" required>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="nomproyecto">Nombre del proyecto de Investigación:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="nomproyecto" name="nomproyecto">
+                                                    <input type="text" class="form-control" id="nomproyecto" name="nomproyecto" required>
                                                 </fieldset>
                                             </div>
                                             <div class=" col-lg-2 next inline-block">
@@ -202,14 +203,14 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                 <fieldset class="form-group">
                                                     <span>TIPO DEL ANÁLISIS</span>
                                                     <label class="form-label semibold" for="desctipo">Descripción del Tipo de análisis:<span style="color: red;">*</span></label>
-                                                    <textarea rows="4" class="form-control" id="desctipo" name="desctipo"></textarea>
+                                                    <textarea rows="4" class="form-control" id="desctipo" name="desctipo" required></textarea>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
                                                     <span>METODOLOGÍA DEL ANÁLISIS.</span>
                                                     <label class="form-label semibold" for="descmet">Descripción metodología del análisis:<span style="color: red;">*</span></label>
-                                                    <textarea rows="4" class="form-control" id="descmet" name="descmet"></textarea>
+                                                    <textarea rows="4" class="form-control" id="descmet" name="descmet" required></textarea>
                                                 </fieldset>
                                             </div>
                                             <div class=" col-lg-2 next inline-block">
@@ -228,13 +229,13 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="descmate">Descripción del material:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="descmate" name="descmate">
+                                                    <input type="text" class="form-control" id="descmate" name="descmate" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="cantidad">Cantidad de piezas/muestras:<span style="color: red;">*</span></label>
-                                                    <input type="number" class="form-control" id="cantidad" name="cantidad">
+                                                    <input type="number" class="form-control" id="cantidad" name="cantidad" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
@@ -261,7 +262,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="exampleInput">País:<span style="color: red;">*</span></label>
-                                                    <select id="pais" name="pais" class="form-control">
+                                                    <select id="pais" name="pais" class="form-control" required>
                                                         <option>-- Seleccione --</option>
                                                         <?php require_once("paises.php"); ?>
                                                     </select>
@@ -270,38 +271,38 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="ciudad">Ciudad:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="ciudad" name="ciudad">
+                                                    <input type="text" class="form-control" id="ciudad" name="ciudad" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="institucion">Institución donde se realizarán los análisis:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="institucion" name="institucion">
+                                                    <input type="text" class="form-control" id="institucion" name="institucion" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="lugar">Lugar donde se realizarán los análisis:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="lugar" name="lugar">
+                                                    <input type="text" class="form-control" id="lugar" name="lugar" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="fecha_salida">Fecha de salida del país de los materiales:<span style="color: red;">*</span></label>
-                                                    <input type="date" class="form-control" id="fecha_salida" name="fecha_salida">
+                                                    <input type="date" class="form-control" id="fecha_salida" name="fecha_salida" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="fecha_retorno">Fecha de retorno de los mismos al país:<span style="color: red;">*</span></label>
-                                                    <input type="date" class="form-control" id="fecha_retorno" name="fecha_retorno">
+                                                    <input type="date" class="form-control" id="fecha_retorno" name="fecha_retorno" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="nombre_encargado">Nombre de quien lleva el material:<span style="color: red;">*</span></label>
                                                     <p>persona o empresa que se encargará del traslado.</p>
-                                                    <input type="text" class="form-control" id="nombre_encargado" name="nombre_encargado">
+                                                    <input type="text" class="form-control" id="nombre_encargado" name="nombre_encargado" required>
                                                     <input class="checkbox" style="margin: 15px 15px 15px 0;" id="terminos" type="checkbox"><a href="../../public/img/Politica proteccion datos personales.PDF" target="_blank">Acepto el tratamiento de mis datos personales</a>
                                                 </div>
                                             </div>
@@ -315,25 +316,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                     Enviar
                                                 </button>
 
-                                                <!-- Modal error por si faltan datos -->
-                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLongTitle">Error ❌</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div style="text-align: center;" class="modal-body">
-                                                                Debe llenar todo los campos solicitados
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </fieldset>
                                     </form>
@@ -345,9 +328,9 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                 </div>
             </div>
         </div>
-         <!-- Contenido -->
+        <!-- Contenido -->
     </div>
-    
+
 
     <?php require_once("../MainJs/js.php"); ?>
     <script type="text/javascript" src="index.js"></script>
