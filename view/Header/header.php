@@ -24,7 +24,7 @@
                             <img src="../../public/img/<?php echo $_SESSION["rol_id"] ?>.png" alt="">
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd-user-menu">
-                            <a class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-question-sign"></span>Ayuda</a>
+                            <a <?php if ($_SESSION["rol_id"] == 2){ ?> href="../../public/img/MANUAL DE ADMINISTRADOR.pdf" <?php  } else { ?> href="../../public/img/MANUAL DE USUARIO.pdf" <?php  } ?>  target="_blank" class="dropdown-item" href="#"><span class="font-icon glyphicon glyphicon-question-sign"></span>Ayuda</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="../CerrarSesion//cerrarsesion.php"><span class="font-icon glyphicon glyphicon-log-out"></span>Cerrar Sesion</a>
                         </div>
