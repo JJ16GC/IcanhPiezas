@@ -17,7 +17,7 @@ $google_client->setClientId('1005163221095-jo67gihb71mi10l1495psjhq024olfrn.apps
 $google_client->setClientSecret('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');
 
 //Set the OAuth 2.0 Redirect URI | URL AUTORIZADO
-$google_client->setRedirectUri('http://localhost/Trabajo/icanh/view/Home/');
+$google_client->setRedirectUri('http://localhost/icanh/view/Home/');
 
 // to get the email and profile | Obtenemos Correo y perfil del usuario
 $google_client->addScope('email');

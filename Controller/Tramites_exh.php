@@ -33,7 +33,7 @@ if (isset($_POST["submit"])) {
 
         $nombre_exp = trim($nombre_exp);
         // creamos las variables para subir a la db
-        $ruta = "C:/xampp/htdocs/TRABAJO/ICANH/public/upload/";
+        $ruta = "C:/xampp/htdocs/ICANH/public/upload/";
         $nombrefinal = trim($_FILES['fichero']['name']); //Eliminamos los espacios en blanco
         $nombrefinal = preg_replace("/\s+/", '', $nombrefinal); //Sustituye una expresión regular
         $upload = $ruta . $nombre_exp . $nombrefinal;
@@ -50,7 +50,7 @@ if (isset($_POST["submit"])) {
 
         $nombre_exp = trim($nombre_exp);
         // creamos las variables para subir a la db
-        $ruta = "C:/xampp/htdocs/TRABAJO/ICANH/public/upload/";
+        $ruta = "C:/xampp/htdocs/ICANH/public/upload/";
         $nombrefinal = trim($_FILES['fichero_piezas']['name']); //Eliminamos los espacios en blanco
         $nombrefinal = preg_replace("/\s+/", '', $nombrefinal); //Sustituye una expresión regular
         $upload = $ruta . $nombre_exp . $nombrefinal;

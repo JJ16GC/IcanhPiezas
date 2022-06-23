@@ -25,6 +25,6 @@ class Conectar
     public static function ruta()
     {
         # Ruta de redireccion por defecto
-        return "http://localhost/Trabajo/icanh/";
+        return "http://localhost/icanh/";
     }
 }
