@@ -44,7 +44,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
         if ($_SESSION["rol_id"] == 2) {
             header("Location:" . Conectar::ruta() . "correos/index.php?pag=5&ID=" . $tramite_id . "&c=e");
         } else {
-            header("Location:" . Conectar::ruta() . "view/ConsultarTicket/consulta.php");
+            header("Location:" . Conectar::ruta() . "view/DetalleTicket/detalle.php?ID=" . $tramite_id . "&m=1&c=e");
         }
     }
     # Funcion del boton para crear un comentario en los tramites de analisis
@@ -58,7 +58,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
     if ($_SESSION["rol_id"] == 2) {
         header("Location:" . Conectar::ruta() . "correos/index.php?pag=6&ID=" . $tramite_id . "&c=a");
     } else {
-        header("Location:" . Conectar::ruta() . "view/ConsultarTicket/consulta.php");
+        header("Location:" . Conectar::ruta() . "view/DetalleTicket/detalle.php?ID=" . $tramite_id . "&m=1&c=a");
     }
 }
 

@@ -11,6 +11,7 @@ $(document).ready(function () {
 
     current_step = $(this).parent();
     var inputs = current_step.find("input");
+    var textareas = current_step.find("textarea");
     var countFails = 0;
 
     /**aqui busca si hay informacion el validationMesagge, el cual solo esta lleno cuando el campo esta mal diligenciado*/
@@ -20,6 +21,14 @@ $(document).ready(function () {
         countFails++;
       }
     }
+
+    for (var i = 0; i < textareas.length; i++) {
+      if (textareas[i].validationMessage != "") {
+        countFails++;
+      }
+    }
+
+
     /*solo vamos a pasar al siguiente cuando ningun input tenga error*/
     if (countFails == 0) {
       current_step = $(this).parent();

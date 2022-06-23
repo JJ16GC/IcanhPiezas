@@ -203,7 +203,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                 <fieldset class="form-group">
                                                     <span>TIPO DEL ANÁLISIS</span>
                                                     <label class="form-label semibold" for="desctipo">Descripción del Tipo de análisis:<span style="color: red;">*</span></label>
-                                                    <textarea rows="4" class="form-control" id="desctipo" name="desctipo" required></textarea>
+                                                    <textarea rows="4" class="form-control" id="desctipo" name="desctipo" required="required"></textarea>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
@@ -242,7 +242,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                 <div class="form-group">
                                                     <label>Cargue anexos:<span style="color: red;">*</span></label></label>
                                                     <p>Cargar en un único archivo PDF o ZIP (el nombre del archivo no debe tener tildes) documentos adicionales como el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o una Autorización de intervención) o fotografías del material arqueológico.</p>
-                                                    Seleccione archivo: <input name="fichero" type="file" maxlength="150" accept="application/pdf,application/zip">
+                                                    Seleccione archivo: <input name="fichero" type="file" maxlength="150" accept="application/pdf,application/zip" required>
                                                 </div>
                                             </div>
 
