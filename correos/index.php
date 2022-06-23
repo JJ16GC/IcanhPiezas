@@ -110,10 +110,12 @@ try {
             header("Location:" . conectar::ruta() . "view/ConsultarTicket/consulta.php");
             break;
         case '5':
-            header("Location:" . conectar::ruta() . "view/ConsultarTicket/consulta.php");
+            $tramite_id = $_GET["ID"];
+            header("Location:" . conectar::ruta() . "view/DetalleTicket/detalle.php?ID=" . $tramite_id . "&m=1&c=e");
             break;
         case '6':
-            header("Location:" . conectar::ruta() . "view/ConsultarTicket/consulta.php");
+            $tramite_id = $_GET["ID"];
+            header("Location:" . conectar::ruta() . "view/DetalleTicket/detalle.php?ID=" . $tramite_id . "&m=1&c=a");
             break;
         case '7':
             header("Location:" . conectar::ruta() . "view/ConsultarTicket/consulta.php");
