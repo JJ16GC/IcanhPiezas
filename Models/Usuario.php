@@ -60,7 +60,6 @@ class Usuario extends Conectar
         $sql->bindValue(5, $rol_id);
         $sql->execute();
         return $resultado = $sql->fetchAll();
-        
     }
 
     # Actualizar Contraseña
@@ -104,5 +103,26 @@ class Usuario extends Conectar
             $_SESSION["usuario_id"] = $resultado["usuario_id"];
         }
     }
-    
+
+    public function update_estado_hab($correo)
+    {
+        $conectar = parent::conexion();
+        parent::set_names();
+        $sql = "UPDATE usuario SET estado = 1 WHERE correo = ?";
+        $stmt = $conectar->prepare($sql);
+        $stmt->bindValue(1, $correo);
+        $stmt->execute();
+        return $resultado = $stmt->fetchAll();
+    }
+
+    public function update_estado_desh($correo)
+    {
+        $conectar = parent::conexion();
+        parent::set_names();
+        $sql = "UPDATE usuario SET estado = 0 WHERE correo = ?";
+        $stmt = $conectar->prepare($sql);
+        $stmt->bindValue(1, $correo);
+        $stmt->execute();
+        return $resultado = $stmt->fetchAll();
+    }
 }

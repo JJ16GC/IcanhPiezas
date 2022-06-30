@@ -54,6 +54,12 @@ if ($_SESSION["rol_id"] == 1) {
                     <span class="lbl">Mantenimiento<br>Usuarios Adm</span>
                 </a>
             </li>
+            <li class="blue-dirty">
+                <a href="../Deshabilitar/consulta.php">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                    <span class="lbl">Lista<br>Usuarios Adm</span>
+                </a>
+            </li>
 
         </ul>
     </nav>
