@@ -48,7 +48,7 @@ if (!isset($_SESSION['usuario_id'])) {
                                     <a>Fecha de salida de las piezas y retorno de las mismas al país:</a> Fecha de salida, Fecha de retorno.</a>
                                 </li>
                                 <li>
-                                    <a>Cargue anexos (pdf):</a> Cargar un único archivo PDF (el nombre del archivo no debe tener tildes) con los documentos: </a>
+                                    <a>Cargue anexos:</a> Cargar en un único archivo RAR, 7Z, ZIP o PDF con los siguientes documentos: </a>
                                     <ol type="1">
                                         <li>Copia del proyecto cultural o científico.</li>
                                         <li>Nombre, dirección y teléfono de la entidad responsable de las piezas arqueológicas tanto en Colombia como en el Exterior, país, ciudad y sitio Museo o Institución Cultural donde se llevará a cabo el evento o exposición.</li>
@@ -57,7 +57,7 @@ if (!isset($_SESSION['usuario_id'])) {
                                     </ol>
                                 </li>
                                 <li>
-                                    <a>Cargue Piezas (zip):</a> Cargar en un único archivo ZIP (el nombre del archivo no debe tener tildes), las fotografías de cada una de las piezas a exportar. Los nombres de las fotos de cada pieza, deben corresponder con el código con el que se registraron en el ICANH.
+                                    <a>Cargue Piezas:</a> Cargar en un único archivo RAR, 7Z, ZIP o PDF: las fotografías de cada una de las piezas a exportar. Los nombres de las fotos de cada pieza, deben corresponder con el código con el que se registraron en el ICANH.
                                 </li>
                                 <li>
                                     <a>Datos adicionales de las piezas a exportar: información adicional del material a exportar, que el usuario considere necesario mencionar.</a>
@@ -71,7 +71,7 @@ if (!isset($_SESSION['usuario_id'])) {
                             </ol>
                             <p>Una vez revisada la información diligenciada, el ICANH envía al correo electrónico del solicitante el estado del trámite.</p>
                             <div style="margin-top: 40px;">
-                                <a href="FormularioE.php" class="btn btn-primary">Crear Tramite</a>
+                                <a href="FormularioE.php" class="btn btn-primary">Crear Trámite</a>
                             </div>
 
                         </div>

@@ -6,11 +6,11 @@ class Usuario extends Conectar
 {
 
     # Crear nuevo tramite de analisis
-    public function insert_tramitea($tipodoc, $otrotip, $numdoc, $pnombre, $snombre, $papellido, $sapellido, $profesion, $telefono, $correo, $direccion, $entidadvinc, $cargo, $numaut, $titulo, $numcert, $nomproyecto, $desctipo, $descmet, $descmate, $cantidad, $anexos, $pais, $ciudad, $institucion, $lugar, $fecha_salida, $fecha_retorno, $nombre_encargado, $estado)
+    public function insert_tramitea($tipodoc, $otrotip, $numdoc, $pnombre, $snombre, $papellido, $sapellido, $profesion, $telefono, $celular, $correo, $direccion, $entidadvinc, $cargo, $numaut, $titulo, $numcert, $nomproyecto, $desctipo, $descmet, $descmate, $cantidad, $anexos, $pais, $ciudad, $institucion, $lugar, $fecha_salida, $fecha_retorno, $nombre_encargado, $estado)
     {
         $conectar = parent::conexion();
         parent::set_names();
-        $sql = "INSERT INTO tramite (id_tramite,tipodoc,otrotip,numdoc,pnombre,snombre,papellido,sapellido,profesion,telefono,correo,direccion,entidadvinc,cargo,numaut,titulo,numcert,nomproyecto,desctipo,descmet,descmate,cantidad,anexos,pais,ciudad,institucion,lugar,fecha_salida,fecha_retorno,nombre_encargado,estado) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+        $sql = "INSERT INTO tramite (id_tramite,tipodoc,otrotip,numdoc,pnombre,snombre,papellido,sapellido,profesion,telefono,celular,correo,direccion,entidadvinc,cargo,numaut,titulo,numcert,nomproyecto,desctipo,descmet,descmate,cantidad,anexos,pais,ciudad,institucion,lugar,fecha_salida,fecha_retorno,nombre_encargado,estado) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
         $sql = $conectar->prepare($sql);
         $sql->bindValue(1, $tipodoc);
         $sql->bindValue(2, $otrotip);
@@ -21,27 +21,28 @@ class Usuario extends Conectar
         $sql->bindValue(7, $sapellido);
         $sql->bindValue(8, $profesion);
         $sql->bindValue(9, $telefono);
-        $sql->bindValue(10, $correo);
-        $sql->bindValue(11, $direccion);
-        $sql->bindValue(12, $entidadvinc);
-        $sql->bindValue(13, $cargo);
-        $sql->bindValue(14, $numaut);
-        $sql->bindValue(15, $titulo);
-        $sql->bindValue(16, $numcert);
-        $sql->bindValue(17, $nomproyecto);
-        $sql->bindValue(18, $desctipo);
-        $sql->bindValue(19, $descmet);
-        $sql->bindValue(20, $descmate);
-        $sql->bindValue(21, $cantidad);
-        $sql->bindValue(22, $anexos);
-        $sql->bindValue(23, $pais);
-        $sql->bindValue(24, $ciudad);
-        $sql->bindValue(25, $institucion);
-        $sql->bindValue(26, $lugar);
-        $sql->bindValue(27, $fecha_salida);
-        $sql->bindValue(28, $fecha_retorno);
-        $sql->bindValue(29, $nombre_encargado);
-        $sql->bindValue(30, $estado);
+        $sql->bindValue(10, $celular);
+        $sql->bindValue(11, $correo);
+        $sql->bindValue(12, $direccion);
+        $sql->bindValue(13, $entidadvinc);
+        $sql->bindValue(14, $cargo);
+        $sql->bindValue(15, $numaut);
+        $sql->bindValue(16, $titulo);
+        $sql->bindValue(17, $numcert);
+        $sql->bindValue(18, $nomproyecto);
+        $sql->bindValue(19, $desctipo);
+        $sql->bindValue(20, $descmet);
+        $sql->bindValue(21, $descmate);
+        $sql->bindValue(22, $cantidad);
+        $sql->bindValue(23, $anexos);
+        $sql->bindValue(24, $pais);
+        $sql->bindValue(25, $ciudad);
+        $sql->bindValue(26, $institucion);
+        $sql->bindValue(27, $lugar);
+        $sql->bindValue(28, $fecha_salida);
+        $sql->bindValue(29, $fecha_retorno);
+        $sql->bindValue(30, $nombre_encargado);
+        $sql->bindValue(31, $estado);
         $sql->execute();
         return $resultado = $sql->fetchAll();
     }
@@ -175,11 +176,11 @@ class Usuario extends Conectar
     }
 
     # Actualizar tramite analisis
-    public function update_tramitea($tipodoc, $otrotip, $numdoc, $pnombre, $snombre, $papellido, $sapellido, $profesion, $telefono, $correo, $direccion, $entidadvinc, $cargo, $numaut, $titulo, $numcert, $nomproyecto, $desctipo, $descmet, $descmate, $cantidad, $anexos, $pais, $ciudad, $institucion, $lugar, $fecha_salida, $fecha_retorno, $nombre_encargado, $estado, $id_tramite)
+    public function update_tramitea($tipodoc, $otrotip, $numdoc, $pnombre, $snombre, $papellido, $sapellido, $profesion, $telefono, $celular, $correo, $direccion, $entidadvinc, $cargo, $numaut, $titulo, $numcert, $nomproyecto, $desctipo, $descmet, $descmate, $cantidad, $anexos, $pais, $ciudad, $institucion, $lugar, $fecha_salida, $fecha_retorno, $nombre_encargado, $estado, $id_tramite)
     {
         $conectar = parent::conexion();
         parent::set_names();
-        $sql = "UPDATE tramite SET tipodoc = ?,otrotip = ?,numdoc = ?,pnombre = ?,snombre = ?,papellido = ?,sapellido = ?,profesion = ?,telefono = ?,correo = ?,direccion = ?,entidadvinc = ?,cargo = ?,numaut = ?,titulo = ?,numcert = ?,nomproyecto = ?,desctipo = ?,descmet = ?,descmate = ?,cantidad = ?,anexos = ?,pais = ?,ciudad = ?,institucion = ?,lugar = ?,fecha_salida = ?,fecha_retorno = ?,nombre_encargado = ?,estado = ? WHERE id_tramite = ?";
+        $sql = "UPDATE tramite SET tipodoc = ?,otrotip = ?,numdoc = ?,pnombre = ?,snombre = ?,papellido = ?,sapellido = ?,profesion = ?,telefono = ?,celular = ?,correo = ?,direccion = ?,entidadvinc = ?,cargo = ?,numaut = ?,titulo = ?,numcert = ?,nomproyecto = ?,desctipo = ?,descmet = ?,descmate = ?,cantidad = ?,anexos = ?,pais = ?,ciudad = ?,institucion = ?,lugar = ?,fecha_salida = ?,fecha_retorno = ?,nombre_encargado = ?,estado = ? WHERE id_tramite = ?";
         $sql = $conectar->prepare($sql);
         $sql->bindValue(1, $tipodoc);
         $sql->bindValue(2, $otrotip);
@@ -190,28 +191,29 @@ class Usuario extends Conectar
         $sql->bindValue(7, $sapellido);
         $sql->bindValue(8, $profesion);
         $sql->bindValue(9, $telefono);
-        $sql->bindValue(10, $correo);
-        $sql->bindValue(11, $direccion);
-        $sql->bindValue(12, $entidadvinc);
-        $sql->bindValue(13, $cargo);
-        $sql->bindValue(14, $numaut);
-        $sql->bindValue(15, $titulo);
-        $sql->bindValue(16, $numcert);
-        $sql->bindValue(17, $nomproyecto);
-        $sql->bindValue(18, $desctipo);
-        $sql->bindValue(19, $descmet);
-        $sql->bindValue(20, $descmate);
-        $sql->bindValue(21, $cantidad);
-        $sql->bindValue(22, $anexos);
-        $sql->bindValue(23, $pais);
-        $sql->bindValue(24, $ciudad);
-        $sql->bindValue(25, $institucion);
-        $sql->bindValue(26, $lugar);
-        $sql->bindValue(27, $fecha_salida);
-        $sql->bindValue(28, $fecha_retorno);
-        $sql->bindValue(29, $nombre_encargado);
-        $sql->bindValue(30, $estado);
-        $sql->bindValue(31, $id_tramite);
+        $sql->bindValue(10, $celular);
+        $sql->bindValue(11, $correo);
+        $sql->bindValue(12, $direccion);
+        $sql->bindValue(13, $entidadvinc);
+        $sql->bindValue(14, $cargo);
+        $sql->bindValue(15, $numaut);
+        $sql->bindValue(16, $titulo);
+        $sql->bindValue(17, $numcert);
+        $sql->bindValue(18, $nomproyecto);
+        $sql->bindValue(19, $desctipo);
+        $sql->bindValue(20, $descmet);
+        $sql->bindValue(21, $descmate);
+        $sql->bindValue(22, $cantidad);
+        $sql->bindValue(23, $anexos);
+        $sql->bindValue(24, $pais);
+        $sql->bindValue(25, $ciudad);
+        $sql->bindValue(26, $institucion);
+        $sql->bindValue(27, $lugar);
+        $sql->bindValue(28, $fecha_salida);
+        $sql->bindValue(29, $fecha_retorno);
+        $sql->bindValue(30, $nombre_encargado);
+        $sql->bindValue(31, $estado);
+        $sql->bindValue(32, $id_tramite);
         $sql->execute();
         return $resultado = $sql->fetchAll();
     }
@@ -243,6 +245,7 @@ class Usuario extends Conectar
         $sql->execute();
         return $resultado = $sql->fetchAll();
     }
+
 
     # Actualizar tramite de exhibicion
     public function update_tramite_exh($num_certf, $nom_solic, $tipo_doc, $cual, $num_doc, $num_piezas, $p_nombre, $s_nombre, $p_apellido, $s_apellido, $tipo_doc_r, $cual_r, $num_doc_r, $correo, $f_inicion_exp, $f_final_exp, $pais, $ciudad, $lugar, $nombre_exp, $fecha_salida, $fecha_retorno, $anexos, $piezas, $datos_adic, $estado, $id_tramite)

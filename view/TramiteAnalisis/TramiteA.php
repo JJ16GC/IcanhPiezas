@@ -58,7 +58,7 @@ if (!isset($_SESSION['usuario_id'])) {
                                     <a>Muestras a analizar:</a> Descripción del material, Cantidad de piezas/muestras.
                                 </li>
                                 <li>
-                                    <a>Cargue anexos:</a> Cargar en un único archivo PDF (el nombre del archivo no debe tener tildes) documentos adicionales como el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o una Autorización de intervención) o fotos.
+                                    <a>Cargue de documentos o fotos adicionales:</a> Cargar en un único archivo RAR, 7Z, ZIP o PDF: documentos adicionales como el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o una Autorización de intervención) o fotos.
                                 </li>
                                 <li>
                                     <a>Datos del análisis:</a> País, Ciudad, Institución y Lugar en donde se realizarán los análisis, Fecha de salida de los materiales y retorno de los mismos al país, nombre de quien lleva el material (persona o empresa que se encargará del traslado).
@@ -69,7 +69,7 @@ if (!isset($_SESSION['usuario_id'])) {
                             </ol>
                             <p>Una vez revisada la información diligenciada, el ICANH envía al correo electrónico del solicitante el estado del trámite.</p>
                             <div style="margin-top: 40px;">
-                                <a href="FormularioA.php" class="btn btn-primary">Crear Tramite</a>
+                                <a href="FormularioA.php" class="btn btn-primary">Crear Trámite</a>
                             </div>
                         </div>
                     </div>

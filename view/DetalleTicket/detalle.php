@@ -5,6 +5,7 @@
 require_once("../../Config/conexion.php");
 require_once("../../Models/Tramites.php");
 
+
 # Funcion del boton para cerrar tramite 
 
 if (isset($_POST["btncerrarticket"]) and $_POST["btncerrarticket"] == "si") {
@@ -124,7 +125,8 @@ if (isset($_SESSION["usuario_id"])) {
                         <a id="tab3" href="?ID=<?php echo $id ?>&m=3&c=a">Información Analisis</a>
                         <a id="tab4" href="?ID=<?php echo $id ?>&m=4&c=a">Muestras a Analizar</a>
                         <a id="tab5" href="?ID=<?php echo $id ?>&m=5&c=a">Datos Analisis</a>
-                        <a class="btn-danger glyphicon glyphicon-pencil" style="margin: 2px 0 0 15px" id="tab6" data-toggle="modal" data-target="#exampleModal" href="#"></a>
+                        <?php if ($_SESSION["rol_id"] == '2') { ?> <a class="btn-danger glyphicon glyphicon-pencil" style="margin: 2px 0 0 15px" id="tab6" data-toggle="modal" data-target="#exampleModal" href="#"></a>
+                        <?php } ?>
                         <?php require("modaltramite.php") ?>
                         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 
@@ -157,7 +159,8 @@ if (isset($_SESSION["usuario_id"])) {
                         <a id="tab2" href="?ID=<?php echo $id ?>&m=2&c=e">Responsable De La Tenencia.</a>
                         <a id="tab3" href="?ID=<?php echo $id ?>&m=3&c=e">Datos De La Exposición</a>
                         <a id="tab4" href="?ID=<?php echo $id ?>&m=4&c=e">Fecha De Salida Y Retorno</a>
-                        <a class="btn-danger glyphicon glyphicon-pencil" style="margin: 2px 0 0 15px" id="tab6" data-toggle="modal" data-target="#exampleModal" href="#"></a>
+                        <?php if ($_SESSION["rol_id"] == '2') { ?> <a class="btn-danger glyphicon glyphicon-pencil" style="margin: 2px 0 0 15px" id="tab6" data-toggle="modal" data-target="#exampleModal" href="#"></a>
+                        <?php } ?>
                         <?php require("modaltramite_exh.php") ?>
                         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 
@@ -226,7 +229,14 @@ if (isset($_SESSION["usuario_id"])) {
                         ?>
                             <div>
                                 <input type="hidden" name="btncerrarticket" class="form-control" value="si" id="btncerrarticket">
-                                <button type="submit" class="btn btn-rounded btn-inline btn-danger">Cerrar Tramite</button>
+                                <?php if ($_GET["c"] == 'a') { ?>
+                                    <button type="submit" class="btn btn-rounded btn-inline btn-danger">Cerrar Tramite</button>
+                                <?php
+                                } else { ?>
+                                    <button type="submit" class="btn btn-rounded btn-inline btn-danger">Aprobar Tramite</button>
+                                <?php
+                                } ?>
+
                             </div>;
                         <?php
                         } else if ($_SESSION["rol_id"] == 2 && $key["estado"] == "Cerrado") {
@@ -235,7 +245,8 @@ if (isset($_SESSION["usuario_id"])) {
                             <div>
                                 <!-- Abrir tramite -->
                                 <input type="hidden" name="btncerrarticket" class="form-control" value="si" id="btncerrarticket">
-                                <button type="submit" class="btn btn-rounded btn-inline btn-success">Abrir Tramite</button>
+                                <button type="submit" class="btn btn-rounded btn-inline btn-success">Abrir Trámite</button>
+
                             </div>;
                         <?php
                         } ?>

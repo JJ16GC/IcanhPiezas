@@ -10,7 +10,6 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
     require_once("../../Models/Tramites.php");
     $usuario = new Usuario();
     require_once("../../Controller/Tramites.php");
-    
 }
 
 ?>
@@ -81,7 +80,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="numdoc">Numero de Documento:<span style="color: red;">*</span></label>
+                                                    <label class="form-label semibold" for="numdoc">Número de Documento:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="numdoc" name="numdoc" required>
                                                 </fieldset>
                                             </div>
@@ -111,19 +110,25 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="profesion">Profesión:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="profesion" name="profesion" required>
+                                                    <label class="form-label semibold" for="profesion">Profesión:<span style="color: red;"></span></label>
+                                                    <input type="text" class="form-control" id="profesion" name="profesion">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="telefono">Telefono/Celular:<span style="color: red;">*</span></label>
+                                                    <label class="form-label semibold" for="telefono">Teléfono:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="telefono" name="telefono" required>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="correo">Correo Electronico:<span style="color: red;">*</span></label>
+                                                    <label class="form-label semibold" for="celular">Celular:<span style="color: red;">*</span></label>
+                                                    <input type="text" class="form-control" id="celular" name="celular" required>
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <fieldset class="form-group">
+                                                    <label class="form-label semibold" for="correo">Correo Electrónico:<span style="color: red;">*</span></label>
                                                     <input value="<?php echo $_SESSION["correo"] ?>" type="email" class="form-control" id="correo" name="correo" required readonly>
                                                 </fieldset>
                                             </div>
@@ -157,36 +162,42 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-12">
                                                 <h4>Paso 2: <span>Procedencia Del Material</span></h4>
                                             </div>
-                                            <div class="col-lg-12">
-                                                <p>Si el material procede de una Autorización de Intervención Arqueológica ICANH o Resolución: Número y Título; si el material está registrado en el ICANH: Número de Certificado de Registro y Tenencia, Nombre del proyecto de Investigación.</p>
-                                                <h1 class="with-border"></h1>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="numaut">Número de Autorización o Resolución ICANH:<span style="color: red;">*</span></label>
-                                                    <p>Si son varios, por favor sepárelos con una coma.</p>
-                                                    <input type="text" class="form-control" id="numaut" name="numaut" required>
-                                                </fieldset>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="titulo">Titulo:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="titulo" name="titulo" required>
-                                                </fieldset>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="numcert">Número de Certificado de Registro y Tenencia ICANH:<span style="color: red;">*</span></label>
-                                                    <p>Si son varios, por favor sepárelos con una coma</p>
-                                                    <input type="text" class="form-control" id="numcert" name="numcert" required>
-                                                </fieldset>
-                                            </div>
+
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="nomproyecto">Nombre del proyecto de Investigación:<span style="color: red;">*</span></label>
-                                                    <input type="text" class="form-control" id="nomproyecto" name="nomproyecto" required>
+                                                    <input type="text" class="form-control" id="nomproyecto" name="nomproyecto">
                                                 </fieldset>
                                             </div>
+                                            <div class="col-lg-12">
+                                                <h1 class="with-border"></h1>
+                                                <p>Si el material procede de una Autorización de Intervención Arqueológica (AIA) o Resolución ICANH, debe diligenciar los siguientes campos:</p>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <fieldset class="form-group">
+                                                    <label class="form-label semibold" for="numaut">No. AIA / Resolución ICANH:<span style="color: red;"></span></label>
+                                                    <p>Si son varios, por favor sepárelos con una coma.</p>
+                                                    <input type="text" class="form-control" id="numaut" name="numaut">
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <fieldset class="form-group">
+                                                    <label class="form-label semibold" for="titulo">Título de la AIA / Resolución ICANH:<span style="color: red;"></span></label>
+                                                    <input type="text" class="form-control" id="titulo" name="titulo">
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <h1 class="with-border"></h1>
+                                                <p>Si el material está registrado ante el ICANH, debe diligenciar el siguiente campo:</p>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <fieldset class="form-group">
+                                                    <label class="form-label semibold" for="numcert">No. Certificado de Registro y Tenencia ICANH:<span style="color: red;"></span></label>
+                                                    <p>Si son varios, por favor sepárelos con una coma</p>
+                                                    <input type="text" class="form-control" id="numcert" name="numcert">
+                                                </fieldset>
+                                            </div>
+
                                             <div class=" col-lg-2 next inline-block">
                                                 <input type="button" name="next" class="btn btn-primary" value="Siguiente" />
                                             </div>
@@ -196,7 +207,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                         </fieldset>
                                         <fieldset>
                                             <div class="col-lg-12">
-                                                <h4>Paso 3: <span>Informacion del Análisis:</span></h4>
+                                                <h4>Paso 3: <span>Información del Análisis:</span></h4>
                                                 <h1 class="with-border"></h1>
                                             </div>
                                             <div class="col-lg-12">
@@ -235,14 +246,14 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="cantidad">Cantidad de piezas/muestras:<span style="color: red;">*</span></label>
-                                                    <input type="number" class="form-control" id="cantidad" name="cantidad" required>
+                                                    <input type="number" class="form-control" id="cantidad" name="cantidad" min="1" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label>Cargue anexos:<span style="color: red;">*</span></label></label>
-                                                    <p>Cargar en un único archivo PDF o ZIP (el nombre del archivo no debe tener tildes) documentos adicionales como el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o una Autorización de intervención) o fotografías del material arqueológico.</p>
-                                                    Seleccione archivo: <input name="fichero" type="file" maxlength="150" accept="application/pdf,application/zip" required>
+                                                    <label>Cargue de documentos o fotos adicionales (opcional)<span style="color: red;"></span></label></label>
+                                                    <p>Cargar en un único archivo RAR, 7Z, ZIP o PDF: documentos adicionales como el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o una Autorización de intervención) o fotografías del material arqueológico.</p>
+                                                    Seleccione archivo: <input name="fichero" type="file" maxlength="" accept=".pdf, .rar, .7z, .zip">
                                                 </div>
                                             </div>
 
@@ -256,10 +267,10 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
 
                                         <fieldset>
                                             <div class="col-lg-12">
-                                                <h4>Paso 5: <span>Datos Del Analisis:</span></h4>
+                                                <h4>Paso 5: <span>Datos De Análisis:</span></h4>
                                                 <h1 class="with-border"></h1>
                                             </div>
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-6">
                                                 <fieldset class="form-group">
                                                     <label class="form-label semibold" for="exampleInput">País:<span style="color: red;">*</span></label>
                                                     <select id="pais" name="pais" class="form-control" required>
@@ -268,7 +279,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                     </select>
                                                 </fieldset>
                                             </div>
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="ciudad">Ciudad:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="ciudad" name="ciudad" required>
@@ -289,19 +300,21 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="fecha_salida">Fecha de salida del país de los materiales:<span style="color: red;">*</span></label>
-                                                    <input type="date" class="form-control" id="fecha_salida" name="fecha_salida" required>
+                                                    <?php $fcha = date("Y-m-d"); ?>
+                                                    <input type="date" class="form-control" id="fecha_salida" name="fecha_salida" min="<?php echo $fcha ?>" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="form-label semibold" for="fecha_retorno">Fecha de retorno de los mismos al país:<span style="color: red;">*</span></label>
-                                                    <input type="date" class="form-control" id="fecha_retorno" name="fecha_retorno" required>
+                                                    <label class="form-label semibold" for="fecha_retorno">Fecha de retorno de los mismos al país:<span style="color: red;"></span></label>
+                                                    <p>Sólo si los análisis NO son de tipo destructivo</p>
+                                                    <input type="date" class="form-control" id="fecha_retorno" name="fecha_retorno" min="<?php echo $fcha ?>">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="nombre_encargado">Nombre de quien lleva el material:<span style="color: red;">*</span></label>
-                                                    <p>persona o empresa que se encargará del traslado.</p>
+                                                    <p>Ingrese nombre de la empresa o nombre y documento de la persona que llevará el material.</p>
                                                     <input type="text" class="form-control" id="nombre_encargado" name="nombre_encargado" required>
                                                     <input class="checkbox" style="margin: 15px 15px 15px 0;" id="terminos" type="checkbox"><a href="../../public/img/Politica proteccion datos personales.PDF" target="_blank">Acepto el tratamiento de mis datos personales</a>
                                                 </div>

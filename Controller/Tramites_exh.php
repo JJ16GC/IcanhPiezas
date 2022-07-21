@@ -45,7 +45,7 @@ if (isset($_POST["submit"])) {
         }
     }
 
-    
+
     if (is_uploaded_file($_FILES['fichero_piezas']['tmp_name'])) {
 
         $nombre_exp = trim($nombre_exp);
@@ -66,9 +66,16 @@ if (isset($_POST["submit"])) {
 
     $datos_adic = $_POST["datos_adic"];
     $estado = "Abierto";
-    
+
 
     $usuario->insert_tramite_exh($num_certf, $nom_solic, $tipo_doc, $cual, $num_doc, $num_piezas, $p_nombre, $s_nombre, $p_apellido, $s_apellido, $tipo_doc_r, $cual_r, $num_doc_r, $correo, $f_inicion_exp, $f_final_exp, $pais, $ciudad, $lugar, $nombre_exp, $fecha_salida, $fecha_retorno, $anexos, $piezas, $datos_adic, $estado);
+
+    $sql = 'SELECT MAX(id_tramite) AS id FROM tramite_exh';
+    $usuario = new Usuario();
+    $result = $usuario->listar_tramites_exh($sql);
+    foreach ($result as $key) {
+        $_SESSION['tr_a_id'] = $key['id'];
+    }
 
     $categoria = "Exhibición de piezas";
     $usu_id = $_SESSION["usuario_id"];

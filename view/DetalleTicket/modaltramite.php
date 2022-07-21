@@ -93,8 +93,14 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <fieldset class="form-group">
-                                        <label class="form-label semibold" for="telefono">Telefono/Celular:</label>
+                                        <label class="form-label semibold" for="telefono">Telefono</label>
                                         <input value="<?php echo $key["telefono"] ?>" type="text" class="form-control" id="telefono" name="telefono">
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-6">
+                                    <fieldset class="form-group">
+                                        <label class="form-label semibold" for="celular">Celular</label>
+                                        <input value="<?php echo $key["celular"] ?>" type="text" class="form-control" id="celular" name="celular">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-6">
@@ -133,14 +139,14 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <fieldset class="form-group">
-                                        <label class="form-label semibold" for="numaut">Número de Autorización o Resolución ICANH:</label>
+                                        <label class="form-label semibold" for="numaut">No. AIA / Resolución ICANH:</label>
                                         <p>Si son varios, por favor sepárelos con una coma.</p>
                                         <input value="<?php echo $key["numaut"] ?>" type="text" class="form-control" id="numaut" name="numaut">
                                     </fieldset>
                                 </div>
                                 <div class="col-lg-12">
                                     <fieldset class="form-group">
-                                        <label class="form-label semibold" for="titulo">Titulo:</label>
+                                        <label class="form-label semibold" for="titulo">Título de la AIA / Resolución ICANH:</label>
                                         <input value="<?php echo $key["titulo"] ?>" type="text" class="form-control" id="titulo" name="titulo">
                                     </fieldset>
                                 </div>
@@ -270,7 +276,6 @@
                                         <label class="form-label semibold" for="nombre_encargado">Nombre de quien lleva el material:</label>
                                         <p>persona o empresa que se encargará del traslado.</p>
                                         <input value="<?php echo $key["nombre_encargado"] ?>" type="text" class="form-control" id="nombre_encargado" name="nombre_encargado">
-                                        <input class="checkbox" style="margin: 15px 15px 15px 0;" id="terminos" type="checkbox">Acepto el tratamiento de mis datos personales
                                     </div>
                                 </div>
                                 <div class="col-lg-12">

@@ -23,7 +23,7 @@ try {
     $mail->Password = 'tzywtfqzcunuhauv'; # Contraseña segura del correo 
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
-
+    $mail->addCC('correopruebasphp2022@gmail.com');
     $mail->setFrom('correopruebasphp2022@gmail.com', 'ICANH'); # Remitente del correo
 
     if ($_GET["pag"] >= 5) {
@@ -48,6 +48,7 @@ try {
         }
 
         $mail->addAddress($_SESSION['correo_enviar'], 'Receptor'); # Receptor del correo
+
     } else {
         $mail->addAddress($_SESSION['correo'], 'Receptor'); # Receptor del correo
     }

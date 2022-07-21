@@ -8,7 +8,6 @@ $(document).ready(function () {
   steps = $("fieldset").length;
 
   $(".next").click(function () {
-
     current_step = $(this).parent();
     var inputs = current_step.find("input");
     var textareas = current_step.find("textarea");
@@ -28,6 +27,7 @@ $(document).ready(function () {
       }
     }
 
+   
 
     /*solo vamos a pasar al siguiente cuando ningun input tenga error*/
     if (countFails == 0) {
@@ -40,12 +40,8 @@ $(document).ready(function () {
     if (countFails > 0) {
       window.alert("Faltan datos por llenar");
     }
-
   });
 
- 
-
-  
   $(".previous").click(function () {
     current_step = $(this).parent();
     next_step = $(this).parent().prev();

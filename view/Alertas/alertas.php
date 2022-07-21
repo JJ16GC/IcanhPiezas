@@ -59,6 +59,16 @@ if (isset($_GET["m"])) {
                 <i class="font-icon font-icon-warning"></i>
                 El correo ya esta registrado.
             </div>
+        <?php
+            break;
+        case "6";
+        ?>
+            <div class="alert alert-success alert-close alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+                Correo temporalmente deshabilitado
+            </div>
 <?php
             break;
     }

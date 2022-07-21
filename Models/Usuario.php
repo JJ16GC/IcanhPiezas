@@ -24,7 +24,12 @@ class Usuario extends Conectar
                 $stmt->execute();
                 $resultado = $stmt->fetch();
 
+
                 if (is_array($resultado)) {
+                    $_SESSION["estado"] = $resultado["estado"];
+                    if ($_SESSION["estado"] == 0) {
+                        header("Location:" . Conectar::ruta() . "index.php?m=6");
+                    }
                     $contraseña = $resultado['pass']; # Codificacion contraseña
                     if (password_verify($pass, $contraseña)) {
                         if (is_array($resultado) and count($resultado) > 0) {
@@ -33,6 +38,7 @@ class Usuario extends Conectar
                             $_SESSION["apellido"] = $resultado["apellido"];
                             $_SESSION["rol_id"] = $resultado["rol_id"];
                             $_SESSION["correo"] = $resultado["correo"];
+
                             header("Location:" . Conectar::ruta() . "view/Home/indexlogin.php");
                             exit();
                         }

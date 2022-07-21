@@ -13,7 +13,7 @@ if ($_SESSION["estado"] == "Abierto") {
     <a style="text-align: center;"><span class="label label-pill label-success"><?php echo "Tramite " . $_SESSION["estado"] ?></span> </a>
 <?php
 } else { ?>
-    <a style="text-align: center;"><span class="label label-pill label-danger"><?php echo "Tramite " . $_SESSION["estado"] ?></td>
+    <a style="text-align: center;"><span class="label label-pill label-danger"><?php echo "Tramite Aprobado" ?></td>
         <?php
     }  ?>
         <ol class="breadcrumb breadcrumb-simple">

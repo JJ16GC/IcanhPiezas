@@ -22,7 +22,7 @@ if ($_SESSION['rol_id'] == '1') {
                         </div>
                         <div class="col-sm-12">
                             <span>Dependencia de la entidad que resuelve el trámite:</span>
-                            <p>Grupo de Patrimonio / Laboratorio, Oficina Jurídica</p>
+                            <p>Grupo de Arqueología / Laboratorio de Arqueología, Oficina Asesora Jurídica</p>
                         </div>
                         <div class="col-sm-12">
                             <span>En qué consiste el trámite:</span>
@@ -47,13 +47,14 @@ if ($_SESSION['rol_id'] == '1') {
                             <li>Solicitud de Autorización de Salida Temporal de Bienes Arqueológicos, para Exhibición en el exterior</li>
                             <li>Solicitud de Autorización de Salida de Material Arqueológico para Análisis en el exterior</li>
                             <ol>
-                                <li value="2">Retirar la respuesta a la solicitud de autorización de salida del país de bienes muebles pertenecientes al patrimonio arqueológico de la Nación</li>
+                                <li value="2">El número de trámite de la solicitud, se envía al correo electrónico registrado.</li>
+                                <li value="3">Recibirá por correo electrónico la respuesta a la solicitud de autorización de salida del país de bienes muebles pertenecientes al patrimonio arqueológico de la Nación.</li>
                             </ol>
                         </div>
                         <div class="col-sm-12">
                             <br>
                             <span>¿Cuáles son los requisitos y documentos que necesito para realizar este trámite?</span>
-                            <p>Ingrese en los siguientes links para tener información mas detallada de cada tramite: </p>
+                            <p>Ingrese en los siguientes links para tener información más detallada de cada trámite: </p>
                             <ol>
                                 <li><a style="font-weight: bold;" href="../TramiteExhibicion/TramiteE.php">Salida temporal de bienes arqueológicos para exhibición </a></li>
                                 <li><a style="font-weight: bold;" href="../TramiteAnalisis/TramiteA.php"> Salida de bienes arqueológicos para análisis </a></li>

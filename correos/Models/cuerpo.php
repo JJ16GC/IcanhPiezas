@@ -196,7 +196,12 @@ $notificacion_exhibicion = '
                         <tr>
                             <td style="padding:0 0 36px 0;color:#153643;">
                                 <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Notificación</h1>
-                                <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Su tramite de exhibicion de piezas ha sido creado exitosamente</p>
+                                <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Cordial saludo,<br>
+                                <br>
+                                El ICANH recibió su solicitud de Autorización de Salida de Piezas Arqueológicas con el número de trámite TR-E' . $_SESSION['tr_a_id'] . '.<br>
+                                <br>
+                                El Laboratorio de Arqueología del Grupo de Arqueología iniciará el trámite correspondiente. Cualquier duda será atendida en el correo electrónico laboratorio@icanh.gov.co<br>
+                                </p></p>
                                 <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="#" style="color:#00a8ff;text-decoration:underline;">Ingrese aqui al aplicativo</a></p>
                             </td>
                         </tr>
@@ -265,7 +270,12 @@ $notificacion_analisis = '
                         <tr>
                             <td style="padding:0 0 36px 0;color:#153643;">
                                 <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Notificación</h1>
-                                <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Su tramite de análisis de piezas ha sido creado exitosamente</p>
+                                <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Cordial saludo,<br>
+                                <br>
+                                El ICANH recibió su solicitud de Autorización de Salida de Piezas Arqueológicas con el número de trámite TR-A' . $_SESSION['tr_a_id'] . '.<br>
+                                <br>
+                                El Laboratorio de Arqueología del Grupo de Arqueología iniciará el trámite correspondiente. Cualquier duda será atendida en el correo electrónico laboratorio@icanh.gov.co<br>
+                                </p>
                                 <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="#" style="color:#00a8ff;text-decoration:underline;">Ingrese aqui al aplicativo</a></p>
                             </td>
                         </tr>
@@ -470,7 +480,12 @@ $cerrado_e = '
                         <tr>
                             <td style="padding:0 0 36px 0;color:#153643;">
                                 <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Notificación</h1>
-                                <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Tu tramite de exhibicion ha sido cerrado.<br> Por favor acerquese a la Oficina de Correspondencia del Instituto para reclamar el certificado</p>
+                                <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Cordial saludo,<br>
+                                <br>
+                                La solicitud de Autorización de salida temporal del país de bienes muebles para exhibición con el número de trámite TR-E' . $_GET["ID"] . ', fue aprobada por el Laboratorio de Arqueología y se envió a la Oficina Asesora Jurídica de la entidad, dependencia encargada de finalizar este trámite.<br>
+                                <br>
+                                Cualquier duda será atendida en el correo notificacionesjudiciales@icanh.gov.co (pendiente confirmación con la Oficina Jurídica) o en el teléfono: 4440544 Ext. 150.<br>
+                                </p>                                
                                 <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="#" style="color:#00a8ff;text-decoration:underline;">Ingrese aqui al aplicativo</a></p>
                             </td>
                         </tr>
@@ -538,7 +553,12 @@ $cerrado_a = '
                         <tr>
                             <td style="padding:0 0 36px 0;color:#153643;">
                                 <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Notificación</h1>
-                                <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Tu tramite de analisis ha sido cerrado.<br> Por favor acerquese a la Oficina de Correspondencia del Instituto para reclamar el certificado</p>
+                                <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Cordial saludo,<br>
+                                <br>
+                                La solicitud de Autorización de salida de bienes arqueológicos para análisis con el número de trámite TR-A' . $_GET["ID"] . ', fue aprobada por el Laboratorio de Arqueología y la Autorización se envió al correo electrónico registrado.<br>
+                                <br>
+                                Cualquier duda será atendida en el correo electrónico laboratorio@icanh.gov.co
+                                </p>
                                 <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="#" style="color:#00a8ff;text-decoration:underline;">Ingrese aqui al aplicativo</a></p>
                             </td>
                         </tr>
@@ -569,8 +589,3 @@ $cerrado_a = '
     </table>
 </body>
 </html>';
-
-
-
-
-

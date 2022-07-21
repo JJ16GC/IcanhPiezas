@@ -13,6 +13,7 @@ if (isset($_POST["submit"])) {
     $sapellido = $_POST["sapellido"];
     $profesion = $_POST["profesion"];
     $telefono = $_POST["telefono"];
+    $celular = $_POST["celular"];
     $correo = $_POST["correo"];
     $direccion = $_POST["direccion"];
     $entidadvinc = $_POST["entidadvinc"];
@@ -56,7 +57,14 @@ if (isset($_POST["submit"])) {
     $estado = "Abierto";
 
 
-    $usuario->insert_tramitea($tipodoc, $otrotip, $numdoc, $pnombre, $snombre, $papellido, $sapellido, $profesion, $telefono, $correo, $direccion, $entidadvinc, $cargo, $numaut, $titulo, $numcert, $nomproyecto, $desctipo, $descmet, $descmate, $cantidad, $anexos, $pais, $ciudad, $institucion, $lugar, $fecha_salida, $fecha_retorno, $nombre_encargado, $estado);
+    $usuario->insert_tramitea($tipodoc, $otrotip, $numdoc, $pnombre, $snombre, $papellido, $sapellido, $profesion, $telefono, $celular, $correo, $direccion, $entidadvinc, $cargo, $numaut, $titulo, $numcert, $nomproyecto, $desctipo, $descmet, $descmate, $cantidad, $anexos, $pais, $ciudad, $institucion, $lugar, $fecha_salida, $fecha_retorno, $nombre_encargado, $estado);
+
+    $sql = 'SELECT MAX(id_tramite) AS id FROM tramite';
+    $usuario = new Usuario();
+    $result = $usuario->listar_tramites($sql);
+    foreach ($result as $key) {
+        $_SESSION['tr_a_id'] = $key['id'];
+    }
 
     $categoria = "Analisis de piezas";
     $usu_id = $_SESSION["usuario_id"];

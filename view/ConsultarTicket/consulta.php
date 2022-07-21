@@ -59,7 +59,7 @@ if (isset($_SESSION["usuario_id"])) {
 
                             <?php
 
-                            # Listar tramites analisis y/o exhibicion para usuarios
+                            # Listar tramites analisis para usuarios
 
                             require_once("../../Models/Tramites.php");
                             $rol_id = $_SESSION["rol_id"];
@@ -106,7 +106,7 @@ if (isset($_SESSION["usuario_id"])) {
                             <?php
                             }
 
-                            # Listar tramites analisis y/o exhibicion para usuarios
+                            # Listar tramites exhibicion para usuarios
 
                             foreach ($result2 as $key) {
 
@@ -124,7 +124,7 @@ if (isset($_SESSION["usuario_id"])) {
 
                                     <?php
                                     } else { ?>
-                                        <td style="text-align: center;"><span class="label label-pill label-danger"><?php echo $key["tick_estado"] ?></td>
+                                        <td style="text-align: center;"><span class="label label-pill label-danger"><?php echo 'Aprobado' ?></td>
                                     <?php
                                     }  ?>
 

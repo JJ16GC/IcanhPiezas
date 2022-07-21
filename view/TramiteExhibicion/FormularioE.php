@@ -61,7 +61,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="numdoc">Número de Certificado de Registro y Tenencia ICANH:<span style="color: red;">*</span></label>
+                                                    <label class="form-label semibold" for="numdoc">N° de Certificado de Registro y Tenencia ICANH:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="num_certf" name="num_certf" required>
                                                 </fieldset>
                                             </div>
@@ -185,13 +185,14 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="f_inicion_exp">Fecha inicio de exposición:<span style="color: red;">*</span></label>
-                                                    <input type="date" class="form-control" id="f_inicion_exp" name="f_inicion_exp" required>
+                                                    <?php $fcha = date("Y-m-d"); ?>
+                                                    <input type="date" class="form-control" id="f_inicion_exp" name="f_inicion_exp" min="<?php echo $fcha ?>" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="f_final_exp">Fecha final de exposición:<span style="color: red;">*</span></label>
-                                                    <input type="date" class="form-control" id="f_final_exp" name="f_final_exp" required>
+                                                    <input type="date" class="form-control" id="f_final_exp" min="<?php echo $fcha ?>" name="f_final_exp" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
@@ -211,7 +212,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="form-label semibold" for="lugar">Lugar donde se realizarán los análisis:<span style="color: red;">*</span></label>
+                                                    <label class="form-label semibold" for="lugar">Lugar donde se realizará la exhibición:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="lugar" name="lugar" required>
                                                 </div>
                                             </div>
@@ -236,27 +237,27 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="fecha_salida">Fecha De Salida:<span style="color: red;">*</span></label>
-                                                    <input type="date" class="form-control" id="fecha_salida" name="fecha_salida" required>
+                                                    <input type="date" class="form-control" id="fecha_salida" name="fecha_salida" min="<?php echo $fcha ?>" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="fecha_retorno">Fecha De Retorno:<span style="color: red;">*</span></label>
-                                                    <input type="date" class="form-control" id="fecha_retorno" name="fecha_retorno" required>
+                                                    <input type="date" class="form-control" id="fecha_retorno" name="fecha_retorno" min="<?php echo $fcha ?>" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Cargue anexos:<span style="color: red;">*</span></label></label>
-                                                    <p>Cargar un único archivo PDF (el nombre del archivo no debe tener tildes) con los documentos: 1.Copia del proyecto cultural o científico. 2. Nombre, dirección y teléfono de la entidad responsable de las piezas arqueológicas tanto en Colombia como en el Exterior, país, ciudad y sitio: Museo o Institución Cultural donde se llevará a cabo el evento o exposición. 3.Nombre, del curador de la exposición o del investigador a cargo. 4.Nombre dirección y teléfono de la compañía encargada del empaque y transporte de las piezas.</p>
-                                                    Seleccione archivo: <input name="fichero" type="file" maxlength="150" accept="application/pdf,application/zip" required>
+                                                    <p>Cargar en un único archivo RAR, 7Z, ZIP o PDF con los documentos: 1.Copia del proyecto cultural o científico. 2. Nombre, dirección y teléfono de la entidad responsable de las piezas arqueológicas tanto en Colombia como en el Exterior, país, ciudad y sitio: Museo o Institución Cultural donde se llevará a cabo el evento o exposición. 3.Nombre, del curador de la exposición o del investigador a cargo. 4.Nombre dirección y teléfono de la compañía encargada del empaque y transporte de las piezas.</p>
+                                                    Seleccione archivo: <input name="fichero" type="file" maxlength="" accept=".pdf, .rar, .7z, .zip" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Cargue piezas:<span style="color: red;">*</span></label></label>
-                                                    <p>Cargar en un único archivo ZIP (el nombre del archivo no debe tener tildes), las fotografías de cada una de las piezas a exportar. Los nombres de las fotos de cada pieza, deben corresponder con el código con el que se registraron en el ICANH.</p>
-                                                    Seleccione archivo: <input name="fichero_piezas" type="file" maxlength="150" accept="application/pdf,application/zip" required>
+                                                    <p>Cargar en un único archivo RAR, 7Z, ZIP o PDF: las fotografías de cada una de las piezas a exportar. Los nombres de las fotos de cada pieza, deben corresponder con el código con el que se registraron en el ICANH.</p>
+                                                    Seleccione archivo: <input name="fichero_piezas" type="file" maxlength="" accept=".pdf, .rar, .7z, .zip" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">

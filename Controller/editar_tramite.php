@@ -14,6 +14,7 @@ if (isset($_POST["submit"])) {
     $sapellido = $_POST["sapellido"];
     $profesion = $_POST["profesion"];
     $telefono = $_POST["telefono"];
+    $celular = $_POST["celular"];
     $correo = $_POST["correo"];
     $direccion = $_POST["direccion"];
     $entidadvinc = $_POST["entidadvinc"];

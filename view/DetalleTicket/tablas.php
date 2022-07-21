@@ -12,7 +12,7 @@ $result = $usuario->listar_tramites($sql);
 if (isset($_GET["m"])) {
     switch ($_GET["m"]) {
         case "1";
-        ?>
+?>
             <script>
                 var element = document.getElementById("tab1");
                 element.className += "active";
@@ -54,39 +54,45 @@ if (isset($_GET["m"])) {
 
                             <div class="col-lg-6">
                                 <fieldset class="form-group">
-                                    <label class="form-label semibold" for="tick_titulo">Profesión</label>
-                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["profesion"] ?>" readonly>
+                                    <label class="form-label semibold" for="profesion">Profesión</label>
+                                    <input type="text" class="form-control" id="profesion" name="profesion" value="<?php echo $key["profesion"] ?>" readonly>
                                 </fieldset>
                             </div>
 
                             <div class="col-lg-6">
                                 <fieldset class="form-group">
-                                    <label class="form-label semibold" for="tick_titulo">Telefono/Celular</label>
-                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["telefono"] ?>" readonly>
+                                    <label class="form-label semibold" for="telefono">Telefono</label>
+                                    <input type="text" class="form-control" id="telefono" name="telefono" value="<?php echo $key["telefono"] ?>" readonly>
                                 </fieldset>
                             </div>
                             <div class="col-lg-6">
                                 <fieldset class="form-group">
-                                    <label class="form-label semibold" for="tick_titulo">Correo Electronico</label>
-                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["correo"] ?>" readonly>
+                                    <label class="form-label semibold" for="celular">Celular</label>
+                                    <input type="text" class="form-control" id="celular" name="celular" value="<?php echo $key["celular"] ?>" readonly>
                                 </fieldset>
                             </div>
                             <div class="col-lg-6">
                                 <fieldset class="form-group">
-                                    <label class="form-label semibold" for="tick_titulo">Dirección</label>
-                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["direccion"] ?>" readonly>
+                                    <label class="form-label semibold" for="correo">Correo Electronico</label>
+                                    <input type="text" class="form-control" id="correo" name="correo" value="<?php echo $key["correo"] ?>" readonly>
                                 </fieldset>
                             </div>
                             <div class="col-lg-6">
                                 <fieldset class="form-group">
-                                    <label class="form-label semibold" for="tick_titulo">Entidad Vinculado</label>
-                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["entidadvinc"] ?>" readonly>
+                                    <label class="form-label semibold" for="direccion">Dirección</label>
+                                    <input type="text" class="form-control" id="direccion" name="direccion" value="<?php echo $key["direccion"] ?>" readonly>
                                 </fieldset>
                             </div>
                             <div class="col-lg-6">
                                 <fieldset class="form-group">
-                                    <label class="form-label semibold" for="tick_titulo">Cargo</label>
-                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["cargo"] ?>" readonly>
+                                    <label class="form-label semibold" for="entidadvinc">Entidad Vinculado</label>
+                                    <input type="text" class="form-control" id="entidadvinc" name="entidadvinc" value="<?php echo $key["entidadvinc"] ?>" readonly>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6">
+                                <fieldset class="form-group">
+                                    <label class="form-label semibold" for="cargo">Cargo</label>
+                                    <input type="text" class="form-control" id="cargo" name="cargo" value="<?php echo $key["cargo"] ?>" readonly>
                                 </fieldset>
                             </div>
 
@@ -117,29 +123,26 @@ if (isset($_GET["m"])) {
 
                                 <div class="col-lg-6">
                                     <fieldset class="form-group">
-                                        <label class="form-label semibold" for="tipodoc">Número de Autorización o Resolución ICANH</label>
-                                        <input type="text" class="form-control" id="tipodoc" name="tipodoc" value="<?php echo $key["numaut"] ?>" readonly>
+                                        <label class="form-label semibold" for="nomproyecto">Nombre del proyecto de investigación:</label>
+                                        <input type="text" class="form-control" id="nomproyecto" name="nomproyecto" value="<?php echo $key["nomproyecto"] ?>" readonly>
                                     </fieldset>
                                 </div>
-
+                                <div class="col-lg-6">
+                                    <fieldset class="form-group">
+                                        <label class="form-label semibold" for="numcert">No. AIA / Resolución ICANH:</label>
+                                        <input type="text" class="form-control" id="numcert" name="numcert" value="<?php echo $key["numcert"] ?>" readonly>
+                                    </fieldset>
+                                </div>
                                 <div class="col-lg-6">
                                     <fieldset class="form-group">
                                         <label class="form-label semibold" for="tick_titulo">Titulo</label>
                                         <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["titulo"] ?>" readonly>
                                     </fieldset>
                                 </div>
-
                                 <div class="col-lg-6">
                                     <fieldset class="form-group">
-                                        <label class="form-label semibold" for="tick_titulo">Número de Certificado de Registro y Tenencia ICANH</label>
-                                        <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["numcert"] ?>" readonly>
-                                    </fieldset>
-                                </div>
-
-                                <div class="col-lg-6">
-                                    <fieldset class="form-group">
-                                        <label class="form-label semibold" for="tick_titulo">Nombre del proyecto de Investigación:</label>
-                                        <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["nomproyecto"] ?>" readonly>
+                                        <label class="form-label semibold" for="numaut">No. Certificado de Registro y Tenencia ICANH:</label>
+                                        <input type="text" class="form-control" id="numaut" name="numaut" value="<?php echo $key["numaut"] ?>" readonly>
                                     </fieldset>
                                 </div>
 
@@ -168,15 +171,15 @@ if (isset($_GET["m"])) {
 
                                     <div class="col-lg-6">
                                         <fieldset class="form-group">
-                                            <label class="form-label semibold" for="tipodoc">Descripción del Tipo de análisis</label>
+                                            <label class="form-label semibold" for="desctipo">Descripción del Tipo de análisis</label>
                                             <textarea rows="6" class="form-control" id="desctipo" name="desctipo" readonly><?php echo $key["desctipo"] ?></textarea>
                                         </fieldset>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <fieldset class="form-group">
-                                            <label class="form-label semibold" for="tick_titulo">METODOLOGÍA DEL ANÁLISIS</label>
-                                            <textarea rows="6" class="form-control" id="desctipo" name="desctipo" readonly><?php echo $key["descmet"] ?></textarea>
+                                            <label class="form-label semibold" for="descmet">METODOLOGÍA DEL ANÁLISIS</label>
+                                            <textarea rows="6" class="form-control" id="descmet" name="descmet" readonly><?php echo $key["descmet"] ?></textarea>
                                         </fieldset>
                                     </div>
 
@@ -205,21 +208,24 @@ if (isset($_GET["m"])) {
 
                                         <div class="col-lg-6">
                                             <fieldset class="form-group">
-                                                <label class="form-label semibold" for="tipodoc">Descripción del material</label>
-                                                <input type="text" class="form-control" id="tipodoc" name="tipodoc" value="<?php echo $key["descmate"] ?>" readonly>
+                                                <label class="form-label semibold" for="descmate">Descripción del material</label>
+                                                <input type="text" class="form-control" id="descmate" name="descmate" value="<?php echo $key["descmate"] ?>" readonly>
                                             </fieldset>
                                         </div>
 
                                         <div class="col-lg-6">
                                             <fieldset class="form-group">
-                                                <label class="form-label semibold" for="tick_titulo">Cantidad de piezas/muestras</label>
-                                                <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["cantidad"] ?>" readonly>
+                                                <label class="form-label semibold" for="cantidad">Cantidad de piezas/muestras</label>
+                                                <input type="text" class="form-control" id="cantidad" name="cantidad" value="<?php echo $key["cantidad"] ?>" readonly>
                                             </fieldset>
                                         </div>
 
                                         <div class="col-lg-6">
                                             <fieldset class="form-group">
-                                                <a class="btn btn-primary" href="../../public/upload/<?php echo $key["anexos"] ?>" target="_blank">Ver anexos</a>
+                                                <?php if ($key["anexos"] != "") { ?>
+                                                    <a class="btn btn-primary" href="../../public/upload/<?php echo $key["anexos"] ?>" target="_blank">Ver anexos</a>
+                                                <?php } ?>
+
                                             </fieldset>
                                         </div>
 
@@ -248,50 +254,50 @@ if (isset($_GET["m"])) {
 
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tipodoc">País</label>
-                                                    <input type="text" class="form-control" id="tipodoc" name="tipodoc" value="<?php echo $key["pais"] ?>" readonly>
+                                                    <label class="form-label semibold" for="pais">País</label>
+                                                    <input type="text" class="form-control" id="pais" name="pais" value="<?php echo $key["pais"] ?>" readonly>
                                                 </fieldset>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Ciudad</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["ciudad"] ?>" readonly>
+                                                    <label class="form-label semibold" for="ciudad">Ciudad</label>
+                                                    <input type="text" class="form-control" id="ciudad" name="ciudad" value="<?php echo $key["ciudad"] ?>" readonly>
                                                 </fieldset>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Institución donde se realizarán los análisis</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["institucion"] ?>" readonly>
+                                                    <label class="form-label semibold" for="institucion">Institución donde se realizarán los análisis</label>
+                                                    <input type="text" class="form-control" id="institucion" name="institucion" value="<?php echo $key["institucion"] ?>" readonly>
                                                 </fieldset>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Lugar donde se realizarán los análisis</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["lugar"] ?>" readonly>
+                                                    <label class="form-label semibold" for="lugar">Lugar donde se realizarán los análisis</label>
+                                                    <input type="text" class="form-control" id="lugar" name="lugar" value="<?php echo $key["lugar"] ?>" readonly>
                                                 </fieldset>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Fecha Salida</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["fecha_salida"] ?>" readonly>
+                                                    <label class="form-label semibold" for="fecha_salida">Fecha Salida</label>
+                                                    <input type="text" class="form-control" id="fecha_salida" name="fecha_salida" value="<?php echo $key["fecha_salida"] ?>" readonly>
                                                 </fieldset>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Fecha retorno</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["fecha_retorno"] ?>" readonly>
+                                                    <label class="form-label semibold" for="fecha_retorno">Fecha retorno</label>
+                                                    <input type="text" class="form-control" id="fecha_retorno" name="fecha_retorno" value="<?php echo $key["fecha_retorno"] ?>" readonly>
                                                 </fieldset>
                                             </div>
 
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="tick_titulo">Nombre de quien lleva el material</label>
-                                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["nomproyecto"] ?>" readonly>
+                                                    <label class="form-label semibold" for="nomproyecto">Nombre de quien lleva el material</label>
+                                                    <input type="text" class="form-control" id="nomproyecto" name="nomproyecto" value="<?php echo $key["nomproyecto"] ?>" readonly>
                                                 </fieldset>
                                             </div>
 
