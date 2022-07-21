@@ -10,7 +10,7 @@ class Usuario extends Conectar
     {
         $conectar = parent::conexion();
         parent::set_names();
-        $sql = "INSERT INTO tramite (id_tramite,tipodoc,otrotip,numdoc,pnombre,snombre,papellido,sapellido,profesion,telefono,celular,correo,direccion,entidadvinc,cargo,numaut,titulo,numcert,nomproyecto,desctipo,descmet,descmate,cantidad,anexos,pais,ciudad,institucion,lugar,fecha_salida,fecha_retorno,nombre_encargado,estado) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+        $sql = "INSERT INTO tramite (id_tramite,tipodoc,otrotip,numdoc,pnombre,snombre,papellido,sapellido,profesion,telefono,celular,correo,direccion,entidadvinc,cargo,numaut,titulo,numcert,nomproyecto,desctipo,descmet,descmate,cantidad,anexos,pais,ciudad,institucion,lugar,fecha_salida,fecha_retorno,nombre_encargado,estado) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
         $sql = $conectar->prepare($sql);
         $sql->bindValue(1, $tipodoc);
         $sql->bindValue(2, $otrotip);

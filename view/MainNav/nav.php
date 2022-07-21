@@ -19,7 +19,7 @@ if ($_SESSION["rol_id"] == 1) {
             <li class="blue-dirty">
                 <a href="../TramiteAnalisis/TramiteA.php">
                     <span class="glyphicon glyphicon-plus-sign"></span>
-                    <span class="lbl">Trámite Analisis</span>
+                    <span class="lbl">Trámite Análisis</span>
                 </a>
             </li>
             <li class="blue-dirty">
