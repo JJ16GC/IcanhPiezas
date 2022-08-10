@@ -444,7 +444,7 @@ $notificacion_e = '
 </body>
 </html>';
 
-# Cuerpo Correo de tramite creado cone exito 
+# Cuerpo Correo de tramite aprobado con exito 
 
 $cerrado_e = '   
 <!DOCTYPE html>
@@ -484,7 +484,7 @@ $cerrado_e = '
                                 <br>
                                 La solicitud de Autorización de salida temporal del país de bienes muebles para exhibición con el número de trámite TR-E' . $_GET["ID"] . ', fue aprobada por el Laboratorio de Arqueología y se envió a la Oficina Asesora Jurídica de la entidad, dependencia encargada de finalizar este trámite.<br>
                                 <br>
-                                Cualquier duda será atendida en el correo notificacionesjudiciales@icanh.gov.co (pendiente confirmación con la Oficina Jurídica) o en el teléfono: 4440544 Ext. 150.<br>
+                                Cualquier duda será atendida en el correo notificacionesjudiciales@icanh.gov.co (pendiente confirmación con la Oficina Asesora Jurídica) o en el teléfono: 4440544 Ext. 1150.<br>
                                 </p>                                
                                 <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="#" style="color:#00a8ff;text-decoration:underline;">Ingrese aqui al aplicativo</a></p>
                             </td>

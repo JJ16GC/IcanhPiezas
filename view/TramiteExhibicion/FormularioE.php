@@ -192,7 +192,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="f_final_exp">Fecha final de exposición: <span style="color: red;">*</span></label>
-                                                    <p style="color: red;">La fecha debe ser posterior a la fecha inicio.</p>
+                                                    <p style="color: red;">La fecha final debe ser posterior a la fecha de inicio.</p>
                                                     <input type="date" class="form-control" id="f_final_exp" min="<?php echo $fcha ?>" name="f_final_exp" required>
                                                 </div>
                                             </div>
@@ -244,7 +244,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="fecha_retorno">Fecha De Retorno:<span style="color: red;">*</span></label>
-                                                    <p style="color: red;">La fecha debe ser posterior a la fecha salida.</p>
+                                                    <p style="color: red;">La fecha retorno debe ser posterior a la fecha de salida.</p>
                                                     <input type="date" class="form-control" id="fecha_retorno" name="fecha_retorno" min="<?php echo $fcha ?>" required>
                                                 </div>
                                             </div>
