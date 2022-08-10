@@ -252,7 +252,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Cargue de documentos o fotos adicionales (opcional)<span style="color: red;"></span></label></label>
-                                                    <p>Cargar en un único archivo RAR, 7Z, ZIP o PDF: documentos adicionales como el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o una Autorización de intervención) o fotografías del material arqueológico.</p>
+                                                    <p>Cargar en un único archivo RAR, 7Z, ZIP o PDF: documentos adicionales como: el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o de una Autorización de intervención Arqueológica ICANH-AIA), listado del material a intervenir o fotos.</p>
                                                     Seleccione archivo: <input name="fichero" type="file" maxlength="" accept=".pdf, .rar, .7z, .zip">
                                                 </div>
                                             </div>

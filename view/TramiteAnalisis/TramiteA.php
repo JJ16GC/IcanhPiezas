@@ -43,7 +43,7 @@ if (!isset($_SESSION['usuario_id'])) {
                                     <a>Información básica del solicitante:</a> Número de documento, Tipo de documento, Primer Nombre, Segundo Nombre, Primer Apellido, Segundo Apellido, Solicitante, Profesión, Teléfono/Celular, Correo electrónico, Dirección, Entidad a la que se encuentra vinculado, Cargo.
                                 </li>
                                 <li>
-                                    <a>Procedencia del material:</a> Si el material procede de una Autorización de Intervención ICANH: Número y Título; si el material está registrado en el ICANH: Número de Certificado de Tenencia, Nombre del proyecto de Investigación.
+                                    <a>Procedencia del material:</a> Si el material procede de una Autorización de Intervención ICANH (AIA): Número y Título, o si procede de una Resolución ICANH: Número y título; si el material está registrado en el ICANH: Número de Certificado de Tenencia, Nombre del proyecto de Investigación.
                                 </li>
                                 <li>
                                     <a>Tipo de Análisis:</a> Descripción del Tipo de análisis
@@ -58,7 +58,7 @@ if (!isset($_SESSION['usuario_id'])) {
                                     <a>Muestras a analizar:</a> Descripción del material, Cantidad de piezas/muestras.
                                 </li>
                                 <li>
-                                    <a>Cargue de documentos o fotos adicionales:</a> Cargar en un único archivo RAR, 7Z, ZIP o PDF: documentos adicionales como el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o una Autorización de intervención) o fotos.
+                                    <a>Cargue de documentos o fotos adicionales:</a> Cargar en un único archivo RAR, 7Z, ZIP o PDF: documentos adicionales como: el proyecto de investigación propuesto para la intervención de los bienes (cuando el material no proviene de una Tenencia o de una Resolución o Autorización de intervención Arqueológica ICANH-AIA), listado del material a intervenir o fotos.
                                 </li>
                                 <li>
                                     <a>Datos del análisis:</a> País, Ciudad, Institución y Lugar en donde se realizarán los análisis, Fecha de salida de los materiales y retorno de los mismos al país, nombre de quien lleva el material (persona o empresa que se encargará del traslado).

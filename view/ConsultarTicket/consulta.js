@@ -5,6 +5,9 @@ function init() {}
 $(document).ready(function () {
   $("#ticket_data").DataTable({
     bDestroy: true,
+    rowReorder: {
+      selector: "td:nth-child(2)",
+    },
     responsive: true,
     autoWidth: false,
     dom:

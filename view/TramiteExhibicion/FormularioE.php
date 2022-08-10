@@ -61,7 +61,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="numdoc">N° de Certificado de Registro y Tenencia ICANH:<span style="color: red;">*</span></label>
+                                                    <label class="form-label semibold" for="num_certf">N° de Certificado de Registro y Tenencia ICANH:<span style="color: red;">*</span></label>
                                                     <input type="text" class="form-control" id="num_certf" name="num_certf" required>
                                                 </fieldset>
                                             </div>
@@ -186,12 +186,13 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="f_inicion_exp">Fecha inicio de exposición:<span style="color: red;">*</span></label>
                                                     <?php $fcha = date("Y-m-d"); ?>
-                                                    <input type="date" class="form-control" id="f_inicion_exp" name="f_inicion_exp" min="<?php echo $fcha ?>" required>
+                                                    <input style="margin-top: 40px;" type="date" class="form-control" id="f_inicion_exp" name="f_inicion_exp" min="<?php echo $fcha ?>" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label class="form-label semibold" for="f_final_exp">Fecha final de exposición:<span style="color: red;">*</span></label>
+                                                    <label class="form-label semibold" for="f_final_exp">Fecha final de exposición: <span style="color: red;">*</span></label>
+                                                    <p style="color: red;">La fecha debe ser posterior a la fecha inicio.</p>
                                                     <input type="date" class="form-control" id="f_final_exp" min="<?php echo $fcha ?>" name="f_final_exp" required>
                                                 </div>
                                             </div>
@@ -237,12 +238,13 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="fecha_salida">Fecha De Salida:<span style="color: red;">*</span></label>
-                                                    <input type="date" class="form-control" id="fecha_salida" name="fecha_salida" min="<?php echo $fcha ?>" required>
+                                                    <input style="margin-top: 40px;" type="date" class="form-control" id="fecha_salida" name="fecha_salida" min="<?php echo $fcha ?>" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="fecha_retorno">Fecha De Retorno:<span style="color: red;">*</span></label>
+                                                    <p style="color: red;">La fecha debe ser posterior a la fecha salida.</p>
                                                     <input type="date" class="form-control" id="fecha_retorno" name="fecha_retorno" min="<?php echo $fcha ?>" required>
                                                 </div>
                                             </div>

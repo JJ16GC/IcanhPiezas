@@ -11,6 +11,7 @@ $(document).ready(function () {
     var inputs = current_step.find("input");
     var textareas = current_step.find("textarea");
     var countFails = 0;
+    var countFailFecha = 0;
 
     /**aqui busca si hay informacion el validationMesagge, el cual solo esta lleno cuando el campo esta mal diligenciado*/
 
@@ -28,18 +29,21 @@ $(document).ready(function () {
       }
     }
 
+
     /*solo vamos a pasar al siguiente cuando ningun input tenga error*/
     if (countFails == 0) {
       current_step = $(this).parent();
       next_step = $(this).parent().next();
       next_step.show();
       current_step.hide();
+      console.log(countFailFecha);
     }
 
     if (countFails > 0) {
       window.alert("Faltan datos por llenar");
     }
   });
+
   $(".previous").click(function () {
     current_step = $(this).parent();
     next_step = $(this).parent().prev();

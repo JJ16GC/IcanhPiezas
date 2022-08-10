@@ -40,8 +40,15 @@ if (isset($_GET["m"])) {
 
                             <div class="col-lg-6">
                                 <fieldset class="form-group">
-                                    <label class="form-label semibold" for="tick_titulo">Nombre Completo</label>
-                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" value="<?php echo $key["pnombre"];
+                                    <label class="form-label semibold" for="numdoc">N° Documento</label>
+                                    <input type="text" class="form-control" id="numdoc" name="numdoc" value="<?php echo $key["numdoc"] ?>" readonly>
+                                </fieldset>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <fieldset class="form-group">
+                                    <label class="form-label semibold" for="nombre">Nombre Completo</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $key["pnombre"];
                                                                                                                         echo " ";
                                                                                                                         echo $key["snombre"];
                                                                                                                         echo " ";

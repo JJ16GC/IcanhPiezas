@@ -178,7 +178,7 @@ if (isset($_GET["m"])) {
                                         </div>
                                         <div class="col-lg-6">
                                             <fieldset class="form-group">
-                                                <label class="form-label semibold" for="lugar">Lugar donde se realizarán los análisis:</label>
+                                                <label class="form-label semibold" for="lugar">Lugar donde se realizará la exhibición: </label>
                                                 <input type="text" class="form-control" id="lugar" name="lugar" value="<?php echo $key["lugar"] ?>" readonly>
                                             </fieldset>
                                         </div>
