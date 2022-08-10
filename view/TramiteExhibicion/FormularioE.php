@@ -166,7 +166,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             </div>
                                             <div class="col-lg-6">
                                                 <fieldset class="form-group">
-                                                    <label class="form-label semibold" for="correo">Correo Electronico:<span style="color: red;">*</span></label>
+                                                    <label class="form-label semibold" for="correo">Correo Electrónico:<span style="color: red;">*</span></label>
                                                     <input value="<?php echo $_SESSION["correo"] ?>" type="email" class="form-control" id="correo" name="correo" required readonly>
                                                 </fieldset>
                                             </div>
@@ -251,7 +251,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label>Cargue anexos:<span style="color: red;">*</span></label></label>
-                                                    <p>Cargar en un único archivo RAR, 7Z, ZIP o PDF con los documentos: 1.Copia del proyecto cultural o científico. 2. Nombre, dirección y teléfono de la entidad responsable de las piezas arqueológicas tanto en Colombia como en el Exterior, país, ciudad y sitio: Museo o Institución Cultural donde se llevará a cabo el evento o exposición. 3.Nombre, del curador de la exposición o del investigador a cargo. 4.Nombre dirección y teléfono de la compañía encargada del empaque y transporte de las piezas.</p>
+                                                    <p>Cargar en un único archivo RAR, 7Z, ZIP o PDF con los documentos: 1. Copia del proyecto cultural o científico. 2. Nombre, dirección y teléfono de la entidad responsable de las piezas arqueológicas tanto en Colombia como en el Exterior, país, ciudad y sitio: Museo o Institución Cultural donde se llevará a cabo el evento o exposición. 3. Nombre, del curador de la exposición o del investigador a cargo. 4.Nombre dirección y teléfono de la compañía encargada del empaque y transporte de las piezas.</p>
                                                     Seleccione archivo: <input name="fichero" type="file" maxlength="" accept=".pdf, .rar, .7z, .zip" required>
                                                 </div>
                                             </div>

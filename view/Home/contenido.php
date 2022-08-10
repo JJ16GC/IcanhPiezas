@@ -26,7 +26,7 @@ if ($_SESSION['rol_id'] == '1') {
                         </div>
                         <div class="col-sm-12">
                             <span>En qué consiste el trámite:</span>
-                            <p>El Instituto Colombiano de Antropología e Historia-ICANH, autoriza la salida del país de bienes muebles pertenecientes al patrimonio arqueológico colombiano, por un plazo no mayor a tres (3) años, con el único fin de ser exhibidos al público o estudiados científicamente. Por lo anterior, el ICANH expide dos tipos de Autorización:</p>
+                            <p>El instituto colombiano de antropología e historia (ICANH), autoriza la salida del país de bienes muebles pertenecientes al patrimonio arqueológico colombiano, por un plazo no mayor a tres (3) años, con el único fin de ser exhibidos al público o estudiados científicamente. Por lo anterior, el ICANH expide dos tipos de Autorización:</p>
                             <li>Salida temporal de bienes arqueológicos para exhibición </li>
                             <li>Salida de bienes arqueológicos para análisis </li>
                             <p>Si usted es una persona natural o jurídica que requiere una de estas autorizaciones, debe cumplir con los pasos identificados en el presente trámite.</p>
@@ -35,7 +35,7 @@ if ($_SESSION['rol_id'] == '1') {
                             <span>Este trámite está dirigido a:</span>
                             <p>Personas naturales o jurídicas:</p>
                             <li>Tenedor registrado ante el ICANH</li>
-                            <li>Titular de Resolución o Autorización de Intervención Arqueológica ICANH</li>
+                            <li>Titular de resolución o autorización de intervención arqueológica ICANH</li>
                             <li>Investigador vinculado a una universidad (profesor, estudiante)</li>
                         </div>
                         <div class="col-sm-12">
@@ -44,8 +44,8 @@ if ($_SESSION['rol_id'] == '1') {
                             <ol>
                                 <li>Realizar la solicitud a través del formulario dispuesto para cada tipo de Autorización:</li>
                             </ol>
-                            <li>Solicitud de Autorización de Salida Temporal de Bienes Arqueológicos, para Exhibición en el exterior</li>
-                            <li>Solicitud de Autorización de Salida de Material Arqueológico para Análisis en el exterior</li>
+                            <li>Solicitud de autorización de salida temporal de bienes arqueológicos, para exhibición en el exterior</li>
+                            <li>Solicitud de autorización de salida de material arqueológico para análisis en el exterior</li>
                             <ol>
                                 <li value="2">El número de trámite de la solicitud, se envía al correo electrónico registrado.</li>
                                 <li value="3">Recibirá por correo electrónico la respuesta a la solicitud de autorización de salida del país de bienes muebles pertenecientes al patrimonio arqueológico de la Nación.</li>

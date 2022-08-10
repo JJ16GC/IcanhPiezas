@@ -308,6 +308,7 @@ if (isset($_POST["submit"]) and $_POST["submit"] == "Enviar") {
                                                 <div class="form-group">
                                                     <label class="form-label semibold" for="fecha_retorno">Fecha de retorno de los mismos al país:<span style="color: red;"></span></label>
                                                     <p>Sólo si los análisis NO son de tipo destructivo</p>
+                                                    <p style="color: red;">La fecha debe ser posterior a la fecha salida.</p>
                                                     <input type="date" class="form-control" id="fecha_retorno" name="fecha_retorno" min="<?php echo $fcha ?>">
                                                 </div>
                                             </div>

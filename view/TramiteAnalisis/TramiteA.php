@@ -12,7 +12,7 @@ if (!isset($_SESSION['usuario_id'])) {
 <link rel="stylesheet" href="../../public/css/paginas/home.css">
 <link rel="stylesheet" href="../../public/css/paginas/exhibicion.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-<title>ICANH - Sistema de Tickets - Trámite De Exhibición</title>
+<title>ICANH - Sistema de Trámites - Trámite De Exhibición</title>
 </head>
 
 
@@ -35,7 +35,7 @@ if (!isset($_SESSION['usuario_id'])) {
                             </div>
                         </div>
                         <div class="col-sm-12">
-                            <span>Diligenciar en el formulario "Solicitud de Autorización de Salida de Material Arqueológico para Análisis en el exterior" disponible en el <a href="../TramiteAnalisis/FormularioA.php">enlace</a> la siguiente información:</strong></span>
+                            <span>Diligenciar en el formulario "Solicitud de autorización de salida de material arqueológico para análisis en el exterior" disponible en el <a href="../TramiteAnalisis/FormularioA.php">enlace</a> la siguiente información:</strong></span>
                         </div>
                         <div class="col-sm-12">
                             <ol type="a">
